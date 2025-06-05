@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7de2c8mtw5ik"
-path="res://.godot/imported/Background Props.png-13fc5e5dc7c84f798b628040dd000c5f.ctex"
+uid="uid://u0biucc4c700"
+path="res://.godot/imported/Card.png-070e41d4f7c94426a77d74d63399b03b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/terrains/Social/Background Props.png"
-dest_files=["res://.godot/imported/Background Props.png-13fc5e5dc7c84f798b628040dd000c5f.ctex"]
+source_file="res://assets/sprites/doors/Card.png"
+dest_files=["res://.godot/imported/Card.png-070e41d4f7c94426a77d74d63399b03b.ctex"]
 
 [params]
 

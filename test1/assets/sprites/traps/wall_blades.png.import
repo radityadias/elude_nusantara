@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cni6ujuaywj0w"
-path="res://.godot/imported/MockUp-01.png-ded84d51abcdf00ddeb22bbc1798f651.ctex"
+uid="uid://kfigk80miq2e"
+path="res://.godot/imported/wall_blades.png-5c96f9c1048edfc2ead6782338ca6748.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/terrains/Social/MockUp-01.png"
-dest_files=["res://.godot/imported/MockUp-01.png-ded84d51abcdf00ddeb22bbc1798f651.ctex"]
+source_file="res://assets/sprites/traps/wall_blades.png"
+dest_files=["res://.godot/imported/wall_blades.png-5c96f9c1048edfc2ead6782338ca6748.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkbt8cr7aqpe2"
-path="res://.godot/imported/Props-01.png-f3b923ac160b82a0eb968333538465db.ctex"
+uid="uid://0e0h6ly2m04f"
+path="res://.godot/imported/laser_spikes_activate.png-9643e8f3caab6bf873fc90f072f8f99d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/terrains/Social/Props-01.png"
-dest_files=["res://.godot/imported/Props-01.png-f3b923ac160b82a0eb968333538465db.ctex"]
+source_file="res://assets/sprites/traps/laser_spikes_activate.png"
+dest_files=["res://.godot/imported/laser_spikes_activate.png-9643e8f3caab6bf873fc90f072f8f99d.ctex"]
 
 [params]
 

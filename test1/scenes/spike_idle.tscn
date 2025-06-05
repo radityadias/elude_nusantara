@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://bhafxoykw2xq8"]
+
+[ext_resource type="Texture2D" uid="uid://by5e2sh8rmt74" path="res://assets/sprites/traps/laser_spikes_idle.png" id="1_2ub5c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpbtp"]
+atlas = ExtResource("1_2ub5c")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p63w"]
+atlas = ExtResource("1_2ub5c")
+region = Rect2(32, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tujbe"]
+atlas = ExtResource("1_2ub5c")
+region = Rect2(64, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws1ta"]
+atlas = ExtResource("1_2ub5c")
+region = Rect2(96, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jgnq"]
+atlas = ExtResource("1_2ub5c")
+region = Rect2(128, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu1uw"]
+atlas = ExtResource("1_2ub5c")
+region = Rect2(160, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttbqc"]
+atlas = ExtResource("1_2ub5c")
+region = Rect2(192, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4tg6"]
+atlas = ExtResource("1_2ub5c")
+region = Rect2(224, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbtjm"]
+atlas = ExtResource("1_2ub5c")
+region = Rect2(256, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eaa2q"]
+atlas = ExtResource("1_2ub5c")
+region = Rect2(288, 16, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_03fgm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpbtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p63w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tujbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ws1ta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jgnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu1uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttbqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4tg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbtjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eaa2q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[node name="Area2D" type="Area2D"]
+z_index = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_03fgm")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.974871
