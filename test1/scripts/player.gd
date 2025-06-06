@@ -5,7 +5,8 @@ extends CharacterBody2D
 @export var ACCELERATION : float = 600
 @export var FRICTION : float = 800
 @export var JUMP_FORCE : float = -350
-var JUMP_COUNT = 0
+@export var PUSH_FORCE : float = 200
+var JUMP_COUNT : int = 0
 
 # NODES
 @onready var character: AnimatedSprite2D = $Character
@@ -32,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
 	apply_movement(direction, delta)
 	apply_jump_logic()
+	push_pull_logic()
 	apply_dust()
 	apply_animation(direction)
 
@@ -120,26 +122,8 @@ func update_timers(delta: float):
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer = JUMP_BUFFER_TIME
 
-func try_push_block() -> void:
-	var push_direction : Vector2 = Vector2.ZERO
-	
-	if Input.is_action_pressed("move_left"): push_direction.x -= 1
-	if Input.is_action_pressed("move_right"): push_direction.x += 1
-	if push_direction == Vector2.ZERO:
-		return
-	
-	var check_distance : float = 32.0
-	var space_state := get_world_2d().direct_space_state
-	var query := PhysicsRayQueryParameters2D.create(
-		global_position,
-		global_position + push_direction * check_distance,
-		collision_mask,
-		[$IdleCollision, $RunCollision, $JumpCollision]
-	)
-	
-	var result := space_state.intersect_ray(query)
-	
-	if result:
-		var collider = result.collider
-		if collider.is_in_group("pushable"):
-			collider.push(push_direction)
+func push_pull_logic() -> void:
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D and Input.is_action_pressed("interact"):
+			c.get_collider().apply_central_impulse(-c.get_normal() * PUSH_FORCE)
