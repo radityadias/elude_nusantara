@@ -5,12 +5,13 @@ extends CharacterBody2D
 @export var ACCELERATION : float = 600
 @export var FRICTION : float = 800
 @export var JUMP_FORCE : float = -350
+var JUMP_COUNT = 0
 
 # NODES
 @onready var character: AnimatedSprite2D = $Character
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var run_particle: AnimatedSprite2D = $"Run Particle"
-@onready var dust = preload("res://scenes/jump_particle.tscn")
+@onready var dust = preload("res://scenes/players/jump_particle.tscn")
 
 # CUSTOM VARIABLES
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -42,6 +43,7 @@ func apply_gravity(delta: float):
 		velocity.y += GRAVITY * delta
 	else:
 		coyote_timer = COYOTE_TIME  # Reset coyote timer when on ground
+		JUMP_COUNT = 0
 
 func apply_movement(direction: float, delta: float):
 	# Horizontal movement
@@ -52,8 +54,18 @@ func apply_movement(direction: float, delta: float):
 
 func apply_jump_logic():
 	# Check jump conditions
-	if (jump_buffer_timer > 0 or coyote_timer > 0) and Input.is_action_just_pressed("jump"):
+	
+	# Single Jump
+	if (jump_buffer_timer > 0 or coyote_timer > 0) and JUMP_COUNT == 0 and Input.is_action_just_pressed("jump") :
 		apply_jump()
+		JUMP_COUNT += 1
+		print("JUMP COUNT : ", JUMP_COUNT)
+	
+	# Double Jump
+	elif Input.is_action_just_pressed("jump") and not is_on_floor() and JUMP_COUNT < 2:
+		apply_jump()
+		JUMP_COUNT += 1
+		print("JUMP COUNT : ", JUMP_COUNT)
 
 func apply_jump() -> void:
 	velocity.y = JUMP_FORCE
