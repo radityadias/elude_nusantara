@@ -510,6 +510,7 @@ tile_set = SubResource("TileSet_e2nc6")
 tile_set = SubResource("TileSet_80hgw")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Worlds"]
+visible = false
 script = ExtResource("1_qxy0u")
 tilemaplayers_nodepaths = Array[NodePath]([NodePath("../Tiles")])
 

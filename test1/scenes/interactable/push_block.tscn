@@ -14,6 +14,7 @@ lock_rotation = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_t46rb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="MainCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_w10jg")
