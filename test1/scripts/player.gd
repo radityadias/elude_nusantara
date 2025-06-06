@@ -20,6 +20,7 @@ enum {
 var default_offset := Vector2.ZERO
 var JUMP_COUNT : int = 0
 var state : int = IDLE
+var last_offset := Vector2.INF
 
 # NODES
 @onready var character: AnimatedSprite2D = $Character
@@ -124,30 +125,33 @@ func handle_push(direction: float) -> void:
 func apply_animation(direction: float):
 	if state != PUSH and direction != 0:
 		character.flip_h = direction < 0
-		main_collision.position.x = -1 if direction < 0 else 0
 		run_particle.flip_h = direction < 0
 		run_particle.position.x = abs(run_particle.position.x) * (-1 if direction > 0 else 1)
+	
+	var target_offset := default_offset
+	if state == PUSH:
+		target_offset = right_offset if !character.flip_h else left_offset
+	
+	if target_offset != last_offset:
+		character.offset = target_offset
+		last_offset = target_offset
 	
 	match state:
 		IDLE: 
 			character.play("Idle")
-			character.offset = default_offset
 			animation_player.play("idle")
 			run_particle.stop()
 		RUN: 
 			character.play("Run")
 			run_particle.play("running_dust")
-			character.offset = default_offset
 			animation_player.play("run")
 		JUMP, DOUBLE_JUMP:
 			if character.animation != "Jump":
 				character.play("Jump")
-			character.offset = default_offset
 			animation_player.play("jump")
 			run_particle.stop()
 		PUSH:
 			character.play("Push")  
-			character.offset = right_offset if !character.flip_h else left_offset
 			animation_player.play("push")
 			run_particle.stop()
 

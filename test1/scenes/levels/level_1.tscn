@@ -582,7 +582,7 @@ position = Vector2(769, -72)
 [node name="Interactable" type="Node" parent="."]
 
 [node name="Scanner" parent="Interactable" instance=ExtResource("7_wtwp4")]
-position = Vector2(131, -118)
+position = Vector2(119, -117)
 
 [node name="Card" parent="Interactable" instance=ExtResource("8_iwr0g")]
 position = Vector2(390, -44)
@@ -592,3 +592,5 @@ position = Vector2(-38, 23)
 
 [node name="Door" parent="Interactable" instance=ExtResource("5_dnkej")]
 position = Vector2(848, -112)
+
+[node name="Controllers" type="Node" parent="."]
