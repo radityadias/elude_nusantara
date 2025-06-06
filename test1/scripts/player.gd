@@ -58,6 +58,7 @@ func handle_state(direction: float, delta: float) -> void:
 			apply_movement(direction, delta)
 			try_double_jump()
 		PUSH, PULL:
+			apply_movement(direction, delta)
 			handle_push_pull(direction)
 
 func update_state(direction: float) -> void:
