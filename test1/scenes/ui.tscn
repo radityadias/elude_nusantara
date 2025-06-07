@@ -1,0 +1,132 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfuok3fr40dsf"]
+
+[ext_resource type="Texture2D" uid="uid://rh1lsvbofub" path="res://assets/sprites/players/Health UI Black.png" id="1_gdt2y"]
+[ext_resource type="Texture2D" uid="uid://diha3887w3e13" path="res://assets/sprites/players/Pause.png" id="2_wm3ai"]
+[ext_resource type="FontFile" uid="uid://dpqkv5qel71na" path="res://assets/Fonts/Jersey10-Regular.ttf" id="3_8dubc"]
+[ext_resource type="Texture2D" uid="uid://u0biucc4c700" path="res://assets/sprites/doors/Card.png" id="4_p7vwb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iav0o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtwp4"]
+atlas = ExtResource("4_p7vwb")
+region = Rect2(4, 6, 14, 13)
+
+[node name="UI" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Health" type="Panel" parent="CanvasLayer"]
+offset_left = 84.0
+offset_top = 7.0
+offset_right = 254.0
+offset_bottom = 50.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Health"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Health" type="TextureRect" parent="CanvasLayer/Health/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_gdt2y")
+expand_mode = 2
+
+[node name="Health2" type="TextureRect" parent="CanvasLayer/Health/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_gdt2y")
+expand_mode = 2
+
+[node name="Health3" type="TextureRect" parent="CanvasLayer/Health/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_gdt2y")
+expand_mode = 2
+
+[node name="Pause" type="Panel" parent="CanvasLayer"]
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 49.0
+offset_bottom = 49.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_iav0o")
+
+[node name="PauseIcon" type="TextureRect" parent="CanvasLayer/Pause"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_wm3ai")
+expand_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Panel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 7.0
+offset_right = 76.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Timer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -27.5
+offset_right = 75.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Timer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8dubc")
+theme_override_font_sizes/font_size = 50
+text = "1.24.233"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Card" type="Panel" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = 71.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Card"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -28.5
+offset_right = 35.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Card/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_wtwp4")
+expand_mode = 2
