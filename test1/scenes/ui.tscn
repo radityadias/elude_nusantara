@@ -32,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Health" type="TextureRect" parent="CanvasLayer/Health/HBoxContainer"]
+[node name="Health1" type="TextureRect" parent="CanvasLayer/Health/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_gdt2y")
 expand_mode = 2

@@ -504,8 +504,9 @@ size = Vector2(144, 16)
 
 [node name="Level_1" type="Node2D"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_dnkej")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("hearths") instance=ExtResource("1_dnkej")]
 unique_name_in_owner = true
+hearths = [NodePath("../UI/CanvasLayer/Health/HBoxContainer/Health1"), NodePath("../UI/CanvasLayer/Health/HBoxContainer/Health2"), NodePath("../UI/CanvasLayer/Health/HBoxContainer/Health3")]
 
 [node name="Worlds" type="Node" parent="."]
 
@@ -614,3 +615,5 @@ position = Vector2(203, 560)
 position = Vector2(1093, 424)
 
 [node name="UI" parent="." instance=ExtResource("12_dnkej")]
+
+[editable path="UI"]
