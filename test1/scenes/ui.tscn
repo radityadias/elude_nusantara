@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfuok3fr40dsf"]
+[gd_scene load_steps=8 format=3 uid="uid://cfuok3fr40dsf"]
 
 [ext_resource type="Texture2D" uid="uid://rh1lsvbofub" path="res://assets/sprites/players/Health UI Black.png" id="1_gdt2y"]
+[ext_resource type="Script" uid="uid://bj8m8cjn8xm8l" path="res://scripts/ui.gd" id="1_wm3ai"]
 [ext_resource type="Texture2D" uid="uid://diha3887w3e13" path="res://assets/sprites/players/Pause.png" id="2_wm3ai"]
 [ext_resource type="FontFile" uid="uid://dpqkv5qel71na" path="res://assets/Fonts/Jersey10-Regular.ttf" id="3_8dubc"]
 [ext_resource type="Texture2D" uid="uid://u0biucc4c700" path="res://assets/sprites/doors/Card.png" id="4_p7vwb"]
@@ -11,11 +12,15 @@
 atlas = ExtResource("4_p7vwb")
 region = Rect2(4, 6, 14, 13)
 
-[node name="UI" type="Node"]
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wm3ai")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Health" type="Panel" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 84.0
 offset_top = 7.0
 offset_right = 254.0
@@ -48,6 +53,7 @@ texture = ExtResource("1_gdt2y")
 expand_mode = 2
 
 [node name="Pause" type="Panel" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 9.0
 offset_top = 9.0
 offset_right = 49.0
@@ -62,16 +68,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_wm3ai")
 expand_mode = 2
-metadata/_edit_lock_ = true
 
 [node name="Timer" type="Panel" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -75.0
-offset_top = 7.0
-offset_right = 76.0
-offset_bottom = 50.0
+offset_left = -91.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 49.0
 grow_horizontal = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Timer"]
@@ -93,11 +99,12 @@ alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_8dubc")
 theme_override_font_sizes/font_size = 50
-text = "1.24.233"
+text = "00:00:000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Card" type="Panel" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0

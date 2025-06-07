@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bdwfhakjqedmh"]
+[gd_scene load_steps=32 format=4 uid="uid://bdwfhakjqedmh"]
 
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="1_dga24"]
 [ext_resource type="PackedScene" uid="uid://samrdbnel1y3" path="res://scenes/game_manager.tscn" id="1_dnkej"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/interactable/card.tscn" id="8_iwr0g"]
 [ext_resource type="PackedScene" uid="uid://4whpvx36wsog" path="res://scenes/interactable/push_block.tscn" id="9_bahl2"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/ui.tscn" id="12_dnkej"]
+[ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/stopwatch.tscn" id="14_mm8aj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fmne7"]
 texture = ExtResource("1_dga24")
@@ -615,5 +616,7 @@ position = Vector2(203, 560)
 position = Vector2(1093, 424)
 
 [node name="UI" parent="." instance=ExtResource("12_dnkej")]
+
+[node name="Stopwatch" parent="." instance=ExtResource("14_mm8aj")]
 
 [editable path="UI"]
