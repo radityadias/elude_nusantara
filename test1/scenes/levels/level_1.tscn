@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://bdwfhakjqedmh"]
+[gd_scene load_steps=36 format=4 uid="uid://bdwfhakjqedmh"]
 
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="1_dga24"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/TilemapCollisionBaker.gd" id="1_qxy0u"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="4_iav0o"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/interactable/door.tscn" id="5_dnkej"]
 [ext_resource type="PackedScene" uid="uid://bhafxoykw2xq8" path="res://scenes/traps/spike_idle.tscn" id="6_mm8aj"]
+[ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/levels/world_boundry.tscn" id="6_wtwp4"]
 [ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/interactable/scanner.tscn" id="7_wtwp4"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/interactable/card.tscn" id="8_iwr0g"]
 [ext_resource type="PackedScene" uid="uid://4whpvx36wsog" path="res://scenes/interactable/push_block.tscn" id="9_bahl2"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://diha3887w3e13" path="res://assets/sprites/players/Pause.png" id="12_dnkej"]
 [ext_resource type="FontFile" uid="uid://dpqkv5qel71na" path="res://assets/Fonts/Jersey10-Regular.ttf" id="13_dnkej"]
 [ext_resource type="Texture2D" uid="uid://u0biucc4c700" path="res://assets/sprites/doors/Card.png" id="14_mm8aj"]
+[ext_resource type="Script" uid="uid://rg6t22owm4mi" path="res://scripts/Levels/game_manager.gd" id="16_iwr0g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fmne7"]
 texture = ExtResource("1_dga24")
@@ -583,6 +585,9 @@ shape = SubResource("RectangleShape2D_mqh5v")
 position = Vector2(1096, 464)
 shape = SubResource("RectangleShape2D_7o3do")
 
+[node name="WorldBoundry" parent="Worlds" instance=ExtResource("6_wtwp4")]
+position = Vector2(0, 647)
+
 [node name="Traps" type="Node" parent="."]
 
 [node name="Spike 1" parent="Traps" instance=ExtResource("6_mm8aj")]
@@ -741,3 +746,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture = SubResource("AtlasTexture_wtwp4")
 expand_mode = 2
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("16_iwr0g")
