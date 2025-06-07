@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://kin2n7xmotbc"]
+
+[ext_resource type="Texture2D" uid="uid://cg1wq437b4gk0" path="res://assets/sprites/traps/laser_deactivate.png" id="1_gkgrv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5r0o"]
+atlas = ExtResource("1_gkgrv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngfjp"]
+atlas = ExtResource("1_gkgrv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svvjl"]
+atlas = ExtResource("1_gkgrv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_081ll"]
+atlas = ExtResource("1_gkgrv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lopke"]
+atlas = ExtResource("1_gkgrv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbo10"]
+atlas = ExtResource("1_gkgrv")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cojtk"]
+atlas = ExtResource("1_gkgrv")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iawiv"]
+atlas = ExtResource("1_gkgrv")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nl2n"]
+atlas = ExtResource("1_gkgrv")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bohl5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5r0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngfjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svvjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_081ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lopke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbo10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cojtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iawiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nl2n")
+}],
+"loop": true,
+"name": &"laseroff",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qneu"]
+radius = 3.0
+
+[node name="Laser" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bohl5")
+animation = &"laseroff"
+frame_progress = 0.762939
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_0qneu")
