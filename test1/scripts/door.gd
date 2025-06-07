@@ -2,6 +2,7 @@ extends AnimatableBody2D
 
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
+@onready var interaction_area: InteractionArea = $InteractionArea
 
 func _ready() -> void:
 	GameManager.scanner_validated.connect(_on_scanner_result)

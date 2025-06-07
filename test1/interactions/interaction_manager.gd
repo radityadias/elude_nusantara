@@ -7,6 +7,7 @@ const base_text: String= "[E] to "
 
 var active_areas: Array = []
 var can_interact: bool = true
+var showing_message: bool = false
 
 func register_area(area: InteractionArea):
 	active_areas.push_back(area)
@@ -17,6 +18,9 @@ func unregister_area(area: InteractionArea):
 		active_areas.remove_at(index)
 
 func _process(delta: float) -> void:
+	if showing_message:
+		return
+		
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		label.text = base_text + active_areas[0].action_name
@@ -41,3 +45,14 @@ func _input(event: InputEvent) -> void:
 			await active_areas[0].interact.call()
 			
 			can_interact = true
+
+func show_message(text: String, duration : float = 2.0 ):
+	print("Text got into Interaction Manager")
+	showing_message = true
+	label.text = text
+	label.show()
+	
+	await get_tree().create_timer(duration).timeout
+	
+	showing_message = false
+	
