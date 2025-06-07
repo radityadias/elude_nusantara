@@ -119,4 +119,5 @@ sprite_frames = SubResource("SpriteFrames_dspee")
 animation = &"door open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_dhfd4")
