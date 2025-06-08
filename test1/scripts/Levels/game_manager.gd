@@ -11,6 +11,7 @@ var is_having_card: bool = false
 var lives: int = 3
 
 func _ready() -> void:
+	stopwatch = get_tree().get_first_node_in_group("stopwatch")
 	start_stopwatch() 
 
 func decrease_health() -> void:
@@ -50,4 +51,7 @@ func reset_stopwatch() -> void:
 		print("stopwatch reset")
 
 func get_stopwatch_time_string() -> String:
+	if stopwatch == null or !is_instance_valid(stopwatch):
+		return "00:00:000"
+		
 	return stopwatch.time_to_string()

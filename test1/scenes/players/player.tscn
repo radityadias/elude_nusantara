@@ -484,6 +484,7 @@ frame = 1
 frame_progress = 0.363098
 
 [node name="MainCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_coxfi")
 
