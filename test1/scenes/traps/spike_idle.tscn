@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bhafxoykw2xq8"]
 
 [ext_resource type="Texture2D" uid="uid://by5e2sh8rmt74" path="res://assets/sprites/traps/laser_spikes_idle.png" id="1_2ub5c"]
-[ext_resource type="Script" uid="uid://b8fbeub2s8nqc" path="res://scenes/scripts/Enemies/spike_idle.gd" id="1_4u3mo"]
+[ext_resource type="Script" uid="uid://b8fbeub2s8nqc" path="res://scripts/Enemies/spike_idle.gd" id="1_4u3mo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpbtp"]
 atlas = ExtResource("1_2ub5c")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="1_dga24"]
 [ext_resource type="PackedScene" uid="uid://samrdbnel1y3" path="res://scenes/game_manager.tscn" id="1_dnkej"]
-[ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scenes/scripts/TilemapCollisionBaker.gd" id="1_qxy0u"]
+[ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/TilemapCollisionBaker.gd" id="1_qxy0u"]
 [ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/terrains/Assets/Buildings.png" id="2_qxy0u"]
 [ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/terrains/Assets/Props-01.png" id="3_excbq"]
 [ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="4_iav0o"]
@@ -597,7 +597,7 @@ position = Vector2(480, 512)
 position = Vector2(512, 512)
 
 [node name="Spike 3" parent="Traps" instance=ExtResource("6_mm8aj")]
-position = Vector2(584, 496)
+position = Vector2(64, 527)
 
 [node name="Spike 5" parent="Traps" instance=ExtResource("6_mm8aj")]
 position = Vector2(668, 496)

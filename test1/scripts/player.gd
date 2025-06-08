@@ -12,19 +12,22 @@ enum {
 signal get_damaged
 
 # PLAYER MECHANIC
-@export var HEARTH: Array[Node]
-@export var SPEED : float = 250
+@export var HEARTH : Array[Node]
+@export var SPEED : float = 200
 @export var ACCELERATION : float = 600
 @export var FRICTION : float = 800
 @export var JUMP_FORCE : float = -350
 @export var PUSH_FORCE : float = 200
-@export var right_offset := Vector2(-8, 0)
-@export var left_offset := Vector2(8, 0)
+@export var KNOCKBACK_FORCE : Vector2 = Vector2(200, -150)
+var JUMP_COUNT : int = 0
+var right_offset := Vector2(-8, 0)
+var left_offset := Vector2(8, 0)
 var lives: int = 3
 var default_offset := Vector2.ZERO
-var JUMP_COUNT : int = 0
 var state : int = IDLE
 var last_offset := Vector2.INF
+var knockback_timer : float = 0.0
+const knockback_duration : float = 0.2
 
 # NODES
 @onready var character: AnimatedSprite2D = $Character
@@ -49,8 +52,14 @@ func _process(delta: float) -> void:
 	update_timers(delta)
 
 func _physics_process(delta: float) -> void:
+	if 	knockback_timer > 0:
+		knockback_timer -= delta
+		move_and_slide() 
+		return
+
 	var direction = Input.get_axis("move_left", "move_right")
 	
+
 	apply_gravity(delta)
 	handle_state(direction, delta)
 	apply_dust()
@@ -144,7 +153,6 @@ func apply_animation(direction: float):
 	var target_offset := default_offset
 	if state == PUSH:
 		target_offset = right_offset if !character.flip_h else left_offset
-	
 	if target_offset != last_offset:
 		character.offset = target_offset
 		last_offset = target_offset
@@ -186,6 +194,16 @@ func decrease_health():
 			HEARTH[h].show()
 		else:
 			HEARTH[h].hide()
+			
+	apply_knockback()
 	
 	if lives == 0:
 		get_tree().reload_current_scene()
+
+func apply_knockback() -> void:
+	var knockback_direction = character.flip_h if character else false
+	if knockback_direction:
+		velocity = Vector2(KNOCKBACK_FORCE.x, KNOCKBACK_FORCE.y)
+	else:
+		velocity = Vector2(-KNOCKBACK_FORCE.x, KNOCKBACK_FORCE.y)
+	knockback_timer = knockback_duration
