@@ -10,18 +10,18 @@ var cards_collected : int = 0
 var is_having_card: bool = false
 
 func _ready() -> void:
-	stopwatch = get_tree().get_first_node_in_group("stopwatch")
 	var player = get_tree().get_first_node_in_group("player")
 	
 	if player:
-		print("player found")
 		if player and not took_damaged.is_connected(player.decrease_health):
 			took_damaged.connect(player.decrease_health)
 	else:
 		print("player not found")
 		return
-	
-	start_stopwatch() 
+
+func _process(delta: float) -> void:
+	if stopwatch == null or !is_instance_valid(stopwatch):
+		stopwatch = get_tree().get_first_node_in_group("stopwatch")
 
 func player_damaged() -> void:
 	took_damaged.emit()

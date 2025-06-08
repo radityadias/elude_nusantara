@@ -1,7 +1,7 @@
 [gd_scene load_steps=67 format=3 uid="uid://cy10gqast1lai"]
 
 [ext_resource type="Texture2D" uid="uid://ds0k0powhgx77" path="res://assets/sprites/players/Idel Animation 48x48/Idel Animation 48x48.png" id="1_fiud5"]
-[ext_resource type="Script" uid="uid://dc4ykgqseuug6" path="res://scripts/player.gd" id="1_m5i0l"]
+[ext_resource type="Script" uid="uid://dc4ykgqseuug6" path="res://scenes/scripts/player.gd" id="1_m5i0l"]
 [ext_resource type="Texture2D" uid="uid://cfs655t7pd7cb" path="res://assets/sprites/players/Jump Animation 48x48/Jump Animation 48x48.png" id="2_jnvtn"]
 [ext_resource type="Texture2D" uid="uid://78qyd6lfbc4i" path="res://assets/sprites/players/Run Animation 48x48/Run Animation 48x48.png" id="3_x1uyb"]
 [ext_resource type="Texture2D" uid="uid://dxb6028dklfcn" path="res://assets/sprites/players/Pull Animation 48x48/Pull Animation 48x48.png" id="4_smehm"]
