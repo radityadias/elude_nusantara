@@ -2,30 +2,29 @@ extends Node
 
 signal cards_changed(value: int)
 signal scanner_validated(value: bool)
+signal took_damaged
 
-@export var hearths: Array[Node]
 @onready var stopwatch: Stopwatch = get_tree().get_first_node_in_group("stopwatch")
 
 var cards_collected : int = 0
 var is_having_card: bool = false
-var lives: int = 3
 
 func _ready() -> void:
 	stopwatch = get_tree().get_first_node_in_group("stopwatch")
+	var player = get_tree().get_first_node_in_group("player")
+	
+	if player:
+		print("player found")
+		if player and not took_damaged.is_connected(player.decrease_health):
+			took_damaged.connect(player.decrease_health)
+	else:
+		print("player not found")
+		return
+	
 	start_stopwatch() 
 
-func decrease_health() -> void:
-	lives -= 1
-	
-	for h in 3:
-		if h < lives:
-			hearths[h].show	()
-		else:
-			hearths[h].hide()
-	
-	if lives == 0:
-		pause_stopwatch()
-		get_tree().reload_current_scene()
+func player_damaged() -> void:
+	took_damaged.emit()
 
 func add_card():
 	cards_collected += 1

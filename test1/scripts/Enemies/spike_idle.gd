@@ -4,5 +4,4 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		print("touched enemy")
-		game_manager.decrease_health()
+		game_manager.player_damaged()

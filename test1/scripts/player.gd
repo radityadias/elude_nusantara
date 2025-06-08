@@ -9,7 +9,10 @@ enum {
 	PUSH
 }
 
+signal get_damaged
+
 # PLAYER MECHANIC
+@export var HEARTH: Array[Node]
 @export var SPEED : float = 250
 @export var ACCELERATION : float = 600
 @export var FRICTION : float = 800
@@ -17,6 +20,7 @@ enum {
 @export var PUSH_FORCE : float = 200
 @export var right_offset := Vector2(-8, 0)
 @export var left_offset := Vector2(8, 0)
+var lives: int = 3
 var default_offset := Vector2.ZERO
 var JUMP_COUNT : int = 0
 var state : int = IDLE
@@ -29,6 +33,7 @@ var last_offset := Vector2.INF
 @onready var dust = preload("res://scenes/players/jump_particle.tscn")
 @onready var main_collision: CollisionShape2D = $MainCollision
 @onready var push_block: RigidBody2D = $"../Interactable/Push Block"
+@onready var game_manager: Node = %GameManager
 
 # PHYSICS
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -54,6 +59,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_state(direction)
 
+# STATE MACHINE ================================================================
 func handle_state(direction: float, delta: float) -> void:
 	match state:
 		IDLE, RUN:
@@ -83,6 +89,7 @@ func apply_gravity(delta: float):
 	else:
 		coyote_timer = COYOTE_TIME
 
+# MOVEMENT =====================================================================
 func apply_movement(direction: float, delta: float):
 	if direction != 0: 
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta * 2)
@@ -122,6 +129,12 @@ func handle_push(direction: float) -> void:
 	else:
 		state = IDLE if abs(velocity.x) < 1.0 else RUN
 
+func update_timers(delta: float):
+	if coyote_timer > 0: coyote_timer -= delta
+	if jump_buffer_timer > 0: jump_buffer_timer -= delta
+	if Input.is_action_just_pressed("jump"): jump_buffer_timer = JUMP_BUFFER_TIME
+
+# ANIMATION ====================================================================
 func apply_animation(direction: float):
 	if state != PUSH and direction != 0:
 		character.flip_h = direction < 0
@@ -165,7 +178,14 @@ func apply_dust():
 		get_parent().add_child(instance)
 	is_grounded = is_on_floor()
 
-func update_timers(delta: float):
-	if coyote_timer > 0: coyote_timer -= delta
-	if jump_buffer_timer > 0: jump_buffer_timer -= delta
-	if Input.is_action_just_pressed("jump"): jump_buffer_timer = JUMP_BUFFER_TIME
+func decrease_health():
+	lives -= 1
+	
+	for h in 3:
+		if h < lives:
+			HEARTH[h].show()
+		else:
+			HEARTH[h].hide()
+	
+	if lives == 0:
+		get_tree().reload_current_scene()
