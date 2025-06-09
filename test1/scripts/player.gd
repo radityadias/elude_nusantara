@@ -6,7 +6,8 @@ enum {
 	RUN,
 	JUMP,
 	DOUBLE_JUMP,
-	PUSH
+	PUSH,
+	INVINCIBLE
 }
 
 signal get_damaged
@@ -18,16 +19,7 @@ signal get_damaged
 @export var FRICTION : float = 800
 @export var JUMP_FORCE : float = -350
 @export var PUSH_FORCE : float = 200
-@export var KNOCKBACK_FORCE : Vector2 = Vector2(200, -150)
-var JUMP_COUNT : int = 0
-var right_offset := Vector2(-8, 0)
-var left_offset := Vector2(8, 0)
-var lives: int = 3
-var default_offset := Vector2.ZERO
-var state : int = IDLE
-var last_offset := Vector2.INF
-var knockback_timer : float = 0.0
-const knockback_duration : float = 0.2
+@export var KNOCKBACK_FORCE : Vector2 = Vector2(100, -100)
 
 # NODES
 @onready var character: AnimatedSprite2D = $Character
@@ -37,28 +29,40 @@ const knockback_duration : float = 0.2
 @onready var main_collision: CollisionShape2D = $MainCollision
 @onready var push_block: RigidBody2D = $"../Interactable/Push Block"
 @onready var game_manager: Node = %GameManager
+@onready var invincibility_timer: Timer = $InvincibilityTimer
+
+var JUMP_COUNT : int = 0
+var right_offset := Vector2(-8, 0)
+var left_offset := Vector2(8, 0)
+var lives: int = 3
+var default_offset := Vector2.ZERO
+var state : int = IDLE
+var last_offset := Vector2.INF
+var knockback_timer : float = 0.0
+const knockback_duration : float = 0.2
+var is_invincible : bool = false
 
 # PHYSICS
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_grounded: bool = true
-
 const COYOTE_TIME: float = 0.15
 const JUMP_BUFFER_TIME: float = 0.15
-
 var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
+
+func _ready() -> void:
+	invincibility_timer.timeout.connect(end_invincibility)
 
 func _process(delta: float) -> void:
 	update_timers(delta)
 
 func _physics_process(delta: float) -> void:
-	if 	knockback_timer > 0:
+	if knockback_timer > 0:
 		knockback_timer -= delta
 		move_and_slide() 
 		return
 
 	var direction = Input.get_axis("move_left", "move_right")
-	
 
 	apply_gravity(delta)
 	handle_state(direction, delta)
@@ -187,7 +191,12 @@ func apply_dust():
 	is_grounded = is_on_floor()
 
 func decrease_health():
+	if state == INVINCIBLE:
+		return
+		
 	lives -= 1
+	apply_knockback()
+	start_invincibility()
 	
 	for h in 3:
 		if h < lives:
@@ -195,7 +204,6 @@ func decrease_health():
 		else:
 			HEARTH[h].hide()
 			
-	apply_knockback()
 	
 	if lives == 0:
 		get_tree().reload_current_scene()
@@ -206,4 +214,16 @@ func apply_knockback() -> void:
 		velocity = Vector2(KNOCKBACK_FORCE.x, KNOCKBACK_FORCE.y)
 	else:
 		velocity = Vector2(-KNOCKBACK_FORCE.x, KNOCKBACK_FORCE.y)
+	
 	knockback_timer = knockback_duration
+
+func start_invincibility() -> void:
+	state = INVINCIBLE
+	is_invincible = true
+	invincibility_timer.start()
+	character.modulate.a = 0.5
+
+func end_invincibility() -> void:
+	state = IDLE
+	is_invincible = false
+	character.modulate.a = 1.0

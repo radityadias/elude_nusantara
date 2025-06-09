@@ -505,3 +505,6 @@ position = Vector2(-3, -11)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+one_shot = true
