@@ -206,8 +206,8 @@ func decrease_health():
 			
 	
 	if lives == 0:
-		get_tree().reload_current_scene()
-
+		GameManager.game_restart()
+		
 func apply_knockback() -> void:
 	var knockback_direction = character.flip_h if character else false
 	if knockback_direction:
