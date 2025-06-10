@@ -2,10 +2,11 @@ extends Node
 
 signal cards_changed(value: int)
 signal scanner_validated(value: bool)
-signal change_card_ui
+signal game_finished
 signal took_damaged
 
 @onready var stopwatch: Stopwatch = get_tree().get_first_node_in_group("stopwatch")
+@onready var delay: Timer = $Delay
 
 var cards_collected : int = 0
 var is_having_card: bool = false
@@ -55,6 +56,9 @@ func get_stopwatch_time_string() -> String:
 		return "00:00:000"
 		
 	return stopwatch.time_to_string()
+
+func game_finish() -> void:
+	game_finished.emit()
 
 func game_end() -> void:
 	get_tree().quit()

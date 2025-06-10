@@ -206,7 +206,8 @@ func decrease_health():
 			
 	
 	if lives == 0:
-		GameManager.game_restart()
+		invincibility_timer.start()
+		invincibility_timer.timeout.connect(GameManager.game_restart)
 		
 func apply_knockback() -> void:
 	var knockback_direction = character.flip_h if character else false

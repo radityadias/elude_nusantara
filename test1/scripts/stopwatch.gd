@@ -4,9 +4,17 @@ class_name Stopwatch
 var time: float = 0.0
 var stopped: bool = false
 
+func _ready() -> void:
+	GameManager.game_finished.connect(finish)
+
 func _process(delta: float) -> void:
 	if not stopped:
 		time += delta
+
+func finish() -> void:
+	var last_time = time_to_string()
+	print(last_time)
+	stopped = true
 
 func reset() -> void:
 	time = 0.0

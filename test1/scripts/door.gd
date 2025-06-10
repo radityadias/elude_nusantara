@@ -20,7 +20,8 @@ func unlock():
 	finish_collision.disabled = false
 
 func _on_finish_body_entered(body: Node2D) -> void:
+	GameManager.game_finish()
 	timer.start()
 
 func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
+	GameManager.game_restart()
