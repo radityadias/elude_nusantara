@@ -97,7 +97,6 @@ autoplay = "idle"
 frame_progress = 0.974871
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_a0orv")
 debug_color = Color(1, 0, 0, 0.196078)
