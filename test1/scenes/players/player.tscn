@@ -472,7 +472,7 @@ script = ExtResource("1_m5i0l")
 
 [node name="Character" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cex2r")
-animation = &"Run"
+animation = &"Push"
 autoplay = "Idle"
 
 [node name="Run Particle" type="AnimatedSprite2D" parent="."]
