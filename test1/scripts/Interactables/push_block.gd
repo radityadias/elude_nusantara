@@ -9,6 +9,11 @@ var can_push: bool = false
 var is_pushing: bool = false
 var push_speed: float = 1500.0
 var player_ref: Node2D = null  # Reference to the player
+var start_position : Vector2
+
+func _ready() -> void:
+	get_current_position()
+	GameManager.box_reseted.connect(reset_position)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -75,5 +80,8 @@ func handle_push() -> void:
 	else:
 		is_pushing = false
 
-func reset_position() -> void: 
-	self.queue_redraw()
+func get_current_position() -> void:
+	start_position = position
+
+func reset_position() -> void:
+	position = start_position

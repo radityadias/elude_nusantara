@@ -3,7 +3,7 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var label: Label = $Label
 
-const base_text: String= "[E] to "
+@export var base_text: String
 
 var active_areas: Array = []
 var can_interact: bool = true
@@ -23,7 +23,11 @@ func _process(delta: float) -> void:
 		
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
-		label.text = base_text + active_areas[0].action_name
+		
+		if base_text != "":
+			label.text = base_text
+		else:
+			label.text = "[E] to " + active_areas[0].action_name
 		label.global_position = active_areas[0].global_position
 		label.global_position.y -= 36
 		label.global_position.x -= label.size.x / 2
@@ -47,7 +51,6 @@ func _input(event: InputEvent) -> void:
 			can_interact = true
 
 func show_message(text: String, duration : float = 2.0 ):
-	print("Text got into Interaction Manager")
 	showing_message = true
 	label.text = text
 	label.show()
@@ -55,4 +58,3 @@ func show_message(text: String, duration : float = 2.0 ):
 	await get_tree().create_timer(duration).timeout
 	
 	showing_message = false
-	

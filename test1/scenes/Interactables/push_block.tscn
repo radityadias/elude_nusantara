@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://4whpvx36wsog"]
 
-[ext_resource type="Script" uid="uid://cbyvpip1kx8hs" path="res://scripts/push_block.gd" id="1_l8x17"]
+[ext_resource type="Script" uid="uid://cbyvpip1kx8hs" path="res://scripts/Interactables/push_block.gd" id="1_l8x17"]
 [ext_resource type="Texture2D" uid="uid://dvf6v51x66v76" path="res://assets/terrains/Assets/prop_box.tres" id="2_t46rb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w10jg"]
@@ -18,10 +18,12 @@ script = ExtResource("1_l8x17")
 texture = ExtResource("2_t46rb")
 
 [node name="MainCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_w10jg")
 
 [node name="Left" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 2
 
@@ -30,6 +32,7 @@ position = Vector2(-10, -1)
 shape = SubResource("RectangleShape2D_g7a52")
 
 [node name="Right" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 2
 

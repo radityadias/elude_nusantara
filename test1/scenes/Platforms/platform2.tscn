@@ -362,5 +362,6 @@ tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 19, 0, 6, 0, 0, 
 tile_set = SubResource("TileSet_qoebf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(12.5, -20)
 shape = SubResource("RectangleShape2D_egscr")

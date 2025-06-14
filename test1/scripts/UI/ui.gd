@@ -3,6 +3,8 @@ extends Control
 @onready var stopwatch_label: Label = $CanvasLayer/Timer/HBoxContainer/Label
 @onready var card: Panel = $CanvasLayer/Card
 
+var is_card_used : bool = false
+
 func _ready() -> void:
 	pass
 
@@ -16,5 +18,6 @@ func change_card_opacity(value) -> void:
 		card.modulate.a = 1
 
 func card_used(value: bool) -> void:
-	if value:
+	if value and not is_card_used:
+		is_card_used = true
 		card.queue_free()

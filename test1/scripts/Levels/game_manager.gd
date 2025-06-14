@@ -4,6 +4,7 @@ signal cards_changed(value: int)
 signal scanner_validated(value: bool)
 signal game_finished
 signal took_damaged
+signal box_reseted
 
 @onready var stopwatch: Stopwatch = get_tree().get_first_node_in_group("stopwatch")
 @onready var delay: Timer = $Delay
@@ -65,3 +66,6 @@ func game_end() -> void:
 
 func game_restart() -> void:
 	get_tree().reload_current_scene()
+
+func box_reset() -> void:
+	box_reseted.emit()

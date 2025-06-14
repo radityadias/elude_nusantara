@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=3 uid="uid://xgx5h8twow"]
 
 [ext_resource type="Texture2D" uid="uid://0hlf461grsng" path="res://assets/sprites/traps/saw_idle.png" id="1_286b1"]
-[ext_resource type="Script" uid="uid://ddj76ciugodjq" path="res://scripts/Enemies/saw.gd" id="1_hd0mb"]
+[ext_resource type="Script" uid="uid://ddj76ciugodjq" path="res://scripts/Traps/saw.gd" id="1_hd0mb"]
 [ext_resource type="Texture2D" uid="uid://cq04pnsakr0jj" path="res://assets/sprites/traps/saw_deactivate.png" id="2_maawh"]
 [ext_resource type="Texture2D" uid="uid://c1fs0uvyukuy0" path="res://assets/sprites/traps/saw_activate.png" id="3_hd0mb"]
 
@@ -261,6 +261,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1, 11)
 shape = SubResource("CircleShape2D_klnev")
 
