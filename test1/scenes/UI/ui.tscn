@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cfuok3fr40dsf"]
 
 [ext_resource type="Texture2D" uid="uid://rh1lsvbofub" path="res://assets/sprites/players/Health UI Black.png" id="1_gdt2y"]
-[ext_resource type="Script" uid="uid://bj8m8cjn8xm8l" path="res://scripts/ui.gd" id="1_wm3ai"]
+[ext_resource type="Script" uid="uid://bj8m8cjn8xm8l" path="res://scripts/UI/ui.gd" id="1_wm3ai"]
 [ext_resource type="Texture2D" uid="uid://diha3887w3e13" path="res://assets/sprites/players/Pause.png" id="2_wm3ai"]
 [ext_resource type="FontFile" uid="uid://dpqkv5qel71na" path="res://assets/Fonts/Jersey10-Regular.ttf" id="3_8dubc"]
 [ext_resource type="Texture2D" uid="uid://u0biucc4c700" path="res://assets/sprites/doors/Card.png" id="4_p7vwb"]
@@ -35,7 +35,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
 [node name="Health1" type="TextureRect" parent="CanvasLayer/Health/HBoxContainer"]
 layout_mode = 2
@@ -104,6 +103,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Card" type="Panel" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.196078)
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 1
 anchor_left = 1.0

@@ -4,3 +4,7 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_hwd4i")
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

@@ -2,15 +2,20 @@ extends Node
 
 signal cards_changed(value: int)
 signal scanner_validated(value: bool)
+signal game_finished
 signal took_damaged
+signal box_reseted
+signal jumppad_used
 
 @onready var stopwatch: Stopwatch = get_tree().get_first_node_in_group("stopwatch")
+@onready var delay: Timer = $Delay
 
 var cards_collected : int = 0
 var is_having_card: bool = false
 
 func _ready() -> void:
 	var player = get_tree().get_first_node_in_group("player")
+	print("Card : ", cards_collected)
 	
 	if player:
 		if player and not took_damaged.is_connected(player.decrease_health):
@@ -23,11 +28,15 @@ func _process(delta: float) -> void:
 	if stopwatch == null or !is_instance_valid(stopwatch):
 		stopwatch = get_tree().get_first_node_in_group("stopwatch")
 
+func using_jumppad() -> void:
+	jumppad_used.emit()
+
 func player_damaged() -> void:
 	took_damaged.emit()
 
 func add_card():
 	cards_collected += 1
+	print("Card : ", cards_collected)
 	cards_changed.emit(cards_collected)
 
 func validate_scan():
@@ -54,3 +63,15 @@ func get_stopwatch_time_string() -> String:
 		return "00:00:000"
 		
 	return stopwatch.time_to_string()
+
+func game_finish() -> void:
+	game_finished.emit()
+
+func game_end() -> void:
+	get_tree().quit()
+
+func game_restart() -> void:
+	get_tree().reload_current_scene()
+
+func box_reset() -> void:
+	box_reseted.emit()

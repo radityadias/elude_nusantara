@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://benxumuuee62n"]
+[gd_scene load_steps=33 format=3 uid="uid://benxumuuee62n"]
 
 [ext_resource type="Texture2D" uid="uid://kfigk80miq2e" path="res://assets/sprites/traps/wall_blades.png" id="1_hop41"]
 
@@ -213,9 +213,16 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hop41"]
+size = Vector2(26, 28)
+
 [node name="Wall Spike" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cqsuw")
-frame = 25
-frame_progress = 0.608181
+frame = 24
+frame_progress = 0.816664
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hop41")

@@ -15,4 +15,6 @@ func _on_body_exited(body: Node2D) -> void:
 
 func message(text: String, duration: float = 2.0):
 	InteractionManager.show_message(text, duration)
-	print("Text got into Interaction Area")
+
+func set_default_text(text: String) -> void:
+	InteractionManager.base_text = text

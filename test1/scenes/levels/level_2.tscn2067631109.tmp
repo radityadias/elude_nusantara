@@ -1,20 +1,21 @@
 [gd_scene load_steps=18 format=4 uid="uid://lhti2o58fwjy"]
 
-[ext_resource type="PackedScene" uid="uid://samrdbnel1y3" path="res://scenes/Worlds/game_manager.tscn" id="1_brxtv"]
-[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/Players/player.tscn" id="1_ra442"]
+[ext_resource type="PackedScene" uid="uid://samrdbnel1y3" path="res://scenes/game_manager.tscn" id="1_brxtv"]
+[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="1_ra442"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="2_fiq81"]
-[ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="3_l37oo"]
-[ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/Traps/saw.tscn" id="3_qpwj6"]
-[ext_resource type="PackedScene" uid="uid://7rsxwn8xmxi2" path="res://scenes/Platforms/platform1.tscn" id="3_qsp8v"]
-[ext_resource type="PackedScene" path="res://scenes/traps/spike_idle.tscn" id="4_ibugp"]
-[ext_resource type="PackedScene" uid="uid://benxumuuee62n" path="res://scenes/Traps/wall_spike.tscn" id="6_nt80m"]
-[ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/Traps/laser_beam.tscn" id="7_brxtv"]
-[ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="9_tv7cl"]
-[ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="10_r88tb"]
-[ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="13_tv7cl"]
+[ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/interactable/door.tscn" id="3_l37oo"]
+[ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/traps/saw.tscn" id="3_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://7rsxwn8xmxi2" path="res://scenes/platform/platform1.tscn" id="3_qsp8v"]
+[ext_resource type="PackedScene" uid="uid://bhafxoykw2xq8" path="res://scenes/traps/spike_idle.tscn" id="4_ibugp"]
+[ext_resource type="PackedScene" uid="uid://benxumuuee62n" path="res://scenes/traps/wall_spike.tscn" id="6_nt80m"]
+[ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/traps/laser.tscn" id="7_brxtv"]
+[ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/interactable/card.tscn" id="9_tv7cl"]
+[ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/interactable/scanner.tscn" id="10_r88tb"]
+[ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/ui.tscn" id="13_tv7cl"]
 
 [sub_resource type="Animation" id="Animation_ndlae"]
-length = 0.001
+length = 5.0
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -22,10 +23,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1, 2.01, 3.01, 3.98, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(802, -119)]
+"values": [Vector2(1107, 384), Vector2(1237, 384), Vector2(1367, 384), Vector2(1497, 384), Vector2(1627, 384), Vector2(1757, 384)]
 }
 
 [sub_resource type="Animation" id="Animation_1yj8c"]
@@ -39,10 +40,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4.01, 5),
+"times": PackedFloat32Array(0, 0.99, 2.02, 3, 4, 5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(802, -119), Vector2(932, -119), Vector2(1062, -119), Vector2(1192, -119), Vector2(1322, -119), Vector2(1452, -119)]
+"values": [Vector2(1101, 384), Vector2(1231, 384), Vector2(1361, 384), Vector2(1491, 384), Vector2(1621, 384), Vector2(1751, 384)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v8d84"]
@@ -148,12 +149,13 @@ position = Vector2(304, 505)
 [node name="Platforms" type="Node" parent="Worlds"]
 
 [node name="platform1" parent="Worlds/Platforms" instance=ExtResource("3_qsp8v")]
-position = Vector2(802, -119)
+position = Vector2(1107, 384)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Worlds/Platforms/platform1"]
 libraries = {
 &"": SubResource("AnimationLibrary_v8d84")
 }
+autoplay = "move"
 
 [node name="Tiles" type="TileMapLayer" parent="Worlds"]
 position = Vector2(304, 504)
@@ -199,7 +201,7 @@ scale = Vector2(2.1, 2.1)
 [node name="Interactables" type="Node" parent="."]
 
 [node name="Door" parent="Interactables" instance=ExtResource("3_l37oo")]
-position = Vector2(16, 472)
+position = Vector2(15, 472)
 
 [node name="Card" parent="Interactables" instance=ExtResource("9_tv7cl")]
 position = Vector2(1566, 352)
@@ -208,7 +210,7 @@ position = Vector2(1566, 352)
 position = Vector2(1889, 356)
 
 [node name="Door2" parent="Interactables" instance=ExtResource("3_l37oo")]
-position = Vector2(2063, 458)
+position = Vector2(2065, 454)
 
 [node name="Card2" parent="Interactables" instance=ExtResource("9_tv7cl")]
 position = Vector2(2001, 481)
@@ -217,7 +219,7 @@ position = Vector2(2001, 481)
 position = Vector2(2031, 467)
 
 [node name="Door3" parent="Interactables" instance=ExtResource("3_l37oo")]
-position = Vector2(2193, 233)
+position = Vector2(2192, 233)
 
 [node name="Card3" parent="Interactables" instance=ExtResource("9_tv7cl")]
 position = Vector2(2153, 254)

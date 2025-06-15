@@ -1,13 +1,13 @@
 [gd_scene load_steps=67 format=3 uid="uid://cy10gqast1lai"]
 
 [ext_resource type="Texture2D" uid="uid://ds0k0powhgx77" path="res://assets/sprites/players/Idel Animation 48x48/Idel Animation 48x48.png" id="1_fiud5"]
-[ext_resource type="Script" uid="uid://dc4ykgqseuug6" path="res://scripts/player.gd" id="1_m5i0l"]
+[ext_resource type="Script" uid="uid://dc4ykgqseuug6" path="res://scripts/Players/player.gd" id="1_m5i0l"]
 [ext_resource type="Texture2D" uid="uid://cfs655t7pd7cb" path="res://assets/sprites/players/Jump Animation 48x48/Jump Animation 48x48.png" id="2_jnvtn"]
 [ext_resource type="Texture2D" uid="uid://78qyd6lfbc4i" path="res://assets/sprites/players/Run Animation 48x48/Run Animation 48x48.png" id="3_x1uyb"]
 [ext_resource type="Texture2D" uid="uid://dxb6028dklfcn" path="res://assets/sprites/players/Pull Animation 48x48/Pull Animation 48x48.png" id="4_smehm"]
 [ext_resource type="Texture2D" uid="uid://gfqc2lonw3i6" path="res://assets/sprites/effects/SmokeFX Lite SpriteSheet 2A-9.png" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://bnnffkadmx1cv" path="res://assets/sprites/players/Push Animation 48x48/Push Animation 48x48.png" id="5_ur7pv"]
-[ext_resource type="PackedScene" uid="uid://bfitjn0r0ld5u" path="res://scenes/players/jump_particle.tscn" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://bfitjn0r0ld5u" path="res://scenes/Players/jump_particle.tscn" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gcx7"]
 atlas = ExtResource("1_fiud5")
@@ -472,7 +472,7 @@ script = ExtResource("1_m5i0l")
 
 [node name="Character" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cex2r")
-animation = &"Run"
+animation = &"Push"
 autoplay = "Idle"
 
 [node name="Run Particle" type="AnimatedSprite2D" parent="."]
@@ -507,4 +507,5 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 0.6
 one_shot = true

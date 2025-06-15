@@ -7,7 +7,8 @@ enum {
 	JUMP,
 	DOUBLE_JUMP,
 	PUSH,
-	INVINCIBLE
+	INVINCIBLE,
+	JUMP_PAD
 }
 
 signal get_damaged
@@ -20,6 +21,7 @@ signal get_damaged
 @export var JUMP_FORCE : float = -350
 @export var PUSH_FORCE : float = 200
 @export var KNOCKBACK_FORCE : Vector2 = Vector2(100, -100)
+var JUMP_PAD_FORCE : float = -650
 
 # NODES
 @onready var character: AnimatedSprite2D = $Character
@@ -27,9 +29,9 @@ signal get_damaged
 @onready var run_particle: AnimatedSprite2D = $"Run Particle"
 @onready var dust = preload("res://scenes/players/jump_particle.tscn")
 @onready var main_collision: CollisionShape2D = $MainCollision
-@onready var push_block: RigidBody2D = $"../Interactable/Push Block"
 @onready var game_manager: Node = %GameManager
 @onready var invincibility_timer: Timer = $InvincibilityTimer
+@onready var push_block: CharacterBody2D = $"."
 
 var JUMP_COUNT : int = 0
 var right_offset := Vector2(-8, 0)
@@ -51,7 +53,12 @@ var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
 
 func _ready() -> void:
+	GameManager.jumppad_used.connect(try_jump_pad)
 	invincibility_timer.timeout.connect(end_invincibility)
+	var push_areas = get_tree().get_nodes_in_group("pushable")
+	for block in push_areas:
+		if block.has_signal("push_state_changed"):
+			block.push_state_changed.connect(_on_push_state_changed)
 
 func _process(delta: float) -> void:
 	update_timers(delta)
@@ -78,13 +85,13 @@ func handle_state(direction: float, delta: float) -> void:
 		IDLE, RUN:
 			apply_movement(direction, delta)
 			try_jump()
-			try_push()
 		JUMP, DOUBLE_JUMP:
 			apply_movement(direction, delta)
 			try_double_jump()
 		PUSH:
 			apply_movement(direction, delta)
-			handle_push(direction)
+		JUMP_PAD:
+			apply_jumppad_movement(direction, delta)
 
 func update_state(direction: float) -> void:
 	if is_on_floor() and state in [JUMP, DOUBLE_JUMP]:
@@ -109,6 +116,12 @@ func apply_movement(direction: float, delta: float):
 	else: 
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta * 2)
 
+func apply_jumppad_movement(direction: float, delta: float) -> void:
+	if direction != 0: 
+		velocity.x = move_toward(velocity.x, direction * SPEED, 400 * delta)
+	else: 
+		velocity.x = move_toward(velocity.x, 0, FRICTION * delta * 2)
+
 func try_jump():
 	if (jump_buffer_timer > 0 or coyote_timer > 0) and Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_FORCE
@@ -123,29 +136,19 @@ func try_double_jump() -> void:
 		state = DOUBLE_JUMP
 		JUMP_COUNT += 1
 
-# Simplified push-only logic
-func try_push() -> void:
-	if Input.is_action_just_pressed("interact"):
-		for i in get_slide_collision_count():
-			var c = get_slide_collision(i)
-			if c.get_collider() is RigidBody2D:
-				state = PUSH
-				return
-
-func handle_push(direction: float) -> void:
-	if Input.is_action_pressed("interact"):
-		for i in get_slide_collision_count():
-			var c = get_slide_collision(i)
-			var body = c.get_collider()
-			if body is RigidBody2D:
-				body.apply_central_impulse(-c.get_normal() * PUSH_FORCE)
-	else:
-		state = IDLE if abs(velocity.x) < 1.0 else RUN
-
 func update_timers(delta: float):
 	if coyote_timer > 0: coyote_timer -= delta
 	if jump_buffer_timer > 0: jump_buffer_timer -= delta
 	if Input.is_action_just_pressed("jump"): jump_buffer_timer = JUMP_BUFFER_TIME
+
+# PUSH =========================================================================
+func _on_push_state_changed(is_pushing: bool, direction: int):
+	if is_pushing:
+		state = PUSH
+		# Optional: Force facing direction
+		character.flip_h = direction < 0  # Face left if pushing left
+	elif state == PUSH:  # Only revert if we were pushing
+		state = IDLE
 
 # ANIMATION ====================================================================
 func apply_animation(direction: float):
@@ -170,7 +173,7 @@ func apply_animation(direction: float):
 			character.play("Run")
 			run_particle.play("running_dust")
 			animation_player.play("run")
-		JUMP, DOUBLE_JUMP:
+		JUMP, DOUBLE_JUMP, JUMP_PAD:
 			if character.animation != "Jump":
 				character.play("Jump")
 			animation_player.play("jump")
@@ -206,8 +209,9 @@ func decrease_health():
 			
 	
 	if lives == 0:
-		get_tree().reload_current_scene()
-
+		invincibility_timer.start()
+		invincibility_timer.timeout.connect(GameManager.game_restart)
+		
 func apply_knockback() -> void:
 	var knockback_direction = character.flip_h if character else false
 	if knockback_direction:
@@ -227,3 +231,7 @@ func end_invincibility() -> void:
 	state = IDLE
 	is_invincible = false
 	character.modulate.a = 1.0
+
+func try_jump_pad() -> void:
+	velocity.y = JUMP_PAD_FORCE
+	state = JUMP_PAD
