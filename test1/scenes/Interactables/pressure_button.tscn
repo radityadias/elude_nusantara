@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://105chyqe2ydq"]
 
 [ext_resource type="Script" uid="uid://t7m77wcgdsnp" path="res://scripts/Interactables/pressure_button.gd" id="1_7h45k"]
-[ext_resource type="Texture2D" uid="uid://c4e1plr1qxsiy" path="res://assets/sprites/interactable/pressureplate.png" id="1_plk22"]
+[ext_resource type="Texture2D" uid="uid://c4e1plr1qxsiy" path="res://assets/Sprites/interactable/pressureplate.png" id="1_plk22"]
 [ext_resource type="PackedScene" uid="uid://7msgfwu63fmo" path="res://interactions/interaction area/interaction_area.tscn" id="3_r3rpm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7h45k"]

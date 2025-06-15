@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rh1lsvbofub"
-path="res://.godot/imported/Health UI Black.png-20d483552ec92597f4961ff892c1d229.ctex"
+path="res://.godot/imported/Health UI Black.png-f32bffb7b5eabe29c1a20c96e1130374.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/players/Health UI Black.png"
-dest_files=["res://.godot/imported/Health UI Black.png-20d483552ec92597f4961ff892c1d229.ctex"]
+source_file="res://assets/Sprites/players/Health UI Black.png"
+dest_files=["res://.godot/imported/Health UI Black.png-f32bffb7b5eabe29c1a20c96e1130374.ctex"]
 
 [params]
 

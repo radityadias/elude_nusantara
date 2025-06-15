@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bfitjn0r0ld5u"]
 
-[ext_resource type="Texture2D" uid="uid://deqgyrircf14w" path="res://assets/sprites/effects/MEDIUM SMOKE.png" id="1_fubqs"]
+[ext_resource type="Texture2D" uid="uid://deqgyrircf14w" path="res://assets/Sprites/effects/MEDIUM SMOKE.png" id="1_fubqs"]
 [ext_resource type="Script" uid="uid://ccap027065q16" path="res://scripts/Players/jump_particle.gd" id="2_p1i8p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cnq6k"]

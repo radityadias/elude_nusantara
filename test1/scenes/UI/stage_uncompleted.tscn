@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://j6aetl3xwg22"]
 
-[ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://scenes/Jersey25-Regular.ttf" id="1_qeg0q"]
-[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/sprites/GUI/Unactive_Star.png" id="2_qeg0q"]
-[ext_resource type="StyleBox" uid="uid://d2y2lsk87qat" path="res://scenes/yellow.tres" id="3_8cj4v"]
+[ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="1_qeg0q"]
+[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/Sprites/GUI/Unactive_Star.png" id="2_qeg0q"]
+[ext_resource type="StyleBox" uid="uid://d2y2lsk87qat" path="res://assets/Palette/yellow.tres" id="3_8cj4v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pc7l8"]
 bg_color = Color(0.2, 0.101961, 0.239216, 1)
