@@ -1,0 +1,177 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu2yeyvwp3c8d"]
+
+[ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://scenes/Jersey25-Regular.ttf" id="1_2n00v"]
+[ext_resource type="Texture2D" uid="uid://f57lyjxrd4el" path="res://assets/sprites/GUI/Active_Star.png" id="2_cv5bl"]
+[ext_resource type="StyleBox" uid="uid://d2y2lsk87qat" path="res://scenes/yellow.tres" id="3_btikf"]
+[ext_resource type="StyleBox" uid="uid://c0jo6xfhavtlr" path="res://scenes/purpel.tres" id="4_tfxvq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pc7l8"]
+bg_color = Color(0.2, 0.101961, 0.239216, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.952941, 0.901961, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="StageCompleted" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/CenterContainer"]
+custom_minimum_size = Vector2(650, 500)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pc7l8")
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -172.0
+offset_top = 39.0
+offset_right = 172.0
+offset_bottom = 140.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
+theme_override_fonts/font = ExtResource("1_2n00v")
+theme_override_font_sizes/font_size = 100
+text = "Complete"
+horizontal_alignment = 1
+
+[node name="StarContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = -95.0
+offset_right = 162.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("2_cv5bl")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("2_cv5bl")
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("2_cv5bl")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="CanvasLayer/CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.275
+offset_top = 38.0
+offset_right = 124.275
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
+theme_override_fonts/font = ExtResource("1_2n00v")
+theme_override_font_sizes/font_size = 50
+text = "Time : 00.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.748
+anchor_right = 0.5
+anchor_bottom = 0.962
+offset_left = -276.0
+offset_top = -14.0
+offset_right = 274.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/CenterContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.2, 0.101961, 0.239216, 1)
+theme_override_colors/font_hover_color = Color(0.2, 0.101961, 0.239216, 1)
+theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
+theme_override_fonts/font = ExtResource("1_2n00v")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover_pressed = ExtResource("3_btikf")
+theme_override_styles/hover = ExtResource("3_btikf")
+theme_override_styles/normal = ExtResource("4_tfxvq")
+text = "Home"
+
+[node name="Button2" type="Button" parent="CanvasLayer/CenterContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.952941, 0.901961, 0, 1)
+theme_override_colors/font_hover_color = Color(0.952941, 0.901961, 0, 1)
+theme_override_colors/font_color = Color(0.2, 0.101961, 0.239216, 1)
+theme_override_fonts/font = ExtResource("1_2n00v")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover_pressed = ExtResource("4_tfxvq")
+theme_override_styles/hover = ExtResource("4_tfxvq")
+theme_override_styles/normal = ExtResource("3_btikf")
+text = "Next"
+
+[node name="Button3" type="Button" parent="CanvasLayer/CenterContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.2, 0.101961, 0.239216, 1)
+theme_override_colors/font_hover_color = Color(0.2, 0.101961, 0.239216, 1)
+theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
+theme_override_fonts/font = ExtResource("1_2n00v")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover_pressed = ExtResource("3_btikf")
+theme_override_styles/hover = ExtResource("3_btikf")
+theme_override_styles/normal = ExtResource("4_tfxvq")
+text = "Restart"

@@ -70,6 +70,7 @@ _data = {
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
+visible = false
 z_index = 90
 layout_mode = 3
 anchors_preset = 15
