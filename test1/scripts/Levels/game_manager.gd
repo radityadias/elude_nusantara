@@ -15,6 +15,7 @@ var is_having_card: bool = false
 
 func _ready() -> void:
 	var player = get_tree().get_first_node_in_group("player")
+	print("Card : ", cards_collected)
 	
 	if player:
 		if player and not took_damaged.is_connected(player.decrease_health):
@@ -35,6 +36,7 @@ func player_damaged() -> void:
 
 func add_card():
 	cards_collected += 1
+	print("Card : ", cards_collected)
 	cards_changed.emit(cards_collected)
 
 func validate_scan():

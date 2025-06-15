@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://bdwfhakjqedmh"]
+[gd_scene load_steps=46 format=4 uid="uid://bdwfhakjqedmh"]
 
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="1_a60bd"]
 [ext_resource type="PackedScene" uid="uid://samrdbnel1y3" path="res://scenes/Worlds/game_manager.tscn" id="2_811s2"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="17_uticb"]
 [ext_resource type="PackedScene" uid="uid://4whpvx36wsog" path="res://scenes/Interactables/push_block.tscn" id="18_pc6eh"]
 [ext_resource type="PackedScene" uid="uid://105chyqe2ydq" path="res://scenes/Interactables/pressure_button.tscn" id="19_dqd8o"]
-[ext_resource type="PackedScene" uid="uid://b647r3r5v0waq" path="res://scenes/Interactables/jump_pad.tscn" id="20_811s2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bahl2"]
 texture = ExtResource("3_4xsrm")
@@ -1456,8 +1455,5 @@ rotation = -1.57079
 [node name="UI" parent="." instance=ExtResource("16_jxar1")]
 
 [node name="Stopwatch" parent="." instance=ExtResource("17_uticb")]
-
-[node name="JumpPad" parent="." instance=ExtResource("20_811s2")]
-position = Vector2(-21, 519)
 
 [editable path="UI"]
