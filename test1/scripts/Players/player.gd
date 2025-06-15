@@ -7,7 +7,8 @@ enum {
 	JUMP,
 	DOUBLE_JUMP,
 	PUSH,
-	INVINCIBLE
+	INVINCIBLE,
+	JUMP_PAD
 }
 
 signal get_damaged
@@ -20,6 +21,7 @@ signal get_damaged
 @export var JUMP_FORCE : float = -350
 @export var PUSH_FORCE : float = 200
 @export var KNOCKBACK_FORCE : Vector2 = Vector2(100, -100)
+var JUMP_PAD_FORCE : float = -650
 
 # NODES
 @onready var character: AnimatedSprite2D = $Character
@@ -51,6 +53,7 @@ var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
 
 func _ready() -> void:
+	GameManager.jumppad_used.connect(try_jump_pad)
 	invincibility_timer.timeout.connect(end_invincibility)
 	var push_areas = get_tree().get_nodes_in_group("pushable")
 	for block in push_areas:
@@ -87,6 +90,8 @@ func handle_state(direction: float, delta: float) -> void:
 			try_double_jump()
 		PUSH:
 			apply_movement(direction, delta)
+		JUMP_PAD:
+			apply_jumppad_movement(direction, delta)
 
 func update_state(direction: float) -> void:
 	if is_on_floor() and state in [JUMP, DOUBLE_JUMP]:
@@ -108,6 +113,12 @@ func apply_gravity(delta: float):
 func apply_movement(direction: float, delta: float):
 	if direction != 0: 
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta * 2)
+	else: 
+		velocity.x = move_toward(velocity.x, 0, FRICTION * delta * 2)
+
+func apply_jumppad_movement(direction: float, delta: float) -> void:
+	if direction != 0: 
+		velocity.x = move_toward(velocity.x, direction * SPEED, 400 * delta)
 	else: 
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta * 2)
 
@@ -162,7 +173,7 @@ func apply_animation(direction: float):
 			character.play("Run")
 			run_particle.play("running_dust")
 			animation_player.play("run")
-		JUMP, DOUBLE_JUMP:
+		JUMP, DOUBLE_JUMP, JUMP_PAD:
 			if character.animation != "Jump":
 				character.play("Jump")
 			animation_player.play("jump")
@@ -220,3 +231,7 @@ func end_invincibility() -> void:
 	state = IDLE
 	is_invincible = false
 	character.modulate.a = 1.0
+
+func try_jump_pad() -> void:
+	velocity.y = JUMP_PAD_FORCE
+	state = JUMP_PAD

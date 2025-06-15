@@ -5,6 +5,7 @@ signal scanner_validated(value: bool)
 signal game_finished
 signal took_damaged
 signal box_reseted
+signal jumppad_used
 
 @onready var stopwatch: Stopwatch = get_tree().get_first_node_in_group("stopwatch")
 @onready var delay: Timer = $Delay
@@ -25,6 +26,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if stopwatch == null or !is_instance_valid(stopwatch):
 		stopwatch = get_tree().get_first_node_in_group("stopwatch")
+
+func using_jumppad() -> void:
+	jumppad_used.emit()
 
 func player_damaged() -> void:
 	took_damaged.emit()
