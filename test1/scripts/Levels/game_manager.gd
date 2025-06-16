@@ -15,7 +15,7 @@ var is_having_card: bool = false
 
 func _ready() -> void:
 	var player = get_tree().get_first_node_in_group("player")
-	print("Card : ", cards_collected)
+	reset_game_state()
 	
 	if player:
 		if player and not took_damaged.is_connected(player.decrease_health):
@@ -71,7 +71,12 @@ func game_end() -> void:
 	get_tree().quit()
 
 func game_restart() -> void:
+	reset_game_state()
 	get_tree().reload_current_scene()
 
 func box_reset() -> void:
 	box_reseted.emit()
+
+func reset_game_state():
+	cards_collected = 0
+	is_having_card = false

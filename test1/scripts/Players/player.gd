@@ -110,16 +110,15 @@ func apply_gravity(delta: float) -> void:
 
 func handle_state_movement(direction: float, delta: float) -> void:
 	match state:
-		State.IDLE, State.RUN:
-			apply_horizontal_movement(direction, delta)
-			try_jump()
-		State.JUMP, State.DOUBLE_JUMP:
-			apply_horizontal_movement(direction, delta)
-			try_double_jump()
-		State.PUSH:
+		State.IDLE, State.RUN, State.JUMP, State.DOUBLE_JUMP, State.PUSH:
 			apply_horizontal_movement(direction, delta)
 		State.JUMP_PAD:
 			apply_jumppad_movement(direction, delta)
+
+	if state in [State.IDLE, State.RUN]:
+		try_jump()
+	elif state in [State.JUMP, State.DOUBLE_JUMP]:
+		try_double_jump()
 
 func apply_horizontal_movement(direction: float, delta: float) -> void:
 	if direction != 0: 
@@ -162,14 +161,12 @@ func update_timers(delta: float) -> void:
 
 # ===== STATE MANAGEMENT =====
 func update_state_based_on_movement(direction: float) -> void:
-	if is_on_floor() and state in [State.JUMP, State.DOUBLE_JUMP]:
-		state = State.IDLE if abs(velocity.x) < 1.0 else State.RUN
+	if is_on_floor():
 		JUMP_COUNT = 0
-	elif is_on_floor():
-		if direction != 0 and state != State.PUSH:
-			state = State.RUN
-		elif direction == 0 and state != State.PUSH:
-			state = State.IDLE
+		if state in [State.JUMP, State.DOUBLE_JUMP]:
+			state = State.RUN if abs(velocity.x) >= 1.0 else State.IDLE
+		elif state != State.PUSH:
+			state = State.RUN if direction != 0 else State.IDLE
 
 # ===== PUSH SYSTEM =====
 func _on_push_state_changed(is_pushing: bool, direction: int) -> void:
@@ -225,7 +222,7 @@ func handle_dust_effects() -> void:
 	is_grounded = is_on_floor()
 
 func should_spawn_dust() -> bool:
-	return (is_grounded == false and is_on_floor() == true) or (is_grounded and not is_on_floor())
+	return is_grounded != is_on_floor()
 
 func spawn_dust() -> void:
 	var instance = dust.instantiate()
@@ -250,7 +247,7 @@ func apply_knockback() -> void:
 	knockback_timer = KNOCKBACK_DURATION
 
 func update_hearth_display() -> void:
-	for i in 3:
+	for i in HEARTH.size():
 		HEARTH[i].visible = i < lives
 
 # ===== INVINCIBILITY SYSTEM =====
