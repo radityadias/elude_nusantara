@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu2yeyvwp3c8d"]
+[gd_scene load_steps=6 format=3 uid="uid://b3xvrj2ssrr0d"]
 
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="1_x8qo5"]
 [ext_resource type="Texture2D" uid="uid://f57lyjxrd4el" path="res://assets/Sprites/GUI/Active_Star.png" id="2_7ddx5"]

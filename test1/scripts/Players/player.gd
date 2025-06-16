@@ -1,7 +1,24 @@
 extends CharacterBody2D
 
-# STATE
-enum {
+# ===== SIGNALS =====
+signal get_damaged
+
+# ===== EXPORT VARIABLES =====
+@export var HEARTH : Array[Node]
+@export var SPEED : float = 200
+@export var ACCELERATION : float = 600
+@export var FRICTION : float = 800
+@export var JUMP_FORCE : float = -350
+@export var PUSH_FORCE : float = 200
+@export var KNOCKBACK_FORCE : Vector2 = Vector2(100, -100)
+
+# ===== CONSTANTS =====
+const COYOTE_TIME: float = 0.15
+const JUMP_BUFFER_TIME: float = 0.15
+const KNOCKBACK_DURATION: float = 0.2
+
+# ===== STATE MANAGEMENT =====
+enum State {
 	IDLE, 
 	RUN,
 	JUMP,
@@ -10,107 +27,101 @@ enum {
 	INVINCIBLE,
 	JUMP_PAD
 }
-
-signal get_damaged
-
-# PLAYER MECHANIC
-@export var HEARTH : Array[Node]
-@export var SPEED : float = 200
-@export var ACCELERATION : float = 600
-@export var FRICTION : float = 800
-@export var JUMP_FORCE : float = -350
-@export var PUSH_FORCE : float = 200
-@export var KNOCKBACK_FORCE : Vector2 = Vector2(100, -100)
+var state : State = State.IDLE
 var JUMP_PAD_FORCE : float = -650
+var JUMP_COUNT : int = 0
 
-# NODES
+# ===== HEALTH SYSTEM =====
+var lives: int = 3
+var is_invincible : bool = false
+
+# ===== PHYSICS VARIABLES =====
+var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
+var is_grounded: bool = true
+var coyote_timer: float = 0.0
+var jump_buffer_timer: float = 0.0
+var knockback_timer : float = 0.0
+
+# ===== NODE REFERENCES =====
 @onready var character: AnimatedSprite2D = $Character
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var run_particle: AnimatedSprite2D = $"Run Particle"
 @onready var dust = preload("res://scenes/players/jump_particle.tscn")
-@onready var main_collision: CollisionShape2D = $MainCollision
-@onready var game_manager: Node = %GameManager
 @onready var invincibility_timer: Timer = $InvincibilityTimer
-@onready var push_block: CharacterBody2D = $"."
+@onready var marker_2d: Marker2D = $Marker2D
 
-var JUMP_COUNT : int = 0
+# ===== ANIMATION OFFSETS =====
 var right_offset := Vector2(-8, 0)
 var left_offset := Vector2(8, 0)
-var lives: int = 3
 var default_offset := Vector2.ZERO
-var state : int = IDLE
 var last_offset := Vector2.INF
-var knockback_timer : float = 0.0
-const knockback_duration : float = 0.2
-var is_invincible : bool = false
 
-# PHYSICS
-var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
-var is_grounded: bool = true
-const COYOTE_TIME: float = 0.15
-const JUMP_BUFFER_TIME: float = 0.15
-var coyote_timer: float = 0.0
-var jump_buffer_timer: float = 0.0
-
+# ===== INITIALIZATION =====
 func _ready() -> void:
+	connect_signals()
+	setup_pushable_connections()
+
+func connect_signals() -> void:
 	GameManager.jumppad_used.connect(try_jump_pad)
 	invincibility_timer.timeout.connect(end_invincibility)
-	var push_areas = get_tree().get_nodes_in_group("pushable")
-	for block in push_areas:
+
+func setup_pushable_connections() -> void:
+	for block in get_tree().get_nodes_in_group("pushable"):
 		if block.has_signal("push_state_changed"):
 			block.push_state_changed.connect(_on_push_state_changed)
 
+# ===== PROCESS FUNCTIONS =====
 func _process(delta: float) -> void:
 	update_timers(delta)
 
 func _physics_process(delta: float) -> void:
+	handle_knockback_state(delta)
+	if is_knockback_active(): 
+		move_and_slide()
+		return
+	
+	var direction := get_input_direction()
+	update_movement(direction, delta)
+	update_animations(direction)
+	move_and_slide()
+	update_state_based_on_movement(direction)
+
+# ===== MOVEMENT SYSTEM =====
+func handle_knockback_state(delta: float) -> void:
 	if knockback_timer > 0:
 		knockback_timer -= delta
-		move_and_slide() 
-		return
 
-	var direction = Input.get_axis("move_left", "move_right")
+func is_knockback_active() -> bool:
+	return knockback_timer > 0
 
+func get_input_direction() -> float:
+	return Input.get_axis("move_left", "move_right")
+
+func update_movement(direction: float, delta: float) -> void:
 	apply_gravity(delta)
-	handle_state(direction, delta)
-	apply_dust()
-	apply_animation(direction)
-	
-	move_and_slide()
-	update_state(direction)
+	handle_state_movement(direction, delta)
+	handle_dust_effects()
 
-# STATE MACHINE ================================================================
-func handle_state(direction: float, delta: float) -> void:
-	match state:
-		IDLE, RUN:
-			apply_movement(direction, delta)
-			try_jump()
-		JUMP, DOUBLE_JUMP:
-			apply_movement(direction, delta)
-			try_double_jump()
-		PUSH:
-			apply_movement(direction, delta)
-		JUMP_PAD:
-			apply_jumppad_movement(direction, delta)
-
-func update_state(direction: float) -> void:
-	if is_on_floor() and state in [JUMP, DOUBLE_JUMP]:
-		state = IDLE if abs(velocity.x) < 1.0 else RUN
-		JUMP_COUNT = 0
-	elif is_on_floor():
-		if direction != 0 and state != PUSH:
-			state = RUN
-		elif direction == 0 and state != PUSH:
-			state = IDLE
-
-func apply_gravity(delta: float):
+func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	else:
 		coyote_timer = COYOTE_TIME
 
-# MOVEMENT =====================================================================
-func apply_movement(direction: float, delta: float):
+func handle_state_movement(direction: float, delta: float) -> void:
+	match state:
+		State.IDLE, State.RUN:
+			apply_horizontal_movement(direction, delta)
+			try_jump()
+		State.JUMP, State.DOUBLE_JUMP:
+			apply_horizontal_movement(direction, delta)
+			try_double_jump()
+		State.PUSH:
+			apply_horizontal_movement(direction, delta)
+		State.JUMP_PAD:
+			apply_jumppad_movement(direction, delta)
+
+func apply_horizontal_movement(direction: float, delta: float) -> void:
 	if direction != 0: 
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta * 2)
 	else: 
@@ -122,116 +133,139 @@ func apply_jumppad_movement(direction: float, delta: float) -> void:
 	else: 
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta * 2)
 
-func try_jump():
-	if (jump_buffer_timer > 0 or coyote_timer > 0) and Input.is_action_just_pressed("jump"):
-		velocity.y = JUMP_FORCE
-		state = JUMP
-		JUMP_COUNT += 1
-		jump_buffer_timer = 0
-		coyote_timer = 0
+# ===== JUMP SYSTEM =====
+func try_jump() -> void:
+	if can_jump():
+		execute_jump(State.JUMP)
 
 func try_double_jump() -> void:
-	if (Input.is_action_just_pressed("jump") and JUMP_COUNT < 2):
-		velocity.y = JUMP_FORCE
-		state = DOUBLE_JUMP
-		JUMP_COUNT += 1
+	if Input.is_action_just_pressed("jump") and JUMP_COUNT < 2:
+		execute_jump(State.DOUBLE_JUMP)
 
-func update_timers(delta: float):
+func can_jump() -> bool:
+	return (jump_buffer_timer > 0 or coyote_timer > 0) and Input.is_action_just_pressed("jump")
+
+func execute_jump(new_state: State) -> void:
+	velocity.y = JUMP_FORCE
+	state = new_state
+	JUMP_COUNT += 1
+	reset_jump_timers()
+
+func reset_jump_timers() -> void:
+	jump_buffer_timer = 0
+	coyote_timer = 0
+
+func update_timers(delta: float) -> void:
 	if coyote_timer > 0: coyote_timer -= delta
 	if jump_buffer_timer > 0: jump_buffer_timer -= delta
 	if Input.is_action_just_pressed("jump"): jump_buffer_timer = JUMP_BUFFER_TIME
 
-# PUSH =========================================================================
-func _on_push_state_changed(is_pushing: bool, direction: int):
-	if is_pushing:
-		state = PUSH
-		# Optional: Force facing direction
-		character.flip_h = direction < 0  # Face left if pushing left
-	elif state == PUSH:  # Only revert if we were pushing
-		state = IDLE
+# ===== STATE MANAGEMENT =====
+func update_state_based_on_movement(direction: float) -> void:
+	if is_on_floor() and state in [State.JUMP, State.DOUBLE_JUMP]:
+		state = State.IDLE if abs(velocity.x) < 1.0 else State.RUN
+		JUMP_COUNT = 0
+	elif is_on_floor():
+		if direction != 0 and state != State.PUSH:
+			state = State.RUN
+		elif direction == 0 and state != State.PUSH:
+			state = State.IDLE
 
-# ANIMATION ====================================================================
-func apply_animation(direction: float):
-	if state != PUSH and direction != 0:
+# ===== PUSH SYSTEM =====
+func _on_push_state_changed(is_pushing: bool, direction: int) -> void:
+	if is_pushing:
+		state = State.PUSH
+		character.flip_h = direction < 0
+	elif state == State.PUSH:
+		state = State.IDLE
+
+# ===== ANIMATION SYSTEM =====
+func update_animations(direction: float) -> void:
+	update_character_direction(direction)
+	update_animation_state()
+	update_sprite_offset()
+
+func update_character_direction(direction: float) -> void:
+	if state != State.PUSH and direction != 0:
 		character.flip_h = direction < 0
 		run_particle.flip_h = direction < 0
 		run_particle.position.x = abs(run_particle.position.x) * (-1 if direction > 0 else 1)
-	
+
+func update_animation_state() -> void:
+	match state:
+		State.IDLE: 
+			play_animation("Idle", "idle")
+			run_particle.stop()
+		State.RUN: 
+			play_animation("Run", "run")
+			run_particle.play("running_dust")
+		State.JUMP, State.DOUBLE_JUMP, State.JUMP_PAD:
+			if character.animation != "Jump":
+				play_animation("Jump", "jump")
+			run_particle.stop()
+		State.PUSH:
+			play_animation("Push", "push")
+			run_particle.stop()
+
+func play_animation(anim_name: String, anim_player_anim: String) -> void:
+	character.play(anim_name)
+	animation_player.play(anim_player_anim)
+
+func update_sprite_offset() -> void:
 	var target_offset := default_offset
-	if state == PUSH:
+	if state == State.PUSH:
 		target_offset = right_offset if !character.flip_h else left_offset
 	if target_offset != last_offset:
 		character.offset = target_offset
 		last_offset = target_offset
-	
-	match state:
-		IDLE: 
-			character.play("Idle")
-			animation_player.play("idle")
-			run_particle.stop()
-		RUN: 
-			character.play("Run")
-			run_particle.play("running_dust")
-			animation_player.play("run")
-		JUMP, DOUBLE_JUMP, JUMP_PAD:
-			if character.animation != "Jump":
-				character.play("Jump")
-			animation_player.play("jump")
-			run_particle.stop()
-		PUSH:
-			character.play("Push")  
-			animation_player.play("push")
-			run_particle.stop()
 
-func apply_dust():
-	var instance = dust.instantiate()
-	if is_grounded == false and is_on_floor() == true:
-		instance.global_position = $Marker2D.global_position
-		get_parent().add_child(instance)
-	elif is_grounded and not is_on_floor():
-		instance.global_position = $Marker2D.global_position
-		get_parent().add_child(instance)
+func handle_dust_effects() -> void:
+	if should_spawn_dust():
+		spawn_dust()
 	is_grounded = is_on_floor()
 
-func decrease_health():
-	if state == INVINCIBLE:
+func should_spawn_dust() -> bool:
+	return (is_grounded == false and is_on_floor() == true) or (is_grounded and not is_on_floor())
+
+func spawn_dust() -> void:
+	var instance = dust.instantiate()
+	instance.global_position = marker_2d.global_position
+	get_parent().add_child(instance)
+
+# ===== COMBAT SYSTEM =====
+func decrease_health() -> void:
+	if state == State.INVINCIBLE:
 		return
 		
 	lives -= 1
 	apply_knockback()
 	start_invincibility()
-	
-	for h in 3:
-		if h < lives:
-			HEARTH[h].show()
-		else:
-			HEARTH[h].hide()
-			
+	update_hearth_display()
 	
 	if lives == 0:
-		invincibility_timer.start()
 		invincibility_timer.timeout.connect(GameManager.game_restart)
 		
 func apply_knockback() -> void:
-	var knockback_direction = character.flip_h if character else false
-	if knockback_direction:
-		velocity = Vector2(KNOCKBACK_FORCE.x, KNOCKBACK_FORCE.y)
-	else:
-		velocity = Vector2(-KNOCKBACK_FORCE.x, KNOCKBACK_FORCE.y)
-	
-	knockback_timer = knockback_duration
+	velocity = Vector2(-KNOCKBACK_FORCE.x if character.flip_h else KNOCKBACK_FORCE.x, KNOCKBACK_FORCE.y)
+	knockback_timer = KNOCKBACK_DURATION
 
+func update_hearth_display() -> void:
+	for i in 3:
+		HEARTH[i].visible = i < lives
+
+# ===== INVINCIBILITY SYSTEM =====
 func start_invincibility() -> void:
-	state = INVINCIBLE
+	state = State.INVINCIBLE
 	is_invincible = true
 	invincibility_timer.start()
 	character.modulate.a = 0.5
 
 func end_invincibility() -> void:
-	state = IDLE
+	state = State.IDLE
 	is_invincible = false
 	character.modulate.a = 1.0
 
+# ===== SPECIAL ABILITIES =====
 func try_jump_pad() -> void:
 	velocity.y = JUMP_PAD_FORCE
-	state = JUMP_PAD
+	state = State.JUMP_PAD

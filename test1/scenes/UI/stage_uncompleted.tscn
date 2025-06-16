@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://j6aetl3xwg22"]
+[gd_scene load_steps=7 format=3 uid="uid://bbnsl022fh4nt"]
 
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="1_qeg0q"]
 [ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/Sprites/GUI/Unactive_Star.png" id="2_qeg0q"]
