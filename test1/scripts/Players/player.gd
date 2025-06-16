@@ -25,7 +25,8 @@ enum State {
 	DOUBLE_JUMP,
 	PUSH,
 	INVINCIBLE,
-	JUMP_PAD
+	JUMP_PAD,
+	DEAD,
 }
 var state : State = State.IDLE
 var JUMP_PAD_FORCE : float = -650
@@ -75,6 +76,9 @@ func _process(delta: float) -> void:
 	update_timers(delta)
 
 func _physics_process(delta: float) -> void:
+	if state == State.DEAD:
+		return 
+	
 	handle_knockback_state(delta)
 	if is_knockback_active(): 
 		move_and_slide()
@@ -189,6 +193,9 @@ func update_character_direction(direction: float) -> void:
 		run_particle.position.x = abs(run_particle.position.x) * (-1 if direction > 0 else 1)
 
 func update_animation_state() -> void:
+	if state == State.DEAD:
+		return
+	
 	match state:
 		State.IDLE: 
 			play_animation("Idle", "idle")
@@ -235,13 +242,15 @@ func decrease_health() -> void:
 		return
 		
 	lives -= 1
-	apply_knockback()
-	start_invincibility()
 	update_hearth_display()
 	
 	if lives == 0:
+		state = State.DEAD
 		invincibility_timer.timeout.connect(GameManager.game_restart)
 		
+	apply_knockback()
+	start_invincibility()
+	
 func apply_knockback() -> void:
 	velocity = Vector2(-KNOCKBACK_FORCE.x if character.flip_h else KNOCKBACK_FORCE.x, KNOCKBACK_FORCE.y)
 	knockback_timer = KNOCKBACK_DURATION
