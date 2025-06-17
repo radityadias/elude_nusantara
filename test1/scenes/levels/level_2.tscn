@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://lhti2o58fwjy"]
+[gd_scene load_steps=17 format=4 uid="uid://lhti2o58fwjy"]
 
 [ext_resource type="PackedScene" uid="uid://samrdbnel1y3" path="res://scenes/Worlds/game_manager.tscn" id="1_brxtv"]
 [ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/Players/player.tscn" id="1_ra442"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="3_l37oo"]
 [ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/Traps/saw.tscn" id="3_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://7rsxwn8xmxi2" path="res://scenes/Platforms/platform1.tscn" id="3_qsp8v"]
-[ext_resource type="PackedScene" path="res://scenes/traps/spike_idle.tscn" id="4_ibugp"]
 [ext_resource type="PackedScene" uid="uid://benxumuuee62n" path="res://scenes/Traps/wall_spike.tscn" id="6_nt80m"]
 [ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/Traps/laser_beam.tscn" id="7_brxtv"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="9_tv7cl"]
@@ -178,12 +177,6 @@ rotation = -0.523599
 [node name="Saw3" parent="Traps" instance=ExtResource("3_qpwj6")]
 position = Vector2(529, 345)
 scale = Vector2(2, 2)
-
-[node name="Spike" parent="Traps" instance=ExtResource("4_ibugp")]
-position = Vector2(689, 368)
-
-[node name="Spike2" parent="Traps" instance=ExtResource("4_ibugp")]
-position = Vector2(1012, 367)
 
 [node name="Wall Spike" parent="Traps" instance=ExtResource("6_nt80m")]
 position = Vector2(1436, 358)

@@ -1409,7 +1409,7 @@ autoplay = "move"
 
 [node name="Laser Beam" parent="Worlds" instance=ExtResource("12_4xsrm")]
 position = Vector2(-25, 520)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Interactables" type="Node" parent="."]
 
@@ -1432,43 +1432,44 @@ position = Vector2(95, 531)
 
 [node name="Laser Spike" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(416, 504)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike2" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(448, 504)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike3" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(480, 504)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike4" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(512, 504)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike5" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(544, 504)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike6" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(752, 616)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike7" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(784, 616)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike8" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(860, 472)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike9" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(892, 472)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Saw" parent="Traps" instance=ExtResource("15_t6mv3")]
 position = Vector2(992, 360)
 rotation = -1.57079
+damage_interval = null
 
 [node name="UI" parent="." instance=ExtResource("16_jxar1")]
 

@@ -1,8 +1,5 @@
 extends CharacterBody2D
 
-# ===== SIGNALS =====
-signal get_damaged
-
 # ===== EXPORT VARIABLES =====
 @export var HEARTH : Array[Node]
 @export var SPEED : float = 200
@@ -237,22 +234,21 @@ func spawn_dust() -> void:
 	get_parent().add_child(instance)
 
 # ===== COMBAT SYSTEM =====
-func decrease_health() -> void:
-	if state == State.INVINCIBLE:
+func decrease_health() -> void:	
+	if state == State.INVINCIBLE or state == State.DEAD:
 		return
-		
+	
 	lives -= 1
 	update_hearth_display()
-	
+
 	if lives == 0:
-		state = State.DEAD
-		invincibility_timer.timeout.connect(GameManager.game_restart)
+		handle_dead()
 		
-	apply_knockback()
 	start_invincibility()
-	
+	apply_knockback()
+
 func apply_knockback() -> void:
-	velocity = Vector2(-KNOCKBACK_FORCE.x if character.flip_h else KNOCKBACK_FORCE.x, KNOCKBACK_FORCE.y)
+	velocity = Vector2(KNOCKBACK_FORCE.x if character.flip_h else -KNOCKBACK_FORCE.x, KNOCKBACK_FORCE.y)
 	knockback_timer = KNOCKBACK_DURATION
 
 func update_hearth_display() -> void:
@@ -275,3 +271,7 @@ func end_invincibility() -> void:
 func try_jump_pad() -> void:
 	velocity.y = JUMP_PAD_FORCE
 	state = State.JUMP_PAD
+
+func handle_dead() -> void:
+	state = State.DEAD
+	GameManager.game_restart()
