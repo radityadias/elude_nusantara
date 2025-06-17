@@ -25,3 +25,7 @@ func unlock():
 
 func _on_finish_body_entered(body: Node2D) -> void:
 	GameManager.game_finish()
+	timer.start()
+
+func _on_timer_timeout() -> void:
+	GameManager.game_restart()

@@ -4,7 +4,7 @@ extends Node
 signal cards_changed(value: int)
 signal scanner_validated(value: bool)
 signal game_finished
-signal took_damage
+signal took_damaged
 signal box_reseted
 signal jumppad_used
 signal player_died
@@ -23,9 +23,9 @@ func _ready() -> void:
 	reset_game_state()
 	var player = get_tree().get_first_node_in_group("player")
 	
-	if player and not player_is_dead:
-		if not took_damage.is_connected(player.decrease_health):
-			took_damage.connect(player.decrease_health)
+	if player:
+		if not took_damaged.is_connected(player.decrease_health):
+			took_damaged.connect(player.decrease_health)
 	else:
 		print("Player not found.")
 
@@ -80,7 +80,7 @@ func game_restart() -> void:
 
 # ======= EVENTS =======
 func player_damaged() -> void:
-	took_damage.emit()
+	took_damaged.emit()
 
 func using_jumppad() -> void:
 	jumppad_used.emit()

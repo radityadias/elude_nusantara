@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rg6t22owm4mi" path="res://scripts/Levels/game_manager.gd" id="1_hwd4i"]
 
-[node name="GameManager" type="Node" groups=["game_manager"]]
+[node name="GameManager" type="Node"]
 script = ExtResource("1_hwd4i")
 
 [node name="Delay" type="Timer" parent="."]
