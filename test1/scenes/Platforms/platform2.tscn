@@ -355,6 +355,7 @@ sources/1 = SubResource("TileSetAtlasSource_ei7q5")
 size = Vector2(51, 10)
 
 [node name="Platform2" type="AnimatableBody2D"]
+collision_mask = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(1.5, 1.5)

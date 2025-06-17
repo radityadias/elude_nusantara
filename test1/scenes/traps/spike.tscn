@@ -1,9 +1,9 @@
 [gd_scene load_steps=35 format=3 uid="uid://c0e1bmgryphos"]
 
-[ext_resource type="Texture2D" uid="uid://by5e2sh8rmt74" path="res://assets/sprites/traps/laser_spikes_idle.png" id="1_7ccwm"]
+[ext_resource type="Texture2D" uid="uid://by5e2sh8rmt74" path="res://assets/Sprites/traps/laser_spikes_idle.png" id="1_7ccwm"]
 [ext_resource type="Script" uid="uid://b8fbeub2s8nqc" path="res://scripts/Traps/spike.gd" id="1_eikeo"]
-[ext_resource type="Texture2D" uid="uid://bx8qr05u34ob5" path="res://assets/sprites/traps/laser_spikes_deactivate.png" id="2_eikeo"]
-[ext_resource type="Texture2D" uid="uid://0e0h6ly2m04f" path="res://assets/sprites/traps/laser_spikes_activate.png" id="3_c7ljp"]
+[ext_resource type="Texture2D" uid="uid://bx8qr05u34ob5" path="res://assets/Sprites/traps/laser_spikes_deactivate.png" id="2_eikeo"]
+[ext_resource type="Texture2D" uid="uid://0e0h6ly2m04f" path="res://assets/Sprites/traps/laser_spikes_activate.png" id="3_c7ljp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4hqw"]
 atlas = ExtResource("1_7ccwm")
@@ -223,6 +223,7 @@ animations = [{
 size = Vector2(32, 15)
 
 [node name="Laser Spike" type="Area2D"]
+collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_eikeo")
 

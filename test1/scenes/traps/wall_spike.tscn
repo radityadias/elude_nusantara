@@ -218,6 +218,8 @@ animations = [{
 size = Vector2(26, 28)
 
 [node name="Wall Spike" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("1_hx68k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

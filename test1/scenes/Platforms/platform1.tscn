@@ -6,6 +6,7 @@
 size = Vector2(34, 16)
 
 [node name="platform1" type="AnimatableBody2D"]
+collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cebc6")

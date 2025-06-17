@@ -1,9 +1,9 @@
 [gd_scene load_steps=36 format=3 uid="uid://kin2n7xmotbc"]
 
-[ext_resource type="Texture2D" uid="uid://8wnwwomfwmyk" path="res://assets/sprites/traps/laser_idle.png" id="1_0i8qh"]
+[ext_resource type="Texture2D" uid="uid://8wnwwomfwmyk" path="res://assets/Sprites/traps/laser_idle.png" id="1_0i8qh"]
 [ext_resource type="Script" uid="uid://dqmh664xu71kd" path="res://scripts/Traps/laser_beam.gd" id="1_grgce"]
-[ext_resource type="Texture2D" uid="uid://cg1wq437b4gk0" path="res://assets/sprites/traps/laser_deactivate.png" id="2_grgce"]
-[ext_resource type="Texture2D" uid="uid://daw1trm2rv82c" path="res://assets/sprites/traps/laser_activate.png" id="3_pk752"]
+[ext_resource type="Texture2D" uid="uid://cg1wq437b4gk0" path="res://assets/Sprites/traps/laser_deactivate.png" id="2_grgce"]
+[ext_resource type="Texture2D" uid="uid://daw1trm2rv82c" path="res://assets/Sprites/traps/laser_activate.png" id="3_pk752"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bohl5"]
 atlas = ExtResource("1_0i8qh")
@@ -230,6 +230,7 @@ animations = [{
 radius = 3.0
 
 [node name="Laser Beam" type="Area2D"]
+collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_grgce")
 

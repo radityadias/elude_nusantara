@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b647r3r5v0waq"]
 
 [ext_resource type="Script" uid="uid://cdfdttyo5d546" path="res://scripts/Interactables/jump_pad.gd" id="1_eu0at"]
-[ext_resource type="Texture2D" uid="uid://b0dis0iqi12kq" path="res://assets/sprites/interactable/Jump_pad.png" id="1_xyr5i"]
+[ext_resource type="Texture2D" uid="uid://b0dis0iqi12kq" path="res://assets/Sprites/interactable/Jump_pad.png" id="1_xyr5i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eu0at"]
 atlas = ExtResource("1_xyr5i")
@@ -57,7 +57,8 @@ script = ExtResource("1_eu0at")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4tj7e")
 animation = &"idle"
-frame_progress = 0.723881
+autoplay = "idle"
+frame_progress = 0.972098
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10.5)

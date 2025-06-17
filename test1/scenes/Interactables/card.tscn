@@ -71,6 +71,7 @@ animations = [{
 size = Vector2(12, 11)
 
 [node name="Card" type="Area2D"]
+collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_jcbxy")
 

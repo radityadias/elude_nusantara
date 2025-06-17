@@ -114,7 +114,8 @@ size = Vector2(30, 62)
 size = Vector2(30, 62)
 
 [node name="Door" type="AnimatableBody2D"]
-collision_mask = 4
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_gg805")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

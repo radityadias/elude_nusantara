@@ -44,6 +44,7 @@ animations = [{
 radius = 36.1248
 
 [node name="Scanner" type="Area2D"]
+collision_layer = 16
 script = ExtResource("1_bcp13")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
