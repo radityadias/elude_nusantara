@@ -266,3 +266,4 @@ position = Vector2(1, 11)
 shape = SubResource("CircleShape2D_klnev")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

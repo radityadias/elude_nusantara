@@ -244,3 +244,4 @@ shape = SubResource("CapsuleShape2D_0qneu")
 debug_color = Color(0.968203, 0, 0.469374, 0.42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

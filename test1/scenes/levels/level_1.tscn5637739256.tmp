@@ -3,20 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="1_a60bd"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="2_4xsrm"]
 [ext_resource type="PackedScene" uid="uid://samrdbnel1y3" path="res://scenes/Worlds/game_manager.tscn" id="2_811s2"]
-[ext_resource type="Texture2D" uid="uid://qjetf2krjnsk" path="res://assets/backgrounds/1/Day/1.png" id="3_4xsrm"]
-[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="4_hc568"]
-[ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/terrains/Assets/Buildings.png" id="5_0r5j3"]
-[ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/terrains/Assets/Props-01.png" id="6_d0wj5"]
+[ext_resource type="Texture2D" uid="uid://qjetf2krjnsk" path="res://assets/Backgrounds/1/Day/1.png" id="3_4xsrm"]
+[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="4_hc568"]
+[ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/Terrains/Assets/Buildings.png" id="5_0r5j3"]
+[ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/Terrains/Assets/Props-01.png" id="6_d0wj5"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="7_1n1l4"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="8_yhe24"]
-[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="9_x5rd6"]
+[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/Players/player.tscn" id="9_x5rd6"]
 [ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/platform2.tscn" id="10_sl41b"]
 [ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="11_f2xmq"]
 [ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/Traps/laser_beam.tscn" id="12_4xsrm"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="12_81i13"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="13_xf47x"]
-[ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/traps/spike.tscn" id="14_6vd05"]
-[ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/traps/saw.tscn" id="15_t6mv3"]
+[ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/Traps/spike.tscn" id="14_6vd05"]
+[ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/Traps/saw.tscn" id="15_t6mv3"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="16_jxar1"]
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="17_uticb"]
 [ext_resource type="PackedScene" uid="uid://4whpvx36wsog" path="res://scenes/Interactables/push_block.tscn" id="18_pc6eh"]
@@ -1287,44 +1287,6 @@ _data = {
 &"move": SubResource("Animation_bahl2")
 }
 
-[sub_resource type="Animation" id="Animation_v6ha0"]
-resource_name = "move"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(578, 488), Vector2(644, 488), Vector2(720, 489)]
-}
-
-[sub_resource type="Animation" id="Animation_gmpev"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(578, 488)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mkypq"]
-_data = {
-&"RESET": SubResource("Animation_gmpev"),
-&"move": SubResource("Animation_v6ha0")
-}
-
 [node name="Level_1" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("2_811s2")]
@@ -1354,6 +1316,7 @@ tile_map_data = PackedByteArray("AAD+/wMAAAAFAAcAAAD//wMAAAAFAAcAAAAAAAMAAAAFAAg
 tile_set = SubResource("TileSet_e2nc6")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Worlds"]
+visible = false
 script = ExtResource("7_1n1l4")
 tilemaplayers_nodepaths = Array[NodePath]([NodePath("../Tiles")])
 
@@ -1426,6 +1389,7 @@ position = Vector2(1184, 384)
 shape = SubResource("RectangleShape2D_cfnpk")
 
 [node name="WorldBoundry" parent="Worlds" instance=ExtResource("8_yhe24")]
+visible = false
 position = Vector2(0, 647)
 
 [node name="Player" parent="Worlds" node_paths=PackedStringArray("HEARTH") instance=ExtResource("9_x5rd6")]
@@ -1445,7 +1409,7 @@ autoplay = "move"
 
 [node name="Laser Beam" parent="Worlds" instance=ExtResource("12_4xsrm")]
 position = Vector2(-25, 520)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Interactables" type="Node" parent="."]
 
@@ -1468,52 +1432,44 @@ position = Vector2(95, 531)
 
 [node name="Laser Spike" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(416, 504)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike2" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(448, 504)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike3" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(480, 504)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike4" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(512, 504)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike5" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(544, 504)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike6" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(752, 616)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike7" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(784, 616)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike8" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(860, 472)
-damage_interval = 0.2
+damage_interval = null
 
 [node name="Laser Spike9" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(892, 472)
-damage_interval = 0.2
+damage_interval = null
 
-[node name="MovingTraps" type="Node" parent="."]
-
-[node name="Saw" parent="MovingTraps" instance=ExtResource("15_t6mv3")]
-position = Vector2(578, 488)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingTraps/Saw"]
-libraries = {
-&"": SubResource("AnimationLibrary_mkypq")
-}
-autoplay = "move"
-
-[node name="Saw2" parent="MovingTraps" instance=ExtResource("15_t6mv3")]
+[node name="Saw" parent="Traps" instance=ExtResource("15_t6mv3")]
+position = Vector2(992, 360)
+rotation = -1.57079
+damage_interval = null
 
 [node name="UI" parent="." instance=ExtResource("16_jxar1")]
 
