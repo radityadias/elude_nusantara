@@ -73,14 +73,16 @@ func game_end() -> void:
 	get_tree().quit()
 
 func game_restart() -> void:
-	player_is_dead = true
-	player_died.emit()
 	reset_game_state()
 	get_tree().reload_current_scene()
 
 # ======= EVENTS =======
 func player_damaged() -> void:
 	took_damage.emit()
+
+func player_dead() -> void:
+	player_is_dead = true
+	player_died.emit()
 
 func using_jumppad() -> void:
 	jumppad_used.emit()

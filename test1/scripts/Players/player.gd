@@ -73,6 +73,7 @@ func _process(delta: float) -> void:
 	update_timers(delta)
 
 func _physics_process(delta: float) -> void:
+	print("Current State: ", state)
 	if state == State.DEAD:
 		return 
 	
@@ -243,6 +244,7 @@ func decrease_health() -> void:
 
 	if lives == 0:
 		handle_dead()
+		return
 		
 	start_invincibility()
 	apply_knockback()
@@ -267,11 +269,12 @@ func end_invincibility() -> void:
 	is_invincible = false
 	character.modulate.a = 1.0
 
+# ===== PLAYER DEATH =====
+func handle_dead() -> void:
+	state = State.DEAD
+	GameManager.player_dead()
+
 # ===== SPECIAL ABILITIES =====
 func try_jump_pad() -> void:
 	velocity.y = JUMP_PAD_FORCE
 	state = State.JUMP_PAD
-
-func handle_dead() -> void:
-	state = State.DEAD
-	GameManager.game_restart()

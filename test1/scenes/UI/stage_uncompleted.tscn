@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbnsl022fh4nt"]
+[gd_scene load_steps=11 format=3 uid="uid://bbnsl022fh4nt"]
 
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="1_qeg0q"]
 [ext_resource type="Script" uid="uid://bv1ku2x87kxm3" path="res://scripts/UI/stage_uncompleted.gd" id="1_xr6jh"]
@@ -45,6 +45,67 @@ corner_radius_bottom_left = 10
 shadow_color = Color(0.952941, 0.901961, 0, 1)
 shadow_size = 1
 
+[sub_resource type="Animation" id="Animation_xr6jh"]
+resource_name = "on"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/CenterContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.588235)]
+}
+
+[sub_resource type="Animation" id="Animation_ngj7j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/CenterContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msqxf"]
+_data = {
+&"RESET": SubResource("Animation_ngj7j"),
+&"on": SubResource("Animation_xr6jh")
+}
+
 [node name="StageCompleted" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -57,6 +118,7 @@ script = ExtResource("1_xr6jh")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -65,6 +127,7 @@ grow_vertical = 2
 color = Color(0.117647, 0.117647, 0.117647, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -130,7 +193,7 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
-[node name="Label2" type="Label" parent="CanvasLayer/CenterContainer/Panel"]
+[node name="Stopwatch" type="Label" parent="CanvasLayer/CenterContainer/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -190,5 +253,14 @@ theme_override_styles/hover_pressed_mirrored = ExtResource("3_8cj4v")
 theme_override_styles/hover = ExtResource("3_8cj4v")
 theme_override_styles/normal = SubResource("StyleBoxFlat_elun1")
 text = "Restart"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_msqxf")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/Panel/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
