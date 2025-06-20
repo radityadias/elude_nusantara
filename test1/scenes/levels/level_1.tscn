@@ -1334,21 +1334,25 @@ script = ExtResource("1_0r5j3")
 script = ExtResource("23_0r5j3")
 level_data = ExtResource("2_d0wj5")
 
+[node name="Completed" type="CanvasLayer" parent="."]
+
+[node name="StageCompleted" parent="Completed" node_paths=PackedStringArray("STARS") instance=ExtResource("2_4xsrm")]
+visible = false
+STARS = [NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star1"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star2"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star3")]
+
+[node name="Failed" type="CanvasLayer" parent="."]
+
+[node name="StageUncompleted2" parent="Failed" instance=ExtResource("4_4xsrm")]
+
 [node name="Pause" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="Pause" instance=ExtResource("1_a60bd")]
-visible = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 metadata/_edit_lock_ = true
-
-[node name="StageCompleted" parent="Pause" node_paths=PackedStringArray("STARS") instance=ExtResource("2_4xsrm")]
-STARS = [NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star1"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star2"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star3")]
-
-[node name="StageUncompleted2" parent="Pause" instance=ExtResource("4_4xsrm")]
 
 [node name="Worlds" type="Node" parent="."]
 
@@ -1515,5 +1519,5 @@ autoplay = "move"
 
 [node name="Stopwatch" parent="." instance=ExtResource("17_uticb")]
 
-[editable path="Pause/StageCompleted"]
+[editable path="Completed/StageCompleted"]
 [editable path="UI"]
