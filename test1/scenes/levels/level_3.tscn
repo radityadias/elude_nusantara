@@ -1,10 +1,11 @@
-[gd_scene load_steps=62 format=4 uid="uid://cw70gpvn2f2d4"]
+[gd_scene load_steps=63 format=4 uid="uid://cw70gpvn2f2d4"]
 
-[ext_resource type="PackedScene" uid="uid://samrdbnel1y3" path="res://scenes/Worlds/game_manager.tscn" id="1_ftfob"]
+[ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="1_lt4p7"]
+[ext_resource type="Resource" uid="uid://bvb7tdyhynckc" path="res://scripts/Levels/Data/Level Data/level_3_data.tres" id="2_3o2ls"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="2_fkk1g"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="3_fhpes"]
 [ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/Terrains/Assets/Props-01.png" id="3_ugcn1"]
-[ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_uncompleted.tscn" id="4_lt4p7"]
+[ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_failed.tscn" id="4_lt4p7"]
 [ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/Terrains/Assets/Buildings.png" id="4_pimnq"]
 [ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/Players/player.tscn" id="5_2bnyt"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="6_n6eey"]
@@ -1171,20 +1172,21 @@ _data = {
 
 [node name="Level3" type="Node2D"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_ftfob")]
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("1_lt4p7")
+level_data = ExtResource("2_3o2ls")
+
+[node name="Completed" type="CanvasLayer" parent="."]
+
+[node name="StageCompleted" parent="Completed" instance=ExtResource("3_fhpes")]
+
+[node name="Failed" type="CanvasLayer" parent="."]
+
+[node name="StageFailed" parent="Failed" instance=ExtResource("4_lt4p7")]
 
 [node name="Pause" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="Pause" instance=ExtResource("17_lgrx1")]
-visible = true
-
-[node name="StageCompleted" parent="Pause" instance=ExtResource("3_fhpes")]
-offset_left = 2117.0
-offset_top = 313.0
-offset_right = 2117.0
-offset_bottom = 313.0
-
-[node name="StageCompleted2" parent="Pause" instance=ExtResource("4_lt4p7")]
 
 [node name="World" type="Node" parent="."]
 

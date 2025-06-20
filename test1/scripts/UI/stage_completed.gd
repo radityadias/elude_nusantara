@@ -1,5 +1,5 @@
 extends Control
-class_name PauseMenu
+class_name StageFailed
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game_manager: Node = %GameManager
@@ -27,23 +27,22 @@ func _on_next_pressed() -> void:
 	print("Button next presseds")
 
 func _on_restart_pressed() -> void:
-	print("Restart button on Stage complete pressed")
 	timer.start()
 	animation_player.play_backwards("on")
 	timer.timeout.connect(func(): GameManager.game_restart())
+	get_tree().paused = false
 
 func _on_game_finished() -> void:
 	visible = true
 	home.disabled = false
 	next.disabled = false
 	restart.disabled = false
-	print("Game Finished, Display the UI Stage Complete")
 	saved_time = GameManager.get_stopwatch_time_string()
 	stopwatch.text = saved_time
 	animation_player.play("on")
+	get_tree().paused = true
 
 func update_star_display(value: int) -> void:
-	print("Star received: ", value)
 	for i in STARS.size():
 		if i < value:
 			STARS[i].texture = load("res://assets/Sprites/GUI/Active_Star.png")

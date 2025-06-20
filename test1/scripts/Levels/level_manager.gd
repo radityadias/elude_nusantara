@@ -13,7 +13,6 @@ func _ready() -> void:
 func _on_player_damaged() -> void:
 	if level_data:
 		level_data.player_damaged = true
-		print("Player Damaged!")
 
 func _on_player_finished() -> void:
 	if level_data:
@@ -22,11 +21,6 @@ func _on_player_finished() -> void:
 		level_data.target_time_reached = level_data.player_time <= level_data.time_target
 		level_data.total_stars = calculate_stars()
 		GameManager.handle_stars(level_data.total_stars)
-		print("Player time: ", level_data.player_time)
-		print("Is stage finished: ", level_data.stage_finished)
-		print("Is target reached: ", level_data.target_time_reached)
-		print("Is player damaged: ", level_data.player_damaged)
-		print("Total Stars: ", level_data.total_stars)
 
 func calculate_stars() -> int:
 	var stars_earned: int = 0

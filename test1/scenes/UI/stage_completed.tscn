@@ -79,7 +79,8 @@ _data = {
 &"on": SubResource("Animation_7ddx5")
 }
 
-[node name="StageCompleted" type="Control"]
+[node name="StageCompleted" type="Control" node_paths=PackedStringArray("STARS")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,6 +88,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ddx5")
+STARS = [NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star1"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star2"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star3")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

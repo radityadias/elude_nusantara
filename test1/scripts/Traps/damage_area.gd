@@ -17,10 +17,14 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	var player = get_tree().get_first_node_in_group("player")
-	if body.is_in_group("player") and not GameManager.player_is_dead and not player.is_invincible:
-		is_inside = true
-		damage_timer = 0.0
-		GameManager.player_damaged()
+	if body.is_in_group("player") and not GameManager.player_is_dead: 
+		if not player.is_invincible:
+			print("player entered trap body")
+			is_inside = true
+			damage_timer = 0.0
+			GameManager.player_damaged()
+		else:
+			is_inside = true
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player") and not GameManager.player_is_dead:

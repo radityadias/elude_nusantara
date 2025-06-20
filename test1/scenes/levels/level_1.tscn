@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="2_4xsrm"]
 [ext_resource type="Resource" uid="uid://bjbs3b1we4bif" path="res://scripts/Levels/Data/Level Data/level_1_data.tres" id="2_d0wj5"]
 [ext_resource type="Texture2D" uid="uid://qjetf2krjnsk" path="res://assets/Backgrounds/1/Day/1.png" id="3_4xsrm"]
-[ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_uncompleted.tscn" id="4_4xsrm"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="4_hc568"]
 [ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/Terrains/Assets/Buildings.png" id="5_0r5j3"]
+[ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_failed.tscn" id="5_d0wj5"]
 [ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/Terrains/Assets/Props-01.png" id="6_d0wj5"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="7_1n1l4"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="8_yhe24"]
@@ -1336,13 +1336,11 @@ level_data = ExtResource("2_d0wj5")
 
 [node name="Completed" type="CanvasLayer" parent="."]
 
-[node name="StageCompleted" parent="Completed" node_paths=PackedStringArray("STARS") instance=ExtResource("2_4xsrm")]
-visible = false
-STARS = [NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star1"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star2"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star3")]
+[node name="StageCompleted" parent="Completed" instance=ExtResource("2_4xsrm")]
 
 [node name="Failed" type="CanvasLayer" parent="."]
 
-[node name="StageUncompleted2" parent="Failed" instance=ExtResource("4_4xsrm")]
+[node name="StageFailed" parent="Failed" instance=ExtResource("5_d0wj5")]
 
 [node name="Pause" type="CanvasLayer" parent="."]
 
@@ -1519,5 +1517,4 @@ autoplay = "move"
 
 [node name="Stopwatch" parent="." instance=ExtResource("17_uticb")]
 
-[editable path="Completed/StageCompleted"]
 [editable path="UI"]

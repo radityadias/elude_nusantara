@@ -130,7 +130,8 @@ _data = {
 &"on": SubResource("Animation_xr6jh")
 }
 
-[node name="StageCompleted" type="Control"]
+[node name="StageCompleted" type="Control" node_paths=PackedStringArray("STARS")]
+process_mode = 3
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -139,6 +140,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xr6jh")
+STARS = [NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star1"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star2"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star3")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -195,7 +197,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
+[node name="Star1" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 texture = ExtResource("2_qeg0q")
@@ -203,14 +205,14 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
+[node name="Star2" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 texture = ExtResource("2_qeg0q")
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
+[node name="Star3" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 texture = ExtResource("2_qeg0q")

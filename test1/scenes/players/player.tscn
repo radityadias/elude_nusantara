@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cy10gqast1lai"]
+[gd_scene load_steps=68 format=3 uid="uid://cy10gqast1lai"]
 
 [ext_resource type="Texture2D" uid="uid://ds0k0powhgx77" path="res://assets/Sprites/players/Idel Animation 48x48/Idel Animation 48x48.png" id="1_fiud5"]
 [ext_resource type="Script" uid="uid://dc4ykgqseuug6" path="res://scripts/Players/player.gd" id="1_m5i0l"]
@@ -62,6 +62,10 @@ atlas = ExtResource("2_jnvtn")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4i2sl"]
+atlas = ExtResource("2_jnvtn")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aq2v7"]
 atlas = ExtResource("2_jnvtn")
 region = Rect2(144, 0, 48, 48)
 
@@ -234,6 +238,14 @@ animations = [{
 "loop": false,
 "name": &"Jump",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aq2v7")
+}],
+"loop": true,
+"name": &"Knockback",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -472,7 +484,7 @@ script = ExtResource("1_m5i0l")
 
 [node name="Character" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cex2r")
-animation = &"Idle"
+animation = &"Knockback"
 autoplay = "Idle"
 
 [node name="Run Particle" type="AnimatedSprite2D" parent="."]

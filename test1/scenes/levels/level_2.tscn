@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=4 uid="uid://lhti2o58fwjy"]
+[gd_scene load_steps=20 format=4 uid="uid://lhti2o58fwjy"]
 
-[ext_resource type="PackedScene" uid="uid://samrdbnel1y3" path="res://scenes/Worlds/game_manager.tscn" id="1_brxtv"]
 [ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/Players/player.tscn" id="1_ra442"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="2_fiq81"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="3_l37oo"]
@@ -11,7 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/Traps/laser_beam.tscn" id="7_brxtv"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="9_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="10_r88tb"]
+[ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="12_wxjxf"]
+[ext_resource type="Resource" uid="uid://dkgpufqkcq1y6" path="res://scripts/Levels/Data/Level Data/level_2_data.tres" id="13_2ewt3"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="13_tv7cl"]
+[ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="14_2hpwu"]
+[ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="15_0lf7e"]
+[ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_failed.tscn" id="16_410d2"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v8d84"]
 
@@ -105,7 +109,21 @@ sources/0 = SubResource("TileSetAtlasSource_qpwj6")
 [node name="Level2" type="Node2D"]
 position = Vector2(304, 505)
 
-[node name="GameManager" parent="." instance=ExtResource("1_brxtv")]
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("12_wxjxf")
+level_data = ExtResource("13_2ewt3")
+
+[node name="Pause" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="Pause" instance=ExtResource("14_2hpwu")]
+
+[node name="Completed" type="CanvasLayer" parent="."]
+
+[node name="StageCompleted" parent="Completed" instance=ExtResource("15_0lf7e")]
+
+[node name="Failed" type="CanvasLayer" parent="."]
+
+[node name="StageFailed" parent="Failed" instance=ExtResource("16_410d2")]
 
 [node name="Worlds" type="Node" parent="."]
 
