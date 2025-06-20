@@ -1,8 +1,9 @@
-[gd_scene load_steps=51 format=4 uid="uid://bdwfhakjqedmh"]
+[gd_scene load_steps=53 format=4 uid="uid://bdwfhakjqedmh"]
 
+[ext_resource type="Script" uid="uid://cgcop84nu4v2o" path="res://scripts/Levels/level_1.gd" id="1_0r5j3"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="1_a60bd"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="2_4xsrm"]
-[ext_resource type="PackedScene" uid="uid://samrdbnel1y3" path="res://scenes/Worlds/game_manager.tscn" id="2_811s2"]
+[ext_resource type="Resource" uid="uid://bjbs3b1we4bif" path="res://scripts/Levels/Data/Level Data/level_1_data.tres" id="2_d0wj5"]
 [ext_resource type="Texture2D" uid="uid://qjetf2krjnsk" path="res://assets/Backgrounds/1/Day/1.png" id="3_4xsrm"]
 [ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_uncompleted.tscn" id="4_4xsrm"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="4_hc568"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="17_uticb"]
 [ext_resource type="PackedScene" uid="uid://4whpvx36wsog" path="res://scenes/Interactables/push_block.tscn" id="18_pc6eh"]
 [ext_resource type="PackedScene" uid="uid://105chyqe2ydq" path="res://scenes/Interactables/pressure_button.tscn" id="19_dqd8o"]
+[ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="23_0r5j3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bahl2"]
 texture = ExtResource("3_4xsrm")
@@ -1326,9 +1328,11 @@ _data = {
 }
 
 [node name="Level_1" type="Node2D"]
+script = ExtResource("1_0r5j3")
 
-[node name="GameManager" parent="." instance=ExtResource("2_811s2")]
-unique_name_in_owner = true
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("23_0r5j3")
+level_data = ExtResource("2_d0wj5")
 
 [node name="Pause" type="CanvasLayer" parent="."]
 
@@ -1341,9 +1345,10 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 metadata/_edit_lock_ = true
 
-[node name="StageCompleted" parent="Pause" instance=ExtResource("2_4xsrm")]
+[node name="StageCompleted" parent="Pause" node_paths=PackedStringArray("STARS") instance=ExtResource("2_4xsrm")]
+STARS = [NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star1"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star2"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star3")]
 
-[node name="StageCompleted2" parent="Pause" instance=ExtResource("4_4xsrm")]
+[node name="StageUncompleted2" parent="Pause" instance=ExtResource("4_4xsrm")]
 
 [node name="Worlds" type="Node" parent="."]
 
@@ -1356,6 +1361,7 @@ tile_map_data = PackedByteArray("AAD+/wMAAAAFAAcAAAD//wMAAAAFAAcAAAAAAAMAAAAFAAg
 tile_set = SubResource("TileSet_e2nc6")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Worlds/Tiles"]
+visible = false
 position = Vector2(-240, -536)
 script = ExtResource("7_1n1l4")
 tilemaplayers_nodepaths = Array[NodePath]([NodePath("..")])
@@ -1466,7 +1472,7 @@ position = Vector2(-26, 531)
 [node name="Traps" type="Node" parent="."]
 
 [node name="Laser Spike" parent="Traps" instance=ExtResource("14_6vd05")]
-position = Vector2(416, 504)
+position = Vector2(89, 520)
 
 [node name="Laser Spike2" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(448, 504)
@@ -1509,4 +1515,5 @@ autoplay = "move"
 
 [node name="Stopwatch" parent="." instance=ExtResource("17_uticb")]
 
+[editable path="Pause/StageCompleted"]
 [editable path="UI"]

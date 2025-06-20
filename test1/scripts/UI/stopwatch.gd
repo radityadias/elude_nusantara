@@ -30,3 +30,17 @@ func time_to_string() -> String:
 	var seconds: int = int(fmod(time, 60))
 	var milliseconds: int = int(fmod(time, 1.0) * 1000.0)
 	return "%02d : %02d : %03d" % [minutes, seconds, milliseconds]
+
+func get_raw_time() -> float:
+	return time
+
+func time_string_to_float(time_str: String) -> float:
+	var parts = time_str.split(":")
+	if parts.size() != 3:
+		return 0.0  # Fallback if format is wrong
+	
+	var minutes = int(parts[0])
+	var seconds = int(parts[1])
+	var milliseconds = int(parts[2])
+	
+	return minutes * 60.0 + seconds + milliseconds / 1000.0

@@ -5,10 +5,12 @@ class_name PauseMenu
 @onready var game_manager: Node = %GameManager
 @onready var timer: Timer = $Timer
 @onready var stopwatch: Label = $CanvasLayer/CenterContainer/Panel/Stopwatch
+@export var STARS: Array[Node]
 var saved_time: String
 
 func _ready() -> void:
 	GameManager.game_finished.connect(_on_game_finished)
+	GameManager.counted_stars.connect(update_star_display)
 
 func _on_home_pressed() -> void:
 	print("Button Home Pressed")
@@ -26,3 +28,8 @@ func _on_game_finished() -> void:
 	saved_time = GameManager.get_stopwatch_time_string()
 	stopwatch.text = saved_time
 	animation_player.play("on")
+
+func update_star_display(value: int) -> void:
+	print("Star received: ", value)
+	for i in STARS.size():
+		STARS[i].visible = i < value

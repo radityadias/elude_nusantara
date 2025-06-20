@@ -3,6 +3,7 @@ extends Node
 # ======= SIGNALS =======
 signal cards_changed(value: int)
 signal scanner_validated(value: bool)
+signal counted_stars(value: int)
 signal game_finished
 signal took_damage
 signal box_reseted
@@ -33,6 +34,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if stopwatch == null or not is_instance_valid(stopwatch):
 		stopwatch = get_tree().get_first_node_in_group("stopwatch")
+
+# ======= LEVEL SYSTEM =======
+func handle_stars(value: int) -> void:
+	counted_stars.emit(value)
 
 # ======= CARD SYSTEM =======
 func add_card() -> void:
@@ -65,6 +70,12 @@ func get_stopwatch_time_string() -> String:
 		return "00:00:000"
 	return stopwatch.time_to_string()
 
+func get_stopwatch_raw_time() -> float:
+	if stopwatch == null or not is_instance_valid(stopwatch):
+		return 0.0
+	var player_time: String = stopwatch.time_to_string()
+	return stopwatch.time_string_to_float(player_time)
+
 # ======= GAME FLOW =======
 func game_finish() -> void:
 	game_finished.emit()
@@ -78,6 +89,8 @@ func game_restart() -> void:
 
 # ======= EVENTS =======
 func player_damaged() -> void:
+	print("player_damaged() function called in GameManager") # Add this line
+	print("took damage signal emitted")
 	took_damage.emit()
 
 func player_dead() -> void:
