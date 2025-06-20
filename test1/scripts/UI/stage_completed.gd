@@ -32,4 +32,5 @@ func _on_game_finished() -> void:
 func update_star_display(value: int) -> void:
 	print("Star received: ", value)
 	for i in STARS.size():
-		STARS[i].visible = i < value
+		if i < value:
+			STARS[i].texture = load("res://assets/Sprites/GUI/Active_Star.png")
