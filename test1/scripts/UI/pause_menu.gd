@@ -1,9 +1,15 @@
 extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var resume_button: Button = $PanelContainer/VBoxContainer/Resume
+@onready var restart: Button = $PanelContainer/VBoxContainer/Restart
+@onready var quit: Button = $PanelContainer/VBoxContainer/Quit
 
 func _ready() -> void:
 	animation_player.play("RESET")
+	resume_button.disabled = true
+	restart.disabled = true
+	quit.disabled = true
 
 func _process(delta: float) -> void:
 	try_pause()
@@ -14,6 +20,9 @@ func resume() -> void:
 
 func pause() -> void: 
 	get_tree().paused = true
+	resume_button.disabled = false
+	restart.disabled = false
+	quit.disabled = false
 	animation_player.play("blur")
 
 func try_pause() -> void:

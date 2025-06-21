@@ -1,11 +1,13 @@
-[gd_scene load_steps=50 format=4 uid="uid://bdwfhakjqedmh"]
+[gd_scene load_steps=53 format=4 uid="uid://bdwfhakjqedmh"]
 
+[ext_resource type="Script" uid="uid://cgcop84nu4v2o" path="res://scripts/Levels/level_1.gd" id="1_0r5j3"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="1_a60bd"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="2_4xsrm"]
-[ext_resource type="PackedScene" uid="uid://samrdbnel1y3" path="res://scenes/Worlds/game_manager.tscn" id="2_811s2"]
+[ext_resource type="Resource" uid="uid://bjbs3b1we4bif" path="res://scripts/Levels/Data/Level Data/level_1_data.tres" id="2_d0wj5"]
 [ext_resource type="Texture2D" uid="uid://qjetf2krjnsk" path="res://assets/Backgrounds/1/Day/1.png" id="3_4xsrm"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="4_hc568"]
 [ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/Terrains/Assets/Buildings.png" id="5_0r5j3"]
+[ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_failed.tscn" id="5_d0wj5"]
 [ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/Terrains/Assets/Props-01.png" id="6_d0wj5"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="7_1n1l4"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="8_yhe24"]
@@ -20,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="17_uticb"]
 [ext_resource type="PackedScene" uid="uid://4whpvx36wsog" path="res://scenes/Interactables/push_block.tscn" id="18_pc6eh"]
 [ext_resource type="PackedScene" uid="uid://105chyqe2ydq" path="res://scenes/Interactables/pressure_button.tscn" id="19_dqd8o"]
+[ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="23_0r5j3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bahl2"]
 texture = ExtResource("3_4xsrm")
@@ -1325,22 +1328,29 @@ _data = {
 }
 
 [node name="Level_1" type="Node2D"]
+script = ExtResource("1_0r5j3")
 
-[node name="GameManager" parent="." instance=ExtResource("2_811s2")]
-unique_name_in_owner = true
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("23_0r5j3")
+level_data = ExtResource("2_d0wj5")
+
+[node name="Completed" type="CanvasLayer" parent="."]
+
+[node name="StageCompleted" parent="Completed" instance=ExtResource("2_4xsrm")]
+
+[node name="Failed" type="CanvasLayer" parent="."]
+
+[node name="StageFailed" parent="Failed" instance=ExtResource("5_d0wj5")]
 
 [node name="Pause" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="Pause" instance=ExtResource("1_a60bd")]
-visible = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 metadata/_edit_lock_ = true
-
-[node name="StageCompleted" parent="Pause" instance=ExtResource("2_4xsrm")]
 
 [node name="Worlds" type="Node" parent="."]
 
@@ -1353,6 +1363,7 @@ tile_map_data = PackedByteArray("AAD+/wMAAAAFAAcAAAD//wMAAAAFAAcAAAAAAAMAAAAFAAg
 tile_set = SubResource("TileSet_e2nc6")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Worlds/Tiles"]
+visible = false
 position = Vector2(-240, -536)
 script = ExtResource("7_1n1l4")
 tilemaplayers_nodepaths = Array[NodePath]([NodePath("..")])
@@ -1426,7 +1437,7 @@ position = Vector2(1184, 384)
 shape = SubResource("RectangleShape2D_pc6eh")
 
 [node name="WorldBoundry" parent="Worlds" instance=ExtResource("8_yhe24")]
-position = Vector2(0, 647)
+position = Vector2(0, 816)
 
 [node name="Player" parent="Worlds" node_paths=PackedStringArray("HEARTH") instance=ExtResource("9_x5rd6")]
 position = Vector2(35, 513)
@@ -1463,7 +1474,7 @@ position = Vector2(-26, 531)
 [node name="Traps" type="Node" parent="."]
 
 [node name="Laser Spike" parent="Traps" instance=ExtResource("14_6vd05")]
-position = Vector2(416, 504)
+position = Vector2(89, 520)
 
 [node name="Laser Spike2" parent="Traps" instance=ExtResource("14_6vd05")]
 position = Vector2(448, 504)

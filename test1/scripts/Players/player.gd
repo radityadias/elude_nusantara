@@ -62,6 +62,9 @@ func _ready() -> void:
 func connect_signals() -> void:
 	GameManager.jumppad_used.connect(try_jump_pad)
 	invincibility_timer.timeout.connect(end_invincibility)
+	
+	if GameManager != null and not GameManager.took_damage.is_connected(decrease_health):
+		GameManager.took_damage.connect(decrease_health)
 
 func setup_pushable_connections() -> void:
 	for block in get_tree().get_nodes_in_group("pushable"):
@@ -207,6 +210,7 @@ func update_animation_state() -> void:
 		State.PUSH:
 			play_animation("Push", "push")
 			run_particle.stop()
+			run_particle.visible = false
 
 func play_animation(anim_name: String, anim_player_anim: String) -> void:
 	character.play(anim_name)
@@ -238,11 +242,16 @@ func decrease_health() -> void:
 	if state == State.INVINCIBLE or state == State.DEAD:
 		return
 	
+	character.play("Knockback")
+	run_particle.stop()
+	run_particle.visible = false
+	
 	lives -= 1
 	update_hearth_display()
 
 	if lives == 0:
 		handle_dead()
+		return
 		
 	start_invincibility()
 	apply_knockback()
@@ -267,11 +276,12 @@ func end_invincibility() -> void:
 	is_invincible = false
 	character.modulate.a = 1.0
 
+# ===== PLAYER DEATH =====
+func handle_dead() -> void:
+	state = State.DEAD
+	GameManager.player_dead()
+
 # ===== SPECIAL ABILITIES =====
 func try_jump_pad() -> void:
 	velocity.y = JUMP_PAD_FORCE
 	state = State.JUMP_PAD
-
-func handle_dead() -> void:
-	state = State.DEAD
-	GameManager.game_restart()

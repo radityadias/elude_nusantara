@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://m4wkfkd4gpav" path="res://scripts/UI/stage_completed.gd" id="1_7ddx5"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="1_x8qo5"]
-[ext_resource type="Texture2D" uid="uid://f57lyjxrd4el" path="res://assets/Sprites/GUI/Active_Star.png" id="2_7ddx5"]
+[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/Sprites/GUI/Unactive_Star.png" id="3_7ddx5"]
 [ext_resource type="StyleBox" uid="uid://d2y2lsk87qat" path="res://assets/Palette/yellow.tres" id="3_wfq5m"]
 [ext_resource type="StyleBox" uid="uid://c0jo6xfhavtlr" path="res://assets/Palette/purpel.tres" id="4_vjcht"]
 
@@ -17,6 +17,33 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="Animation" id="Animation_wfq5m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/CenterContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_7ddx5"]
 resource_name = "on"
@@ -46,40 +73,14 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.588235)]
 }
 
-[sub_resource type="Animation" id="Animation_wfq5m"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/CenterContainer:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/ColorRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vjcht"]
 _data = {
 &"RESET": SubResource("Animation_wfq5m"),
 &"on": SubResource("Animation_7ddx5")
 }
 
-[node name="StageCompleted" type="Control"]
+[node name="StageCompleted" type="Control" node_paths=PackedStringArray("STARS")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,6 +88,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ddx5")
+STARS = [NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star1"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star2"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star3")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -143,25 +145,25 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
+[node name="Star1" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("2_7ddx5")
+texture = ExtResource("3_7ddx5")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
+[node name="Star2" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-texture = ExtResource("2_7ddx5")
+texture = ExtResource("3_7ddx5")
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
+[node name="Star3" type="TextureRect" parent="CanvasLayer/CenterContainer/Panel/StarContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("2_7ddx5")
+texture = ExtResource("3_7ddx5")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
