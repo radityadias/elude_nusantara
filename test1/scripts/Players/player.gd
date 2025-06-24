@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 # ===== EXPORT VARIABLES =====
 @export var HEARTH : Array[Node]
-@export var SPEED : float = 200
+@export var SPEED : float = 150
 @export var ACCELERATION : float = 600
 @export var FRICTION : float = 800
-@export var JUMP_FORCE : float = -350
+@export var JUMP_FORCE : float = -310
 @export var PUSH_FORCE : float = 200
 @export var KNOCKBACK_FORCE : Vector2 = Vector2(100, -100)
 
@@ -203,10 +203,13 @@ func update_animation_state() -> void:
 		State.RUN: 
 			play_animation("Run", "run")
 			run_particle.play("running_dust")
-		State.JUMP, State.DOUBLE_JUMP, State.JUMP_PAD:
+		State.JUMP, State.JUMP_PAD:
 			if character.animation != "Jump":
 				play_animation("Jump", "jump")
 			run_particle.stop()
+		State.DOUBLE_JUMP:
+			if character.animation != "double_jump":
+				character.play("double_jump")
 		State.PUSH:
 			play_animation("Push", "push")
 			run_particle.stop()

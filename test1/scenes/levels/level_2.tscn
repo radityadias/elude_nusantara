@@ -109,21 +109,14 @@ sources/0 = SubResource("TileSetAtlasSource_qpwj6")
 [node name="Level2" type="Node2D"]
 position = Vector2(304, 505)
 
+[node name="CallableUI" type="CanvasLayer" parent="." groups=["callable_ui"]]
+
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("12_wxjxf")
+finish_ui = ExtResource("15_0lf7e")
+gameover_ui = ExtResource("16_410d2")
+pause_ui = ExtResource("14_2hpwu")
 level_data = ExtResource("13_2ewt3")
-
-[node name="Pause" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="Pause" instance=ExtResource("14_2hpwu")]
-
-[node name="Completed" type="CanvasLayer" parent="."]
-
-[node name="StageCompleted" parent="Completed" instance=ExtResource("15_0lf7e")]
-
-[node name="Failed" type="CanvasLayer" parent="."]
-
-[node name="StageFailed" parent="Failed" instance=ExtResource("16_410d2")]
 
 [node name="Worlds" type="Node" parent="."]
 
