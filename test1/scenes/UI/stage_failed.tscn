@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="1_qeg0q"]
 [ext_resource type="Script" uid="uid://bv1ku2x87kxm3" path="res://scripts/UI/stage_uncompleted.gd" id="1_xr6jh"]
-[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/Sprites/GUI/Unactive_Star.png" id="2_qeg0q"]
+[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/sprites/GUI/Unactive_Star.png" id="2_qeg0q"]
 [ext_resource type="StyleBox" uid="uid://d2y2lsk87qat" path="res://assets/Palette/yellow.tres" id="3_8cj4v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pc7l8"]
@@ -130,7 +130,7 @@ _data = {
 &"on": SubResource("Animation_xr6jh")
 }
 
-[node name="StageCompleted" type="Control" node_paths=PackedStringArray("STARS")]
+[node name="StageCompleted" type="Control"]
 process_mode = 3
 visible = false
 layout_mode = 3
@@ -140,7 +140,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xr6jh")
-STARS = [NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star1"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star2"), NodePath("CanvasLayer/CenterContainer/Panel/StarContainer/Star3")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
