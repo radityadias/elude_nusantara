@@ -6,10 +6,7 @@ extends Control
 @onready var quit: Button = $PanelContainer/VBoxContainer/Quit
 
 func _ready() -> void:
-	animation_player.play("RESET")
-	resume_button.disabled = true
-	restart.disabled = true
-	quit.disabled = true
+	pass
 
 func _process(delta: float) -> void:
 	try_pause()
@@ -17,12 +14,10 @@ func _process(delta: float) -> void:
 func resume() -> void:
 	get_tree().paused = false
 	animation_player.play_backwards("blur")
+	queue_free()
 
 func pause() -> void: 
 	get_tree().paused = true
-	resume_button.disabled = false
-	restart.disabled = false
-	quit.disabled = false
 	animation_player.play("blur")
 
 func try_pause() -> void:

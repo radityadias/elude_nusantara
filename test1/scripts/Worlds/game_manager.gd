@@ -5,6 +5,7 @@ signal cards_changed(value: int)
 signal scanner_validated(value: bool)
 signal counted_stars(value: int)
 signal game_finished
+signal game_pause
 signal took_damage
 signal box_reseted
 signal jumppad_used
@@ -36,6 +37,10 @@ func handle_stars(value: int) -> void:
 # ======= GAME FLOW =======
 func game_finish() -> void:
 	game_finished.emit()
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Escape"):
+		game_pause.emit()
 
 func game_end() -> void:
 	get_tree().quit()

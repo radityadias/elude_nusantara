@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://cy10gqast1lai"]
+[gd_scene load_steps=71 format=3 uid="uid://cy10gqast1lai"]
 
 [ext_resource type="Texture2D" uid="uid://ds0k0powhgx77" path="res://assets/Sprites/players/Idel Animation 48x48/Idel Animation 48x48.png" id="1_fiud5"]
 [ext_resource type="Script" uid="uid://dc4ykgqseuug6" path="res://scripts/Players/player.gd" id="1_m5i0l"]
@@ -185,6 +185,18 @@ region = Rect2(336, 0, 48, 48)
 atlas = ExtResource("3_x1uyb")
 region = Rect2(384, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx15f"]
+atlas = ExtResource("2_jnvtn")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lutnm"]
+atlas = ExtResource("2_jnvtn")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmbmn"]
+atlas = ExtResource("2_jnvtn")
+region = Rect2(144, 0, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_cex2r"]
 animations = [{
 "frames": [{
@@ -237,7 +249,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Jump",
-"speed": 12.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -347,7 +359,21 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 20.0
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx15f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lutnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmbmn")
+}],
+"loop": false,
+"name": &"double_jump",
+"speed": 8.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
@@ -484,7 +510,7 @@ script = ExtResource("1_m5i0l")
 
 [node name="Character" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cex2r")
-animation = &"Knockback"
+animation = &"Run"
 autoplay = "Idle"
 
 [node name="Run Particle" type="AnimatedSprite2D" parent="."]

@@ -1465,25 +1465,14 @@ _data = {
 
 [node name="Level4" type="Node2D"]
 
+[node name="CallableUI" type="CanvasLayer" parent="." groups=["callable_ui"]]
+
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("1_woy8g")
+finish_ui = ExtResource("2_xt2o7")
+gameover_ui = ExtResource("4_woy8g")
+pause_ui = ExtResource("3_beuva")
 level_data = ExtResource("2_mndr2")
-
-[node name="Completed" type="CanvasLayer" parent="."]
-
-[node name="StageCompleted" parent="Completed" instance=ExtResource("2_xt2o7")]
-
-[node name="Failed" type="CanvasLayer" parent="."]
-
-[node name="StageFailed" parent="Failed" instance=ExtResource("4_woy8g")]
-
-[node name="Pause" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="Pause" instance=ExtResource("3_beuva")]
-
-[node name="StageCompleted" parent="Pause" instance=ExtResource("2_xt2o7")]
-
-[node name="StageCompleted2" parent="Pause" instance=ExtResource("4_woy8g")]
 
 [node name="World" type="Node" parent="."]
 
