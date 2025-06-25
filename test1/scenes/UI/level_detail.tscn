@@ -1,12 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://j2w0ww4jqogd"]
+[gd_scene load_steps=13 format=3 uid="uid://j2w0ww4jqogd"]
 
 [ext_resource type="Script" uid="uid://m4wkfkd4gpav" path="res://scripts/UI/stage_completed.gd" id="1_a8lcb"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="2_ujr7h"]
 [ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/sprites/GUI/Unactive_Star.png" id="3_vvbl0"]
-[ext_resource type="Texture2D" uid="uid://bjxadl2nd1i0n" path="res://assets/sprites/GUI/Hover_RestartButton2.png" id="5_4ke44"]
 [ext_resource type="Texture2D" uid="uid://dq08ssa4wgs4q" path="res://assets/sprites/GUI/NextButton2.png" id="6_a88e8"]
+[ext_resource type="Texture2D" uid="uid://cjf08mpduajs" path="res://assets/sprites/GUI/Close.png" id="7_1sls8"]
 [ext_resource type="Texture2D" uid="uid://wqyhniuupvw" path="res://assets/sprites/GUI/Hover_NextButton2.png" id="7_cfy30"]
-[ext_resource type="Texture2D" uid="uid://dbc8n1jae1axv" path="res://assets/sprites/GUI/RestartButton2.png" id="8_afvwl"]
 [ext_resource type="Texture2D" uid="uid://f57lyjxrd4el" path="res://assets/sprites/GUI/Active_Star.png" id="10_ujr7h"]
 
 [sub_resource type="Animation" id="Animation_wfq5m"]
@@ -228,35 +227,13 @@ text = "Time : 00:00:000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.718
-anchor_right = 0.5
-anchor_bottom = 0.962
-offset_left = -272.0
-offset_top = 40.2
-offset_right = 278.0
-offset_bottom = -6.20001
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Restart" type="TextureButton" parent="CenterContainer/Panel/HBoxContainer"]
+[node name="Play" type="TextureButton" parent="CenterContainer/Panel"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 10
-texture_normal = ExtResource("8_afvwl")
-texture_pressed = ExtResource("5_4ke44")
-texture_hover = ExtResource("5_4ke44")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Next" type="TextureButton" parent="CenterContainer/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
+offset_left = 237.0
+offset_top = 480.0
+offset_right = 387.0
+offset_bottom = 580.0
 size_flags_horizontal = 2
 texture_normal = ExtResource("7_cfy30")
 texture_pressed = ExtResource("6_a88e8")
@@ -334,9 +311,21 @@ theme_override_fonts/font = ExtResource("2_ujr7h")
 theme_override_font_sizes/font_size = 30
 text = "Finish under 30s"
 
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -59.0
+offset_top = 18.0
+offset_right = -19.0
+offset_bottom = 58.0
+grow_horizontal = 0
+texture_normal = ExtResource("7_1sls8")
+texture_pressed = ExtResource("7_1sls8")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
-
-[connection signal="pressed" from="CenterContainer/Panel/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="CenterContainer/Panel/HBoxContainer/Next" to="." method="_on_home_pressed"]
