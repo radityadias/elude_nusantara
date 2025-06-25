@@ -9,7 +9,6 @@ class_name StageComplete
 @onready var restart: TextureButton = $CenterContainer/Panel/HBoxContainer/Restart
 
 func _ready() -> void:
-	home.pressed.connect(_on_home_pressed)
 	next.pressed.connect(_on_next_pressed)
 	restart.pressed.connect(_on_restart_pressed)
 

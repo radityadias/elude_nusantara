@@ -360,6 +360,7 @@ grow_vertical = 2
 script = ExtResource("1_0ra34")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.548963, 0.548963, 0.548963, 1)
 position = Vector2(576.5, 323.75)
 scale = Vector2(1.12598, 1.19871)
 sprite_frames = SubResource("SpriteFrames_s3bn7")
@@ -445,3 +446,6 @@ layout_mode = 2
 
 [node name="Level 10" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/LevelContainer/Level 1" to="." method="_on_level_1_pressed"]
