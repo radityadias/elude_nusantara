@@ -4,14 +4,13 @@ class_name StageComplete
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var stopwatch: Label = $CenterContainer/Panel/Stopwatch
 @export var STARS: Array[Node]
-@onready var home: Button = $CenterContainer/Panel/HBoxContainer/Home
-@onready var next: Button = $CenterContainer/Panel/HBoxContainer/Next
-@onready var restart: Button = $CenterContainer/Panel/HBoxContainer/Restart
+@onready var home: TextureButton = $CenterContainer/Panel/HBoxContainer/Home
+@onready var next: TextureButton = $CenterContainer/Panel/HBoxContainer/Next
+@onready var restart: TextureButton = $CenterContainer/Panel/HBoxContainer/Restart
 
 var initial_stars: int = 0 
 
 func _ready() -> void:
-	home.pressed.connect(_on_home_pressed)
 	next.pressed.connect(_on_next_pressed)
 	restart.pressed.connect(_on_restart_pressed)
 
