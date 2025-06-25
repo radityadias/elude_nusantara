@@ -30,7 +30,7 @@ func _on_player_finished() -> void:
 		level_data.player_time = GameManager.get_stopwatch_raw_time()
 		level_data.target_time_reached = level_data.player_time <= level_data.time_target
 		level_data.total_stars = calculate_stars()
-		GameManager.handle_stars(level_data.total_stars) 
+		print("Player finished with ", level_data.total_stars, " stars")
 		show_finish_ui()
 
 func show_gameover_ui() -> void:
@@ -56,6 +56,9 @@ func show_finish_ui() -> void:
 		current_active_ui = null 
 
 	var finish_instance = finish_ui.instantiate()
+	if finish_instance is StageComplete:
+		print("Finish instaance found with : ", level_data.total_stars, " stars")
+		(finish_instance as StageComplete).set_initial_stars(level_data.total_stars)
 	var ui_root_layer = get_tree().get_first_node_in_group("callable_ui")
 	if ui_root_layer:
 		ui_root_layer.add_child(finish_instance)

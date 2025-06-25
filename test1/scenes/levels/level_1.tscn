@@ -1431,6 +1431,13 @@ position = Vector2(0, 816)
 position = Vector2(35, 513)
 HEARTH = [NodePath("../../UI/CanvasLayer/Health/HBoxContainer/Health1"), NodePath("../../UI/CanvasLayer/Health/HBoxContainer/Health2"), NodePath("../../UI/CanvasLayer/Health/HBoxContainer/Health3")]
 
+[node name="Camera2D" parent="Worlds/Player" index="5"]
+limit_left = -200
+limit_top = 0
+limit_right = 1200
+limit_bottom = 700
+editor_draw_limits = true
+
 [node name="Platforms" type="Node" parent="Worlds"]
 
 [node name="Platform2" parent="Worlds/Platforms" instance=ExtResource("10_sl41b")]
@@ -1508,4 +1515,5 @@ autoplay = "move"
 
 [node name="Stopwatch" parent="." instance=ExtResource("17_uticb")]
 
+[editable path="Worlds/Player"]
 [editable path="UI"]
