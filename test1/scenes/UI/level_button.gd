@@ -1,7 +1,7 @@
 @tool
 extends TextureButton
 
-signal level_selected
+signal level_selected(value: int)
 
 @export var STARS: Array[Node]
 
@@ -51,7 +51,5 @@ func update_star_display() -> void:
 			push_warning("STARS array contains non-TextureRect nodes at index %d. Skipping." % i)
 
 func _on_pressed() -> void:
-	var select_instance = select_ui.instantiate()
-	get_tree().root.add_child(select_instance)
-	select_instance.show_level_detail_ui()
-	print("Level ", level_num, " Pressed")
+	level_selected.emit(level_num)
+	print("Level Selected: ", level_num)

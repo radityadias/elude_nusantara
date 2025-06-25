@@ -1,12 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://j2w0ww4jqogd"]
+[gd_scene load_steps=13 format=3 uid="uid://btech4gvanwp8"]
 
 [ext_resource type="Script" uid="uid://cjd8yf00qied4" path="res://scripts/UI/level_detail.gd" id="1_4ke44"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="2_ujr7h"]
-[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/sprites/GUI/Unactive_Star.png" id="3_vvbl0"]
-[ext_resource type="Texture2D" uid="uid://dq08ssa4wgs4q" path="res://assets/sprites/GUI/NextButton2.png" id="6_a88e8"]
-[ext_resource type="Texture2D" uid="uid://cjf08mpduajs" path="res://assets/sprites/GUI/Close.png" id="7_1sls8"]
-[ext_resource type="Texture2D" uid="uid://wqyhniuupvw" path="res://assets/sprites/GUI/Hover_NextButton2.png" id="7_cfy30"]
-[ext_resource type="Texture2D" uid="uid://f57lyjxrd4el" path="res://assets/sprites/GUI/Active_Star.png" id="10_ujr7h"]
+[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/Sprites/GUI/Unactive_Star.png" id="3_vvbl0"]
+[ext_resource type="Texture2D" uid="uid://dq08ssa4wgs4q" path="res://assets/Sprites/GUI/NextButton2.png" id="6_a88e8"]
+[ext_resource type="Texture2D" uid="uid://cjf08mpduajs" path="res://assets/Sprites/GUI/Close.png" id="7_1sls8"]
+[ext_resource type="Texture2D" uid="uid://wqyhniuupvw" path="res://assets/Sprites/GUI/Hover_NextButton2.png" id="7_cfy30"]
+[ext_resource type="Texture2D" uid="uid://f57lyjxrd4el" path="res://assets/Sprites/GUI/Active_Star.png" id="10_ujr7h"]
 
 [sub_resource type="Animation" id="Animation_wfq5m"]
 length = 0.001
@@ -111,7 +111,7 @@ border_width_top = 1
 border_width_bottom = 1
 border_color = Color(0.952941, 0.901961, 0, 1)
 
-[node name="LevelDetail" type="Control"]
+[node name="LevelDetail" type="Control" node_paths=PackedStringArray("STARS")]
 process_mode = 3
 visible = false
 layout_mode = 3
@@ -121,6 +121,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4ke44")
+STARS = [NodePath("CenterContainer/Panel/StarContainer/Star1"), NodePath("CenterContainer/Panel/StarContainer/Star2"), NodePath("CenterContainer/Panel/StarContainer/Star3")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -153,7 +154,7 @@ custom_minimum_size = Vector2(650, 600)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_pc7l8")
 
-[node name="Label" type="Label" parent="CenterContainer/Panel"]
+[node name="Level" type="Label" parent="CenterContainer/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -265,7 +266,7 @@ texture = ExtResource("10_ujr7h")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CenterContainer/Panel/PanelContainer/VBoxContainer/ContainerStar1"]
+[node name="FinishLabel" type="Label" parent="CenterContainer/Panel/PanelContainer/VBoxContainer/ContainerStar1"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
@@ -284,7 +285,7 @@ texture = ExtResource("10_ujr7h")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CenterContainer/Panel/PanelContainer/VBoxContainer/ContainerStar2"]
+[node name="DamageLabel" type="Label" parent="CenterContainer/Panel/PanelContainer/VBoxContainer/ContainerStar2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
@@ -303,7 +304,7 @@ texture = ExtResource("10_ujr7h")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CenterContainer/Panel/PanelContainer/VBoxContainer/ContainerStar3"]
+[node name="TargetTimeLabel" type="Label" parent="CenterContainer/Panel/PanelContainer/VBoxContainer/ContainerStar3"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
@@ -329,3 +330,6 @@ stretch_mode = 5
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[connection signal="pressed" from="CenterContainer/Panel/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/TextureButton" to="." method="_on_texture_button_pressed"]

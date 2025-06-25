@@ -17,6 +17,7 @@ func _ready() -> void:
 	GameManager.took_damage.connect(_on_player_damaged)
 	GameManager.player_died.connect(_on_player_died)
 	GameManager.game_pause.connect(show_pause_ui)
+	
 
 func _on_player_damaged() -> void:
 	if level_data:

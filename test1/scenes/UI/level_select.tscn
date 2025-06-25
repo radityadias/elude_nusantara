@@ -360,6 +360,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0ra34")
 detail_ui = ExtResource("2_ty08u")
+level_button_ui = ExtResource("5_7pml4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(0.548963, 0.548963, 0.548963, 1)
@@ -421,43 +422,33 @@ columns = 5
 
 [node name="Level 1" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
-stars = 0
 
 [node name="Level 2" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
-stars = 0
 
 [node name="Level 3" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
-stars = 0
 
 [node name="Level 4" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
-stars = 0
 
 [node name="Level 5" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
-stars = 0
 
 [node name="Level 6" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
-stars = 0
 
 [node name="Level 7" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
-stars = 0
 
 [node name="Level 8" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
-stars = 0
 
 [node name="Level 9" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
-stars = 0
 
 [node name="Level 10" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
-stars = 0
 
 [node name="LevelDetailCanvas" type="CanvasLayer" parent="." groups=["detail_canvas"]]
 
