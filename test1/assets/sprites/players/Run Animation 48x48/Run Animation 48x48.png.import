@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://78qyd6lfbc4i"
-path="res://.godot/imported/Run Animation 48x48.png-4fd6bf4aae4724f697d45f7a42c6da64.ctex"
+path="res://.godot/imported/Run Animation 48x48.png-4609dc1fc7049651a80834b3723d0cbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/players/Run Animation 48x48/Run Animation 48x48.png"
-dest_files=["res://.godot/imported/Run Animation 48x48.png-4fd6bf4aae4724f697d45f7a42c6da64.ctex"]
+source_file="res://assets/Sprites/players/Run Animation 48x48/Run Animation 48x48.png"
+dest_files=["res://.godot/imported/Run Animation 48x48.png-4609dc1fc7049651a80834b3723d0cbc.ctex"]
 
 [params]
 

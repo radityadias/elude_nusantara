@@ -1,10 +1,10 @@
-[gd_scene load_steps=55 format=3 uid="uid://b82kh1elv8lxk"]
+[gd_scene load_steps=55 format=3 uid="uid://c02f37rp6j7dg"]
 
 [ext_resource type="Script" uid="uid://bbohos76n5rh1" path="res://scenes/UI/level_select.gd" id="1_0ra34"]
-[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://assets/backgrounds/Main_menu/Background.png" id="1_1fmgh"]
-[ext_resource type="Texture2D" uid="uid://cv03567tnw5jw" path="res://assets/sprites/GUI/BackButton.png" id="2_0ra34"]
+[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://assets/Backgrounds/Main_menu/Background.png" id="1_1fmgh"]
+[ext_resource type="Texture2D" uid="uid://cv03567tnw5jw" path="res://assets/Sprites/GUI/BackButton.png" id="2_0ra34"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="4_mi1ok"]
-[ext_resource type="PackedScene" uid="uid://bq1pbimnqq5nc" path="res://scenes/UI/level_button.tscn" id="5_7pml4"]
+[ext_resource type="PackedScene" uid="uid://b7mcbw4ts20wu" path="res://scenes/UI/level_button.tscn" id="5_7pml4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlxw3"]
 atlas = ExtResource("1_1fmgh")
@@ -419,33 +419,43 @@ columns = 5
 
 [node name="Level 1" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
+stars = 0
 
 [node name="Level 2" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
+stars = 0
 
 [node name="Level 3" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
+stars = 0
 
 [node name="Level 4" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
+stars = 0
 
 [node name="Level 5" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
+stars = 0
 
 [node name="Level 6" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
+stars = 0
 
 [node name="Level 7" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
+stars = 0
 
 [node name="Level 8" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
+stars = 0
 
 [node name="Level 9" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
+stars = 0
 
 [node name="Level 10" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
+stars = 0
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Control/LevelContainer/Level 1" to="." method="_on_level_1_pressed"]

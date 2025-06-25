@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dn531j40oc815"
-path="res://.godot/imported/Jumppad3.png-e28ddf26ee64ee2b55054a1e682fadb6.ctex"
+path="res://.godot/imported/Jumppad3.png-01a6d9737c6124cfc64c258fcafa03a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/interactable/Jumppad3.png"
-dest_files=["res://.godot/imported/Jumppad3.png-e28ddf26ee64ee2b55054a1e682fadb6.ctex"]
+source_file="res://assets/Sprites/interactable/Jumppad3.png"
+dest_files=["res://.godot/imported/Jumppad3.png-01a6d9737c6124cfc64c258fcafa03a7.ctex"]
 
 [params]
 

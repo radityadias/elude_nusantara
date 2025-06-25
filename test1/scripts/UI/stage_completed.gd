@@ -27,7 +27,7 @@ func set_initial_stars(value: int) -> void:
 func _on_home_pressed() -> void:
 	print("Button Home Pressed")
 	get_tree().paused = false 
-	GameManager.emit_signal("return_to_main_menu") 
+	get_tree().change_scene_to_file("res://scenes/UI/level_select.tscn")
 	queue_free() 
 
 func _on_next_pressed() -> void:

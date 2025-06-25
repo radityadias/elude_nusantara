@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_bvq2q")
 level_id = 2
+level_cleared = false
 time_target = 30.0
 player_damaged = false
 stage_finished = false
