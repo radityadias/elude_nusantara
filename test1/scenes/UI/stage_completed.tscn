@@ -107,7 +107,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="StageCompleted" type="Control"]
+[node name="StageCompleted" type="Control" node_paths=PackedStringArray("STARS")]
 process_mode = 3
 visible = false
 layout_mode = 3
@@ -117,6 +117,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ddx5")
+STARS = [NodePath("CenterContainer/Panel/StarContainer/Star1"), NodePath("CenterContainer/Panel/StarContainer/Star2"), NodePath("CenterContainer/Panel/StarContainer/Star3")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

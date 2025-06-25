@@ -8,21 +8,26 @@ class_name StageComplete
 @onready var next: TextureButton = $CenterContainer/Panel/HBoxContainer/Next
 @onready var restart: TextureButton = $CenterContainer/Panel/HBoxContainer/Restart
 
+var initial_stars: int = 0 
+
 func _ready() -> void:
 	next.pressed.connect(_on_next_pressed)
 	restart.pressed.connect(_on_restart_pressed)
 
-	get_tree().paused = true 
-
+	print("Initial Stars: ", initial_stars)
+	update_star_display(initial_stars)
 	var saved_time = GameManager.get_stopwatch_time_string()
 	stopwatch.text = saved_time
 	animation_player.play("on")
-	GameManager.counted_stars.connect(update_star_display) 
+	get_tree().paused = true 
+
+func set_initial_stars(value: int) -> void:
+	initial_stars = value
 
 func _on_home_pressed() -> void:
 	print("Button Home Pressed")
 	get_tree().paused = false 
-	GameManager.emit_signal("return_to_main_menu") 
+	get_tree().change_scene_to_file("res://scenes/UI/level_select.tscn")
 	queue_free() 
 
 func _on_next_pressed() -> void:
@@ -47,9 +52,17 @@ func _on_restart_pressed() -> void:
 	timer_for_restart.start()
 
 func update_star_display(value: int) -> void:
+	print("Stars received: ", value)
 	for i in STARS.size():
-		if i < value:
-			if STARS[i] is TextureRect:
-				(STARS[i] as TextureRect).texture = load("res://assets/Sprites/GUI/Active_Star.png")
+		if STARS[i] is TextureRect: # Always check the type
+			var star_texture_rect = STARS[i] as TextureRect
+			if i < value:
+				# Set active star texture
+				star_texture_rect.texture = load("res://assets/Sprites/GUI/Active_Star.png")
 			else:
-				push_warning("STARS array contains non-TextureRect nodes or similar.")
+				# Set inactive star texture (assuming you have one, or clear it)
+				# If you have an "inactive_star.png", load that here.
+				# Otherwise, you might want to set it to null or a default empty texture.
+				star_texture_rect.texture = load("res://assets/Sprites/GUI/Inactive_Star.png") # <--- ASSUMING YOU HAVE THIS
+		else:
+			push_warning("STARS array contains non-TextureRect nodes at index %d. Skipping." % i)

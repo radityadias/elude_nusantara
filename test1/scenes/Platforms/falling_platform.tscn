@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn36pv88qhqpi"]
+[gd_scene load_steps=8 format=3 uid="uid://dudfmnjwgd8gt"]
 
-[ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/Terrains/Assets/Buildings.png" id="1_3e47n"]
-[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="2_ihwdr"]
+[ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/Terrains/Assets/Buildings.png" id="1_3w1gp"]
+[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="2_0dgmq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7vwpn"]
-texture = ExtResource("1_3e47n")
+texture = ExtResource("1_3w1gp")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -291,7 +291,7 @@ texture = ExtResource("1_3e47n")
 2:14/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ei7q5"]
-texture = ExtResource("2_ihwdr")
+texture = ExtResource("2_0dgmq")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -352,9 +352,13 @@ sources/0 = SubResource("TileSetAtlasSource_7vwpn")
 sources/1 = SubResource("TileSetAtlasSource_ei7q5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egscr"]
-size = Vector2(51, 10)
+size = Vector2(51, 9)
 
-[node name="Platform2" type="AnimatableBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3w1gp"]
+size = Vector2(50.75, 12)
+
+[node name="FallingPlatform" type="AnimatableBody2D"]
+position = Vector2(-19, 36)
 collision_mask = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -364,5 +368,12 @@ tile_set = SubResource("TileSet_qoebf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(12.5, -20)
+position = Vector2(12, -19.5)
 shape = SubResource("RectangleShape2D_egscr")
+
+[node name="Detection" type="Area2D" parent="."]
+position = Vector2(7, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(27, -37)
+shape = SubResource("RectangleShape2D_3w1gp")

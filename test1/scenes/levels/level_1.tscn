@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://bdwfhakjqedmh"]
+[gd_scene load_steps=54 format=4 uid="uid://bdwfhakjqedmh"]
 
 [ext_resource type="Script" uid="uid://cgcop84nu4v2o" path="res://scripts/Levels/level_1.gd" id="1_0r5j3"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="1_a60bd"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://4whpvx36wsog" path="res://scenes/Interactables/push_block.tscn" id="18_pc6eh"]
 [ext_resource type="PackedScene" uid="uid://105chyqe2ydq" path="res://scenes/Interactables/pressure_button.tscn" id="19_dqd8o"]
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="23_0r5j3"]
+[ext_resource type="PackedScene" uid="uid://dy6si25j7fdps" path="res://scenes/Platforms/test_falling_platforms.tscn" id="24_d0wj5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bahl2"]
 texture = ExtResource("3_4xsrm")
@@ -1430,6 +1431,13 @@ position = Vector2(0, 816)
 position = Vector2(35, 513)
 HEARTH = [NodePath("../../UI/CanvasLayer/Health/HBoxContainer/Health1"), NodePath("../../UI/CanvasLayer/Health/HBoxContainer/Health2"), NodePath("../../UI/CanvasLayer/Health/HBoxContainer/Health3")]
 
+[node name="Camera2D" parent="Worlds/Player" index="5"]
+limit_left = -200
+limit_top = 0
+limit_right = 1200
+limit_bottom = 700
+editor_draw_limits = true
+
 [node name="Platforms" type="Node" parent="Worlds"]
 
 [node name="Platform2" parent="Worlds/Platforms" instance=ExtResource("10_sl41b")]
@@ -1440,6 +1448,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_v6ha0")
 }
 autoplay = "move"
+
+[node name="FallingPlatform" parent="Worlds" instance=ExtResource("24_d0wj5")]
+position = Vector2(107, 476)
 
 [node name="Interactables" type="Node" parent="."]
 
@@ -1504,4 +1515,5 @@ autoplay = "move"
 
 [node name="Stopwatch" parent="." instance=ExtResource("17_uticb")]
 
+[editable path="Worlds/Player"]
 [editable path="UI"]

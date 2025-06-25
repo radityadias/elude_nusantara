@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="2_fiq81"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="3_l37oo"]
 [ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/Traps/saw.tscn" id="3_qpwj6"]
-[ext_resource type="PackedScene" uid="uid://7rsxwn8xmxi2" path="res://scenes/Platforms/platform1.tscn" id="3_qsp8v"]
+[ext_resource type="PackedScene" uid="uid://7rsxwn8xmxi2" path="res://scenes/Platforms/static_platform.tscn" id="3_qsp8v"]
 [ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/Traps/spike.tscn" id="5_brxtv"]
 [ext_resource type="PackedScene" uid="uid://benxumuuee62n" path="res://scenes/Traps/wall_spike.tscn" id="6_nt80m"]
 [ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/Traps/laser_beam.tscn" id="7_brxtv"]

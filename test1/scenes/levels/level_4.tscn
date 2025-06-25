@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="7_afq43"]
 [ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/Traps/saw.tscn" id="7_glw47"]
 [ext_resource type="PackedScene" uid="uid://4whpvx36wsog" path="res://scenes/Interactables/push_block.tscn" id="7_hsvsk"]
-[ext_resource type="PackedScene" uid="uid://7rsxwn8xmxi2" path="res://scenes/Platforms/platform1.tscn" id="7_pmra4"]
+[ext_resource type="PackedScene" uid="uid://7rsxwn8xmxi2" path="res://scenes/Platforms/static_platform.tscn" id="7_pmra4"]
 [ext_resource type="PackedScene" uid="uid://105chyqe2ydq" path="res://scenes/Interactables/pressure_button.tscn" id="8_fcb7b"]
 [ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/Traps/laser_beam.tscn" id="8_pmra4"]
 [ext_resource type="PackedScene" uid="uid://b647r3r5v0waq" path="res://scenes/Interactables/jump_pad.tscn" id="9_um320"]
@@ -1489,6 +1489,7 @@ tile_map_data = PackedByteArray("AADw/wYAAgAEAAcAAADx/wYAAgAFAAcAAADy/wYAAgAEAAc
 tile_set = SubResource("TileSet_12cdj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World/Tiles"]
+visible = false
 position = Vector2(-465, -741)
 script = ExtResource("7_afq43")
 tilemaplayers_nodepaths = Array[NodePath]([NodePath("..")])
