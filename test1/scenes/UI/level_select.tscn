@@ -1,8 +1,9 @@
-[gd_scene load_steps=55 format=3 uid="uid://c02f37rp6j7dg"]
+[gd_scene load_steps=56 format=3 uid="uid://c02f37rp6j7dg"]
 
 [ext_resource type="Script" uid="uid://bbohos76n5rh1" path="res://scenes/UI/level_select.gd" id="1_0ra34"]
 [ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://assets/Backgrounds/Main_menu/Background.png" id="1_1fmgh"]
 [ext_resource type="Texture2D" uid="uid://cv03567tnw5jw" path="res://assets/Sprites/GUI/BackButton.png" id="2_0ra34"]
+[ext_resource type="PackedScene" uid="uid://btech4gvanwp8" path="res://scenes/UI/level_detail.tscn" id="2_ty08u"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="4_mi1ok"]
 [ext_resource type="PackedScene" uid="uid://b7mcbw4ts20wu" path="res://scenes/UI/level_button.tscn" id="5_7pml4"]
 
@@ -358,6 +359,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0ra34")
+detail_ui = ExtResource("2_ty08u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(0.548963, 0.548963, 0.548963, 1)
@@ -456,6 +458,8 @@ stars = 0
 [node name="Level 10" parent="Control/LevelContainer" instance=ExtResource("5_7pml4")]
 layout_mode = 2
 stars = 0
+
+[node name="LevelDetailCanvas" type="CanvasLayer" parent="." groups=["detail_canvas"]]
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Control/LevelContainer/Level 1" to="." method="_on_level_1_pressed"]

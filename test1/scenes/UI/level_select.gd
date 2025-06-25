@@ -3,9 +3,12 @@ extends Control
 @onready var anim_back = $AnimatedSprite2D
 @onready var level_container = $Control/LevelContainer
 
-var all_levels_data: Array[LevelData] = []
 @export var level_count: int = 10
 @export var base_path: String = "res://scripts/Levels/Data/Level Data/level_" # Base path to your level data files
+@export var detail_ui: PackedScene
+
+var all_levels_data: Array[LevelData] = []
+var current_active_ui: Control
 
 func _ready():
 	load_all_level_data()
@@ -62,3 +65,17 @@ func _on_play_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/UI/Main_menu.tscn")
+
+func show_level_detail_ui() -> void:
+	if current_active_ui != null and is_instance_valid(current_active_ui):
+		current_active_ui.queue_free()
+		current_active_ui = null 
+	
+	var detail_instance = detail_ui.instantiate()
+	var ui_root_layer = get_tree().get_first_node_in_group("detail_canvas")
+	if ui_root_layer:
+		ui_root_layer.add_child(detail_instance)
+		current_active_ui = detail_instance
+	else:
+		print("No node found in 'callable ui' group ")
+		push_error("No node found in 'callable ui' group")

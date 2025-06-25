@@ -4,7 +4,6 @@ extends TextureButton
 signal level_selected
 
 @export var STARS: Array[Node]
-var base_path: String = "res://scenes/Levels/level_"
 
 @export var level_num: int = 1:
 	set(value):
@@ -25,6 +24,9 @@ var base_path: String = "res://scenes/Levels/level_"
 			update_star_display()
 
 @onready var label_node = $Label
+
+var base_path: String = "res://scenes/Levels/level_"
+var select_ui: PackedScene = load("res://scenes/UI/level_select.tscn")
 
 func _ready():
 	update_display()
@@ -49,6 +51,7 @@ func update_star_display() -> void:
 			push_warning("STARS array contains non-TextureRect nodes at index %d. Skipping." % i)
 
 func _on_pressed() -> void:
-	var file_path = base_path + str(level_num) + ".tscn"
-	get_tree().change_scene_to_file(file_path)
+	var select_instance = select_ui.instantiate()
+	get_tree().root.add_child(select_instance)
+	select_instance.show_level_detail_ui()
 	print("Level ", level_num, " Pressed")
