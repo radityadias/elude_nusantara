@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvhgddtsejy1h"
-path="res://.godot/imported/Frontal Fog.png-82edac4f33532006c501366e743ed305.ctex"
+path="res://.godot/imported/Frontal Fog.png-4365c90e63b666f6aa20628ad864f04c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Terrains/Background/Frontal Fog.png"
-dest_files=["res://.godot/imported/Frontal Fog.png-82edac4f33532006c501366e743ed305.ctex"]
+source_file="res://assets/terrains/Background/Frontal Fog.png"
+dest_files=["res://.godot/imported/Frontal Fog.png-4365c90e63b666f6aa20628ad864f04c.ctex"]
 
 [params]
 

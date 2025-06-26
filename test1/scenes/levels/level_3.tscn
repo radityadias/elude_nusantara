@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="1_lt4p7"]
 [ext_resource type="Resource" uid="uid://bvb7tdyhynckc" path="res://scripts/Levels/Data/Level Data/level_3_data.tres" id="2_3o2ls"]
-[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="2_fkk1g"]
+[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="2_fkk1g"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="3_fhpes"]
-[ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/Terrains/Assets/Props-01.png" id="3_ugcn1"]
+[ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/terrains/Assets/Props-01.png" id="3_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_failed.tscn" id="4_lt4p7"]
-[ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/Terrains/Assets/Buildings.png" id="4_pimnq"]
-[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/Players/player.tscn" id="5_2bnyt"]
+[ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/terrains/Assets/Buildings.png" id="4_pimnq"]
+[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="5_2bnyt"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="6_n6eey"]
 [ext_resource type="PackedScene" uid="uid://7rsxwn8xmxi2" path="res://scenes/Platforms/static_platform.tscn" id="7_2bnyt"]
-[ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/Traps/spike.tscn" id="7_fkk1g"]
-[ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/Traps/laser_beam.tscn" id="7_ugcn1"]
+[ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/traps/spike.tscn" id="7_fkk1g"]
+[ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/traps/laser_beam.tscn" id="7_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/moving_plaltform.tscn" id="8_n6eey"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="11_n6eey"]
-[ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/Traps/saw.tscn" id="11_t4txi"]
+[ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/traps/saw.tscn" id="11_t4txi"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="12_f6egh"]
 [ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="13_t4txi"]
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="15_josfm"]
@@ -1304,6 +1304,12 @@ position = Vector2(2517, 281)
 [node name="platform15" parent="World/Platforms" instance=ExtResource("7_2bnyt")]
 position = Vector2(2319, 283)
 
+[node name="platform16" parent="World/Platforms" instance=ExtResource("7_2bnyt")]
+position = Vector2(2729, 431)
+
+[node name="platform17" parent="World/Platforms" instance=ExtResource("7_2bnyt")]
+position = Vector2(2178, 416)
+
 [node name="MovingPlatform" type="Node" parent="World"]
 
 [node name="Platform4" parent="World/MovingPlatform" instance=ExtResource("8_n6eey")]
@@ -1339,10 +1345,6 @@ autoplay = "down"
 position = Vector2(157, -64)
 scale = Vector2(4, 4)
 
-[node name="Laser Spike3" parent="Traps" instance=ExtResource("7_fkk1g")]
-position = Vector2(113, 367)
-rotation = -1.5708
-
 [node name="Laser Spike" parent="Traps" instance=ExtResource("7_fkk1g")]
 position = Vector2(63, 46)
 rotation = 1.5708
@@ -1350,9 +1352,6 @@ rotation = 1.5708
 [node name="Laser Spike2" parent="Traps" instance=ExtResource("7_fkk1g")]
 position = Vector2(66, 250)
 rotation = 1.5708
-
-[node name="Laser Spike4" parent="Traps" instance=ExtResource("7_fkk1g")]
-position = Vector2(2431, 396)
 
 [node name="Laser Spike5" parent="Traps" instance=ExtResource("7_fkk1g")]
 position = Vector2(1773, 479)

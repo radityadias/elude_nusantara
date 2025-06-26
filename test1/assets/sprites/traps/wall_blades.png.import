@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kfigk80miq2e"
-path="res://.godot/imported/wall_blades.png-a53a34786e8b0715b6be16c953963e40.ctex"
+path="res://.godot/imported/wall_blades.png-5c96f9c1048edfc2ead6782338ca6748.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/traps/wall_blades.png"
-dest_files=["res://.godot/imported/wall_blades.png-a53a34786e8b0715b6be16c953963e40.ctex"]
+source_file="res://assets/sprites/traps/wall_blades.png"
+dest_files=["res://.godot/imported/wall_blades.png-5c96f9c1048edfc2ead6782338ca6748.ctex"]
 
 [params]
 

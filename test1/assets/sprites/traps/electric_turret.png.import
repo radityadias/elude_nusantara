@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckd8pq5gtj84k"
-path="res://.godot/imported/electric_turret.png-8062aaf9a388177fb3af66b1e6d8352b.ctex"
+path="res://.godot/imported/electric_turret.png-dfe5f40647e48aab42c79324feace318.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/traps/electric_turret.png"
-dest_files=["res://.godot/imported/electric_turret.png-8062aaf9a388177fb3af66b1e6d8352b.ctex"]
+source_file="res://assets/sprites/traps/electric_turret.png"
+dest_files=["res://.godot/imported/electric_turret.png-dfe5f40647e48aab42c79324feace318.ctex"]
 
 [params]
 
