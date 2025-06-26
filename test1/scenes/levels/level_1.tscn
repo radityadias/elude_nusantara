@@ -12,11 +12,11 @@
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="7_1n1l4"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="8_yhe24"]
 [ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="9_x5rd6"]
-<<<<<<< HEAD
+<<<<<<< develop-testing-qiya
 [ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/moving_plaltform.tscn" id="10_sl41b"]
 =======
 [ext_resource type="PackedScene" path="res://scenes/Platforms/platform2.tscn" id="10_sl41b"]
->>>>>>> 25b18df03b654a2acfc3ac6582897b86c87976f0
+>>>>>>> develop
 [ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="11_f2xmq"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="12_81i13"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="13_xf47x"]
