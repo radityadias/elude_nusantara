@@ -2,6 +2,7 @@ extends Resource
 class_name LevelData
 
 @export var level_id: int = 0
+@export var level_cleared: bool = false
 @export var time_target: float = 30.0
 @export var player_damaged: bool = false
 @export var stage_finished: bool = false

@@ -4,8 +4,8 @@ class_name StageFailed
 @export var STARS: Array[Node]
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var stopwatch: Label = $CenterContainer/Panel/Stopwatch
-@onready var home: Button = $CenterContainer/Panel/HBoxContainer/Home
-@onready var restart: Button = $CenterContainer/Panel/HBoxContainer/Restart
+@onready var home: TextureButton = $CenterContainer/Panel/HBoxContainer/Home
+@onready var restart: TextureButton = $CenterContainer/Panel/HBoxContainer/Restart
 
 func _ready() -> void:
 	print("Function ready get called!")
