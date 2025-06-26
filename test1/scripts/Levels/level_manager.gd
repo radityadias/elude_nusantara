@@ -9,6 +9,7 @@ var current_active_ui: Control = null
 @export var level_data: LevelData
 
 func _ready() -> void:
+	reset()
 	if level_data == null:
 		push_warning("LevelData is not assigned to LevelManager!")
 
@@ -16,6 +17,7 @@ func _ready() -> void:
 	GameManager.took_damage.connect(_on_player_damaged)
 	GameManager.player_died.connect(_on_player_died)
 	GameManager.game_pause.connect(show_pause_ui)
+	
 
 func _on_player_damaged() -> void:
 	if level_data:
@@ -29,9 +31,24 @@ func _on_player_finished() -> void:
 		level_data.stage_finished = true
 		level_data.player_time = GameManager.get_stopwatch_raw_time()
 		level_data.target_time_reached = level_data.player_time <= level_data.time_target
-		level_data.total_stars = calculate_stars()
+		if calculate_stars() >= level_data.total_stars:
+			level_data.total_stars = calculate_stars()
+		level_data.level_cleared = true
 		print("Player finished with ", level_data.total_stars, " stars")
+		save_level_data(level_data)
+
 		show_finish_ui()
+
+func save_level_data(data: LevelData) -> void:
+	if data.resource_path.is_empty():
+		push_warning("LevelData resource has no path. Cannot save.")
+		return
+	
+	var error = ResourceSaver.save(data, data.resource_path)
+	if error != OK:
+		push_error("Error saving LevelData to %s: %s" % [data.resource_path, error])
+	else:
+		print("LevelData saved successfully to: ", data.resource_path)
 
 func show_gameover_ui() -> void:
 	print("Show game over ui get called")
@@ -58,7 +75,7 @@ func show_finish_ui() -> void:
 	var finish_instance = finish_ui.instantiate()
 	if finish_instance is StageComplete:
 		print("Finish instaance found with : ", level_data.total_stars, " stars")
-		(finish_instance as StageComplete).set_initial_stars(level_data.total_stars)
+		(finish_instance as StageComplete).set_initial_stars(calculate_stars())
 	var ui_root_layer = get_tree().get_first_node_in_group("callable_ui")
 	if ui_root_layer:
 		ui_root_layer.add_child(finish_instance)
@@ -104,3 +121,8 @@ func get_total_stars() -> int:
 	if level_data:
 		return level_data.total_stars
 	return 0
+
+func reset() -> void:
+	level_data.player_damaged = false
+	level_data.target_time_reached = false
+	level_data.stage_finished = false

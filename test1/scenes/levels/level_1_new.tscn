@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://dvad2rc1210d0"]
+[gd_scene load_steps=40 format=4 uid="uid://dvad2rc1210d0"]
 
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="1_uve2h"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="2_8nofh"]
@@ -8,12 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="4_5afox"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="4_c14h2"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="5_8nofh"]
+[ext_resource type="Resource" uid="uid://jukqqi1lu8lb" path="res://scripts/Levels/Data/Level Data/level_1_data.tres" id="5_oorix"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="6_lyg7s"]
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="6_o8nn7"]
 [ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/traps/spike.tscn" id="9_5afox"]
 [ext_resource type="PackedScene" uid="uid://105chyqe2ydq" path="res://scenes/Interactables/pressure_button.tscn" id="10_f3ma1"]
 [ext_resource type="PackedScene" uid="uid://4whpvx36wsog" path="res://scenes/Interactables/push_block.tscn" id="10_lyg7s"]
-[ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/moving_plaltform.tscn" id="12_7eaqk"]
+[ext_resource type="PackedScene" uid="uid://dguspea60h3bt" path="res://scenes/Platforms/moving_plaltform.tscn" id="12_7eaqk"]
 [ext_resource type="PackedScene" uid="uid://dy6si25j7fdps" path="res://scenes/Platforms/test_falling_platforms.tscn" id="12_hfo4s"]
 [ext_resource type="PackedScene" uid="uid://b647r3r5v0waq" path="res://scenes/Interactables/jump_pad.tscn" id="12_oorix"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="13_udpyv"]
@@ -122,6 +123,21 @@ size = Vector2(176, 272)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1ann"]
 size = Vector2(16, 16)
 
+[sub_resource type="Animation" id="Animation_g1oo3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(901, 75)]
+}
+
 [sub_resource type="Animation" id="Animation_qi4hn"]
 resource_name = "up"
 loop_mode = 2
@@ -136,21 +152,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(901, 75), Vector2(898, 255)]
-}
-
-[sub_resource type="Animation" id="Animation_g1oo3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(901, 75)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sgd7a"]
@@ -168,6 +169,7 @@ script = ExtResource("1_uve2h")
 finish_ui = ExtResource("2_8nofh")
 gameover_ui = ExtResource("3_o8nn7")
 pause_ui = ExtResource("4_5afox")
+level_data = ExtResource("5_oorix")
 
 [node name="Worlds" type="Node" parent="."]
 

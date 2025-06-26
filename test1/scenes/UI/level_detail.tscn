@@ -1,14 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3xvrj2ssrr0d"]
+[gd_scene load_steps=13 format=3 uid="uid://btech4gvanwp8"]
 
-[ext_resource type="Script" uid="uid://m4wkfkd4gpav" path="res://scripts/UI/stage_completed.gd" id="1_7ddx5"]
-[ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="1_x8qo5"]
-[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/sprites/GUI/Unactive_Star.png" id="3_7ddx5"]
-[ext_resource type="Texture2D" uid="uid://b4p1suyh7ju7g" path="res://assets/sprites/GUI/HomeButton2.png" id="4_o3aja"]
-[ext_resource type="Texture2D" uid="uid://d246se4g4bflu" path="res://assets/sprites/GUI/Hover_HomeButton2.png" id="5_wv73s"]
-[ext_resource type="Texture2D" uid="uid://dq08ssa4wgs4q" path="res://assets/sprites/GUI/NextButton2.png" id="6_wanhn"]
-[ext_resource type="Texture2D" uid="uid://wqyhniuupvw" path="res://assets/sprites/GUI/Hover_NextButton2.png" id="7_eyp4k"]
-[ext_resource type="Texture2D" uid="uid://dbc8n1jae1axv" path="res://assets/sprites/GUI/RestartButton2.png" id="8_lxnrm"]
-[ext_resource type="Texture2D" uid="uid://d2w84goldeonp" path="res://assets/sprites/GUI/Hover_RestartButton.png" id="9_q4olj"]
+[ext_resource type="Script" uid="uid://cjd8yf00qied4" path="res://scripts/UI/level_detail.gd" id="1_4ke44"]
+[ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="2_ujr7h"]
+[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/Sprites/GUI/Unactive_Star.png" id="3_vvbl0"]
+[ext_resource type="Texture2D" uid="uid://dq08ssa4wgs4q" path="res://assets/Sprites/GUI/NextButton2.png" id="6_a88e8"]
+[ext_resource type="Texture2D" uid="uid://cjf08mpduajs" path="res://assets/Sprites/GUI/Close.png" id="7_1sls8"]
+[ext_resource type="Texture2D" uid="uid://wqyhniuupvw" path="res://assets/Sprites/GUI/Hover_NextButton2.png" id="7_cfy30"]
+[ext_resource type="Texture2D" uid="uid://f57lyjxrd4el" path="res://assets/Sprites/GUI/Active_Star.png" id="10_ujr7h"]
 
 [sub_resource type="Animation" id="Animation_wfq5m"]
 length = 0.001
@@ -107,7 +105,13 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="StageCompleted" type="Control" node_paths=PackedStringArray("STARS")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8lcb"]
+bg_color = Color(0.2, 0.101961, 0.239216, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.952941, 0.901961, 0, 1)
+
+[node name="LevelDetail" type="Control" node_paths=PackedStringArray("STARS")]
 process_mode = 3
 visible = false
 layout_mode = 3
@@ -116,7 +120,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7ddx5")
+script = ExtResource("1_4ke44")
 STARS = [NodePath("CenterContainer/Panel/StarContainer/Star1"), NodePath("CenterContainer/Panel/StarContainer/Star2"), NodePath("CenterContainer/Panel/StarContainer/Star3")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -146,24 +150,24 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="CenterContainer"]
-custom_minimum_size = Vector2(650, 500)
+custom_minimum_size = Vector2(650, 600)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_pc7l8")
 
-[node name="Label" type="Label" parent="CenterContainer/Panel"]
+[node name="Level" type="Label" parent="CenterContainer/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -172.0
-offset_top = 39.0
+offset_top = 2.0
 offset_right = 172.0
-offset_bottom = 140.0
+offset_bottom = 103.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
-theme_override_fonts/font = ExtResource("1_x8qo5")
+theme_override_fonts/font = ExtResource("2_ujr7h")
 theme_override_font_sizes/font_size = 100
-text = "Complete"
+text = "Level 1"
 horizontal_alignment = 1
 
 [node name="StarContainer" type="HBoxContainer" parent="CenterContainer/Panel"]
@@ -174,9 +178,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -162.5
-offset_top = -95.0
+offset_top = -230.0
 offset_right = 162.5
-offset_bottom = 48.0
+offset_bottom = -87.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -184,7 +188,7 @@ alignment = 1
 [node name="Star1" type="TextureRect" parent="CenterContainer/Panel/StarContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("3_7ddx5")
+texture = ExtResource("3_vvbl0")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
@@ -192,14 +196,14 @@ metadata/_edit_lock_ = true
 [node name="Star2" type="TextureRect" parent="CenterContainer/Panel/StarContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-texture = ExtResource("3_7ddx5")
+texture = ExtResource("3_vvbl0")
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
 [node name="Star3" type="TextureRect" parent="CenterContainer/Panel/StarContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("3_7ddx5")
+texture = ExtResource("3_vvbl0")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true
@@ -211,59 +215,115 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -124.275
-offset_top = 38.0
-offset_right = 124.275
-offset_bottom = 89.0
+offset_left = -152.0
+offset_top = 122.0
+offset_right = 155.0
+offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
-theme_override_fonts/font = ExtResource("1_x8qo5")
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("2_ujr7h")
+theme_override_font_sizes/font_size = 40
 text = "Time : 00:00:000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.718
-anchor_right = 0.5
-anchor_bottom = 0.962
-offset_left = -272.0
-offset_top = -3.05176e-05
-offset_right = 278.0
-offset_bottom = -7.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 50
+[node name="Play" type="TextureButton" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+offset_left = 237.0
+offset_top = 480.0
+offset_right = 387.0
+offset_bottom = 580.0
+size_flags_horizontal = 2
+texture_normal = ExtResource("7_cfy30")
+texture_pressed = ExtResource("6_a88e8")
+texture_hover = ExtResource("6_a88e8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/Panel"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 210.0
+offset_right = 601.0
+offset_bottom = 414.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a8lcb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/PanelContainer"]
+layout_mode = 2
 alignment = 1
 
-[node name="Home" type="TextureButton" parent="CenterContainer/Panel/HBoxContainer"]
+[node name="ContainerStar1" type="HBoxContainer" parent="CenterContainer/Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("4_o3aja")
-texture_pressed = ExtResource("5_wv73s")
-texture_hover = ExtResource("5_wv73s")
-ignore_texture_size = true
+alignment = 1
+
+[node name="Star" type="TextureRect" parent="CenterContainer/Panel/PanelContainer/VBoxContainer/ContainerStar1"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("10_ujr7h")
+expand_mode = 1
 stretch_mode = 5
 
-[node name="Next" type="TextureButton" parent="CenterContainer/Panel/HBoxContainer"]
+[node name="FinishLabel" type="Label" parent="CenterContainer/Panel/PanelContainer/VBoxContainer/ContainerStar1"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("6_wanhn")
-texture_pressed = ExtResource("7_eyp4k")
-texture_hover = ExtResource("7_eyp4k")
-ignore_texture_size = true
+theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
+theme_override_fonts/font = ExtResource("2_ujr7h")
+theme_override_font_sizes/font_size = 30
+text = "Finish the game"
+
+[node name="ContainerStar2" type="HBoxContainer" parent="CenterContainer/Panel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Star" type="TextureRect" parent="CenterContainer/Panel/PanelContainer/VBoxContainer/ContainerStar2"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("10_ujr7h")
+expand_mode = 1
 stretch_mode = 5
 
-[node name="Restart" type="TextureButton" parent="CenterContainer/Panel/HBoxContainer"]
+[node name="DamageLabel" type="Label" parent="CenterContainer/Panel/PanelContainer/VBoxContainer/ContainerStar2"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("8_lxnrm")
-texture_pressed = ExtResource("9_q4olj")
-texture_hover = ExtResource("9_q4olj")
+theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
+theme_override_fonts/font = ExtResource("2_ujr7h")
+theme_override_font_sizes/font_size = 30
+text = "No damage taken"
+
+[node name="ContainerStar3" type="HBoxContainer" parent="CenterContainer/Panel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Star" type="TextureRect" parent="CenterContainer/Panel/PanelContainer/VBoxContainer/ContainerStar3"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("10_ujr7h")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TargetTimeLabel" type="Label" parent="CenterContainer/Panel/PanelContainer/VBoxContainer/ContainerStar3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
+theme_override_fonts/font = ExtResource("2_ujr7h")
+theme_override_font_sizes/font_size = 30
+text = "Finish under 30s"
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -59.0
+offset_top = 18.0
+offset_right = -19.0
+offset_bottom = 58.0
+grow_horizontal = 0
+texture_normal = ExtResource("7_1sls8")
+texture_pressed = ExtResource("7_1sls8")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -271,6 +331,5 @@ stretch_mode = 5
 wait_time = 0.5
 one_shot = true
 
-[connection signal="pressed" from="CenterContainer/Panel/HBoxContainer/Home" to="." method="_on_home_pressed"]
-[connection signal="pressed" from="CenterContainer/Panel/HBoxContainer/Next" to="." method="_on_next_pressed"]
-[connection signal="pressed" from="CenterContainer/Panel/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/TextureButton" to="." method="_on_texture_button_pressed"]

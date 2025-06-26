@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://7rsxwn8xmxi2" path="res://scenes/Platforms/static_platform.tscn" id="7_2bnyt"]
 [ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/traps/spike.tscn" id="7_fkk1g"]
 [ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/traps/laser_beam.tscn" id="7_ugcn1"]
-[ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/moving_plaltform.tscn" id="8_n6eey"]
+[ext_resource type="PackedScene" uid="uid://dguspea60h3bt" path="res://scenes/Platforms/moving_plaltform.tscn" id="8_n6eey"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="11_n6eey"]
 [ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/traps/saw.tscn" id="11_t4txi"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="12_f6egh"]
