@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 GameManager="*res://scripts/Worlds/game_manager.gd"
 InteractionManager="*res://interactions/interaction_manager.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 jump={
