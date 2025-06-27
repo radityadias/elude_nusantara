@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dof4l8o2wesbt"
-path="res://.godot/imported/Mid Fog.png-b3d81e2d3d9e894cbeeb598dd0fff025.ctex"
+path="res://.godot/imported/Mid Fog.png-16f3b41f369fdae0f9d52dd156db77ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/terrains/Background/Mid Fog.png"
-dest_files=["res://.godot/imported/Mid Fog.png-b3d81e2d3d9e894cbeeb598dd0fff025.ctex"]
+source_file="res://assets/Terrains/Background/Mid Fog.png"
+dest_files=["res://.godot/imported/Mid Fog.png-16f3b41f369fdae0f9d52dd156db77ca.ctex"]
 
 [params]
 

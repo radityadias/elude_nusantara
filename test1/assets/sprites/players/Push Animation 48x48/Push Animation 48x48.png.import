@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnnffkadmx1cv"
-path="res://.godot/imported/Push Animation 48x48.png-f9b83702dfc5047cde71e82147452fe4.ctex"
+path="res://.godot/imported/Push Animation 48x48.png-67270565267f48c9e4d1dc851ede93d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/players/Push Animation 48x48/Push Animation 48x48.png"
-dest_files=["res://.godot/imported/Push Animation 48x48.png-f9b83702dfc5047cde71e82147452fe4.ctex"]
+source_file="res://assets/Sprites/players/Push Animation 48x48/Push Animation 48x48.png"
+dest_files=["res://.godot/imported/Push Animation 48x48.png-67270565267f48c9e4d1dc851ede93d5.ctex"]
 
 [params]
 

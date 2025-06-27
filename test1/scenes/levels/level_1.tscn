@@ -1,25 +1,26 @@
-[gd_scene load_steps=40 format=4 uid="uid://dvad2rc1210d0"]
+[gd_scene load_steps=41 format=4 uid="uid://bdwfhakjqedmh"]
 
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="1_uve2h"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="2_8nofh"]
-[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="2_gma0p"]
-[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="3_6i3av"]
+[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="2_gma0p"]
+[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/Players/player.tscn" id="3_6i3av"]
 [ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_failed.tscn" id="3_o8nn7"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="4_5afox"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="4_c14h2"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="5_8nofh"]
-[ext_resource type="Resource" uid="uid://bbnha571gaxmy" path="res://scripts/Levels/Data/Level Data/level_1_data.tres" id="5_gmpev"]
+[ext_resource type="Resource" uid="uid://dt4t1chpglmx5" path="res://scripts/Levels/Data/Level Data/level_1_data.tres" id="5_gmpev"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="6_lyg7s"]
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="6_o8nn7"]
-[ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/traps/spike.tscn" id="9_5afox"]
+[ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/Traps/spike.tscn" id="9_5afox"]
 [ext_resource type="PackedScene" uid="uid://105chyqe2ydq" path="res://scenes/Interactables/pressure_button.tscn" id="10_f3ma1"]
 [ext_resource type="PackedScene" uid="uid://4whpvx36wsog" path="res://scenes/Interactables/push_block.tscn" id="10_lyg7s"]
-[ext_resource type="PackedScene" uid="uid://uuar06t8wlts" path="res://scenes/Platforms/moving_plaltform.tscn" id="12_7eaqk"]
+[ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/moving_plaltform.tscn" id="12_7eaqk"]
 [ext_resource type="PackedScene" uid="uid://dy6si25j7fdps" path="res://scenes/Platforms/test_falling_platforms.tscn" id="12_hfo4s"]
 [ext_resource type="PackedScene" uid="uid://b647r3r5v0waq" path="res://scenes/Interactables/jump_pad.tscn" id="12_oorix"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="13_udpyv"]
 [ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="14_rt8wg"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="15_gx6sj"]
+[ext_resource type="PackedScene" uid="uid://dqd48xwxaxmnm" path="res://scenes/Objects/street_lamp.tscn" id="21_4xsrm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5afox"]
 texture = ExtResource("2_gma0p")
@@ -162,6 +163,9 @@ _data = {
 
 [node name="Level1New" type="Node2D"]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.266575, 0.266575, 0.266575, 1)
+
 [node name="CallableUI" type="CanvasLayer" parent="." groups=["callable_ui"]]
 
 [node name="LevelManager" type="Node" parent="."]
@@ -178,6 +182,7 @@ tile_map_data = PackedByteArray("AAD//wwAAAAFAAgAAAAAAAwAAAAFAAgAAAABAAwAAAAFAAg
 tile_set = SubResource("TileSet_lyg7s")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Worlds/Tiles"]
+visible = false
 script = ExtResource("6_lyg7s")
 tilemaplayers_nodepaths = Array[NodePath]([NodePath("..")])
 
@@ -326,5 +331,8 @@ offset_right = 55.0
 offset_bottom = 16.0
 
 [node name="Stopwatch" parent="." instance=ExtResource("6_o8nn7")]
+
+[node name="StreetLamp" parent="." instance=ExtResource("21_4xsrm")]
+position = Vector2(53, 152)
 
 [editable path="UI"]
