@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxb6028dklfcn"
-path="res://.godot/imported/Pull Animation 48x48.png-b60190a873eb24c60b5c2ed714f7d456.ctex"
+path="res://.godot/imported/Pull Animation 48x48.png-65c0314661b643b3469a6c3b3cc2e4ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/players/Pull Animation 48x48/Pull Animation 48x48.png"
-dest_files=["res://.godot/imported/Pull Animation 48x48.png-b60190a873eb24c60b5c2ed714f7d456.ctex"]
+source_file="res://assets/Sprites/players/Pull Animation 48x48/Pull Animation 48x48.png"
+dest_files=["res://.godot/imported/Pull Animation 48x48.png-65c0314661b643b3469a6c3b3cc2e4ef.ctex"]
 
 [params]
 

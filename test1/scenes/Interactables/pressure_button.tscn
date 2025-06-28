@@ -1,0 +1,124 @@
+[gd_scene load_steps=15 format=3 uid="uid://105chyqe2ydq"]
+
+[ext_resource type="Script" uid="uid://t7m77wcgdsnp" path="res://scripts/Interactables/pressure_button.gd" id="1_7h45k"]
+[ext_resource type="Texture2D" uid="uid://c4e1plr1qxsiy" path="res://assets/Sprites/interactable/pressureplate.png" id="1_plk22"]
+[ext_resource type="PackedScene" uid="uid://7msgfwu63fmo" path="res://interactions/interaction area/interaction_area.tscn" id="3_r3rpm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h45k"]
+atlas = ExtResource("1_plk22")
+region = Rect2(0, 42, 64, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3rpm"]
+atlas = ExtResource("1_plk22")
+region = Rect2(128, 42, 64, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsmdo"]
+atlas = ExtResource("1_plk22")
+region = Rect2(0, 42, 64, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwcco"]
+atlas = ExtResource("1_plk22")
+region = Rect2(64, 42, 64, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb7y3"]
+atlas = ExtResource("1_plk22")
+region = Rect2(128, 42, 64, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi0vo"]
+atlas = ExtResource("1_plk22")
+region = Rect2(128, 42, 64, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kj4d"]
+atlas = ExtResource("1_plk22")
+region = Rect2(64, 42, 64, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_477b5"]
+atlas = ExtResource("1_plk22")
+region = Rect2(0, 42, 64, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pi0vo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h45k")
+}],
+"loop": false,
+"name": &"off",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3rpm")
+}],
+"loop": false,
+"name": &"on",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsmdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwcco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb7y3")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi0vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kj4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_477b5")
+}],
+"loop": false,
+"name": &"unpressed",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kj4d"]
+size = Vector2(56, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lsmdo"]
+radius = 112.161
+
+[node name="PressureButton" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_7h45k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pi0vo")
+animation = &"unpressed"
+autoplay = "off"
+
+[node name="MainCollision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_5kj4d")
+
+[node name="PressDelay" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimationDelay" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_r3rpm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
+shape = SubResource("CircleShape2D_lsmdo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="PressDelay" to="." method="_on_press_delay_timeout"]
+[connection signal="timeout" from="AnimationDelay" to="." method="_on_animation_delay_timeout"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]

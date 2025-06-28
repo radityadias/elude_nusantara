@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqd48xwxaxmnm"]
+
+[ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/Terrains/Assets/Props-01.png" id="1_hvm4n"]
+[ext_resource type="Texture2D" uid="uid://chxbyxf6qebtg" path="res://assets/Sprites/teset.png" id="2_uns4i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uns4i"]
+atlas = ExtResource("1_hvm4n")
+region = Rect2(0, 144, 15, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1njh"]
+atlas = ExtResource("1_hvm4n")
+region = Rect2(15, 144, 49, 6)
+
+[node name="StreetLamp" type="Sprite2D"]
+texture = SubResource("AtlasTexture_uns4i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(31.25, -37)
+scale = Vector2(0.969388, 1)
+texture = SubResource("AtlasTexture_i1njh")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(28, 11)
+scale = Vector2(0.656863, 0.586124)
+range_item_cull_mask = 255
+texture = ExtResource("2_uns4i")
+texture_scale = 1.5

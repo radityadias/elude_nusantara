@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy6si25j7fdps"]
+
+[ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/terrains/Assets/Buildings.png" id="1_ubabu"]
+[ext_resource type="Script" uid="uid://m0me34k0fppc" path="res://scripts/Platforms/test_moving_platform.gd" id="2_7kaah"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kaah"]
+atlas = ExtResource("1_ubabu")
+region = Rect2(311, 96, 34, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8aqv"]
+size = Vector2(34, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73d0e"]
+size = Vector2(34, 4)
+
+[node name="FallingPlatform" type="Sprite2D"]
+texture = SubResource("AtlasTexture_7kaah")
+script = ExtResource("2_7kaah")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="MainCollision" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+shape = SubResource("RectangleShape2D_g8aqv")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="DetectionCollision" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_73d0e")
+debug_color = Color(2.06962e-06, 0.627396, 0.502274, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

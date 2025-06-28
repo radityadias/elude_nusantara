@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://benxumuuee62n"]
+[gd_scene load_steps=34 format=3 uid="uid://benxumuuee62n"]
 
-[ext_resource type="Texture2D" uid="uid://kfigk80miq2e" path="res://assets/sprites/traps/wall_blades.png" id="1_hop41"]
+[ext_resource type="Texture2D" uid="uid://kfigk80miq2e" path="res://assets/Sprites/traps/wall_blades.png" id="1_hop41"]
+[ext_resource type="Script" uid="uid://w311rmglmbbt" path="res://scripts/Traps/wall_spike.gd" id="1_hx68k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ssg10"]
 atlas = ExtResource("1_hop41")
@@ -213,9 +214,23 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hop41"]
+size = Vector2(26, 28)
+
 [node name="Wall Spike" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_hx68k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cqsuw")
-frame = 25
-frame_progress = 0.608181
+frame = 24
+frame_progress = 0.816664
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hop41")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
