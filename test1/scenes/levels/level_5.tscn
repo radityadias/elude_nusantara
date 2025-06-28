@@ -1,28 +1,28 @@
-[gd_scene load_steps=76 format=4 uid="uid://b0ssem2umn31g"]
+[gd_scene load_steps=76 format=4 uid="uid://bjoxcvvkq6o2y"]
 
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="1_fi56y"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="2_hldbq"]
 [ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_failed.tscn" id="3_fsnos"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="4_mxx4w"]
-[ext_resource type="Resource" path="res://scripts/Levels/Data/Level Data/level_5_data.tres" id="5_vvoq0"]
-[ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/terrains/Assets/Buildings.png" id="6_dwyms"]
-[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="7_6xwso"]
+[ext_resource type="Resource" uid="uid://b6cwcx0cyl5io" path="res://scripts/Levels/Data/Level Data/level_5_data.tres" id="5_vvoq0"]
+[ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/Terrains/Assets/Buildings.png" id="6_dwyms"]
+[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="7_6xwso"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="8_5ke18"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="9_j14br"]
-[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="10_0y7y4"]
-[ext_resource type="PackedScene" uid="uid://bgdq1urx5b8qt" path="res://scenes/Platforms/rotating_platform_doubleplat.tscn" id="11_6xwso"]
+[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/Players/player.tscn" id="10_0y7y4"]
+[ext_resource type="PackedScene" path="res://scenes/Platforms/rotating_platform_doubleplat.tscn" id="11_6xwso"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="11_gruok"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="11_vm1kt"]
 [ext_resource type="PackedScene" uid="uid://dy6si25j7fdps" path="res://scenes/Platforms/test_falling_platforms.tscn" id="12_h717f"]
 [ext_resource type="PackedScene" uid="uid://4whpvx36wsog" path="res://scenes/Interactables/push_block.tscn" id="12_wnnhf"]
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="13_0y7y4"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="13_ahsud"]
-[ext_resource type="PackedScene" uid="uid://benxumuuee62n" path="res://scenes/traps/wall_spike.tscn" id="13_j14br"]
-[ext_resource type="PackedScene" uid="uid://dguspea60h3bt" path="res://scenes/Platforms/moving_plaltform.tscn" id="13_sfnul"]
-[ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/traps/spike.tscn" id="14_0y7y4"]
+[ext_resource type="PackedScene" uid="uid://benxumuuee62n" path="res://scenes/Traps/wall_spike.tscn" id="13_j14br"]
+[ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/moving_plaltform.tscn" id="13_sfnul"]
+[ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/Traps/spike.tscn" id="14_0y7y4"]
 [ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="14_iu1q5"]
-[ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/traps/saw.tscn" id="17_fea5r"]
-[ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/traps/laser_beam.tscn" id="17_l8eod"]
+[ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/Traps/saw.tscn" id="17_fea5r"]
+[ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/Traps/laser_beam.tscn" id="17_l8eod"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h717f"]
 texture = ExtResource("6_dwyms")
@@ -462,6 +462,21 @@ size = Vector2(48, 608)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2yhh"]
 size = Vector2(48, 64)
 
+[sub_resource type="Animation" id="Animation_xqkqj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(186, 257)]
+}
+
 [sub_resource type="Animation" id="Animation_s80yp"]
 resource_name = "down"
 length = 1.5
@@ -477,21 +492,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(186, 257), Vector2(186, 491)]
-}
-
-[sub_resource type="Animation" id="Animation_xqkqj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(186, 257)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ywvvp"]
@@ -537,6 +537,21 @@ _data = {
 &"down": SubResource("Animation_gruok")
 }
 
+[sub_resource type="Animation" id="Animation_wnnhf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-240, 225)]
+}
+
 [sub_resource type="Animation" id="Animation_vm1kt"]
 resource_name = "move"
 length = 1.5
@@ -554,7 +569,13 @@ tracks/0/keys = {
 "values": [Vector2(-240, 225), Vector2(-23, 225)]
 }
 
-[sub_resource type="Animation" id="Animation_wnnhf"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ahsud"]
+_data = {
+&"RESET": SubResource("Animation_wnnhf"),
+&"move": SubResource("Animation_vm1kt")
+}
+
+[sub_resource type="Animation" id="Animation_gm210"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -566,13 +587,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-240, 225)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ahsud"]
-_data = {
-&"RESET": SubResource("Animation_wnnhf"),
-&"move": SubResource("Animation_vm1kt")
+"values": [Vector2(-58, 691)]
 }
 
 [sub_resource type="Animation" id="Animation_blerq"]
@@ -590,21 +605,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-58, 691), Vector2(-58, 558)]
-}
-
-[sub_resource type="Animation" id="Animation_gm210"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-58, 691)]
 }
 
 [sub_resource type="Animation" id="Animation_2ylsn"]
@@ -630,6 +630,21 @@ _data = {
 &"up2": SubResource("Animation_2ylsn")
 }
 
+[sub_resource type="Animation" id="Animation_dpj0g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-231, 761)]
+}
+
 [sub_resource type="Animation" id="Animation_go6sp"]
 resource_name = "move"
 length = 4.0
@@ -647,7 +662,13 @@ tracks/0/keys = {
 "values": [Vector2(-231, 761), Vector2(246, 761)]
 }
 
-[sub_resource type="Animation" id="Animation_dpj0g"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4d2ly"]
+_data = {
+&"RESET": SubResource("Animation_dpj0g"),
+&"move": SubResource("Animation_go6sp")
+}
+
+[sub_resource type="Animation" id="Animation_70kwm"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -659,13 +680,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-231, 761)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4d2ly"]
-_data = {
-&"RESET": SubResource("Animation_dpj0g"),
-&"move": SubResource("Animation_go6sp")
+"values": [Vector2(-188, 864)]
 }
 
 [sub_resource type="Animation" id="Animation_7sg85"]
@@ -683,21 +698,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-188, 864), Vector2(112, 865)]
-}
-
-[sub_resource type="Animation" id="Animation_70kwm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-188, 864)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_edgkv"]
@@ -724,6 +724,7 @@ tile_map_data = PackedByteArray("AAAAAKgAAQAEAAcAAAABAKgAAQAEAAcAAAACAKgAAQAEAAc
 tile_set = SubResource("TileSet_sfnul")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Worlds/Tiles"]
+visible = false
 script = ExtResource("8_5ke18")
 tilemaplayers_nodepaths = Array[NodePath]([NodePath("..")])
 
