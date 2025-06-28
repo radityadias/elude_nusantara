@@ -4,6 +4,7 @@ signal closed
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var level: Label = $CenterContainer/Panel/Level
+@onready var stopwatch: Label = $CenterContainer/Panel/Stopwatch
 
 @export var STARS: Array[Node]
 
@@ -39,6 +40,7 @@ func update_display_from_level_data() -> void:
 	if current_level_data:
 		# Update the level label
 		update_level_label(current_level_data.level_id)
+		update_stopwatch_label(current_level_data.player_time_string)
 		
 		# Update the star display
 		update_star_display()
@@ -81,3 +83,6 @@ func update_star_display() -> void:
 func update_level_label(value: int) -> void:
 	print("Level label: ", value)
 	level.text = "Level " + str(value)
+
+func update_stopwatch_label(time: String) -> void:
+	stopwatch.text = "Time : " + time
