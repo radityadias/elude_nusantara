@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://5qns0ua20ewv"]
+
+[ext_resource type="PackedScene" uid="uid://dguspea60h3bt" path="res://scenes/Platforms/moving_plaltform.tscn" id="1_y3ky1"]
+[ext_resource type="PackedScene" uid="uid://dkfkxhnpy3h33" path="res://scenes/Platforms/rotating_platform.tscn" id="2_3mp4w"]
+
+[sub_resource type="Curve2D" id="Curve2D_eqhdx"]
+_data = {
+"points": PackedVector2Array(1.15866, 8.97959, -1.15866, -8.97959, -88, -32, -41.6833, 1.15866, 41.6833, -1.15866, -42, -70, -2.60698, -26.0698, 2.60698, 26.0698, 4, -29, 38.2357, 3.18631, -38.2357, -3.18631, -50, 13, 0, 0, 0, 0, -88, -32)
+}
+point_count = 5
+
+[sub_resource type="Animation" id="Animation_eqhdx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_sf46w"]
+resource_name = "rotate"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rudte"]
+_data = {
+&"RESET": SubResource("Animation_eqhdx"),
+&"rotate": SubResource("Animation_sf46w")
+}
+
+[node name="RotatingPlatform" type="Path2D"]
+rotation = 3.14159
+curve = SubResource("Curve2D_eqhdx")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-88, -32)
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../Platform2")
+update_rotation = false
+
+[node name="Platform2" parent="." instance=ExtResource("1_y3ky1")]
+position = Vector2(-88, -32)
+rotation = -3.14159
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rudte")
+}
+autoplay = "rotate"
+
+[node name="RotatingPlatform" parent="." instance=ExtResource("2_3mp4w")]
