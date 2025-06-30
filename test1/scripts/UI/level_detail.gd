@@ -64,6 +64,7 @@ func _on_texture_button_pressed() -> void:
 
 func _on_play_pressed() -> void: # Removed 'value: int' parameter from signal receiver
 	if current_level_data:
+		print("Current level data: ", current_level_data.level_id)
 		var file_path = base_path + str(current_level_data.level_id) + ".tscn"
 		get_tree().change_scene_to_file(file_path)
 	else:
