@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgdq1urx5b8qt"]
+[gd_scene load_steps=7 format=3 uid="uid://brc325wu6bu60"]
 
-[ext_resource type="PackedScene" uid="uid://dguspea60h3bt" path="res://scenes/Platforms/moving_plaltform.tscn" id="1_iugtf"]
-[ext_resource type="PackedScene" uid="uid://dtgjs6ifkordg" path="res://scenes/Platforms/rotating_platform2.tscn" id="2_nablf"]
+[ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/moving_plaltform.tscn" id="1_iugtf"]
+[ext_resource type="PackedScene" uid="uid://ccru2338q2by7" path="res://scenes/Platforms/rotating_platform2.tscn" id="2_nablf"]
 
 [sub_resource type="Curve2D" id="Curve2D_eqhdx"]
 _data = {

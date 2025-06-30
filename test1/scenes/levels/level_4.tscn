@@ -1,7 +1,7 @@
 [gd_scene load_steps=64 format=4 uid="uid://b344pe2gfwx0h"]
 
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="1_woy8g"]
-[ext_resource type="Resource" uid="uid://hs1dwd7mfaq4" path="res://scripts/Levels/Data/Level Data/level_4_data.tres" id="2_mndr2"]
+[ext_resource type="Resource" path="res://scripts/Levels/Data/Level Data/level_4_data.tres" id="2_mndr2"]
 [ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/terrains/Assets/Buildings.png" id="2_ts8eg"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="2_xt2o7"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="3_beuva"]

@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-[gd_scene load_steps=4 format=3 uid="uid://dguspea60h3bt"]
-
-[ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/terrains/Assets/Buildings.png" id="1_3e47n"]
-=======
-[gd_scene load_steps=7 format=3 uid="uid://dn36pv88qhqpi"]
+[gd_scene load_steps=4 format=3 uid="uid://dn36pv88qhqpi"]
 
 [ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/Terrains/Assets/Buildings.png" id="1_3e47n"]
-[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="2_ihwdr"]
->>>>>>> 51d4fb85f22ee1e9d972dec52c39eedc1e85a385
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_igyq2"]
 atlas = ExtResource("1_3e47n")
@@ -24,4 +17,5 @@ scale = Vector2(1.875, 1.5)
 texture = SubResource("AtlasTexture_igyq2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_egscr")
