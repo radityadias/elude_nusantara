@@ -7,5 +7,6 @@ class_name LevelData
 @export var player_damaged: bool = false
 @export var stage_finished: bool = false
 @export var player_time: float
+@export var player_time_string: String = "00:00:000"
 @export var target_time_reached: bool = false
 @export var total_stars: int = 0

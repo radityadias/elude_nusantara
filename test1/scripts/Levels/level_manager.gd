@@ -30,6 +30,7 @@ func _on_player_finished() -> void:
 	if level_data:
 		level_data.stage_finished = true
 		level_data.player_time = GameManager.get_stopwatch_raw_time()
+		level_data.player_time_string = GameManager.get_stopwatch_time_string()
 		level_data.target_time_reached = level_data.player_time <= level_data.time_target
 		if calculate_stars() >= level_data.total_stars:
 			level_data.total_stars = calculate_stars()
