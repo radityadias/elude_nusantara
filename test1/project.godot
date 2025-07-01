@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://scripts/Worlds/game_manager.gd"
 InteractionManager="*res://interactions/interaction_manager.tscn"
+SceneManager="*res://scripts/Worlds/scene_manager.gd"
 
 [input]
 

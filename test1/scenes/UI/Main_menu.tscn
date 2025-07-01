@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dx8528gh7afh6" path="res://scripts/UI/menu.gd" id="1_70yqd"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="2_xocwx"]
-[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://assets/backgrounds/Main_menu/Background.png" id="3_x2ps0"]
+[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://assets/Backgrounds/Main_menu/Background.png" id="3_x2ps0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlxw3"]
 atlas = ExtResource("3_x2ps0")
@@ -388,7 +388,8 @@ position = Vector2(576.5, 323.75)
 scale = Vector2(1.12598, 1.19871)
 sprite_frames = SubResource("SpriteFrames_dgcoy")
 animation = &"Background"
-frame_progress = 0.29773
+frame = 15
+frame_progress = 0.383942
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

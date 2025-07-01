@@ -66,7 +66,8 @@ func _on_play_pressed() -> void: # Removed 'value: int' parameter from signal re
 	if current_level_data:
 		print("Current level data: ", current_level_data.level_id)
 		var file_path = base_path + str(current_level_data.level_id) + ".tscn"
-		get_tree().change_scene_to_file(file_path)
+		SceneManager.change_scene(file_path)
+		print("change_scene() get called with path: ", file_path)
 	else:
 		push_warning("Cannot play level: current_level_data is null.")
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=52 format=3 uid="uid://bm20lx2liijds"]
 
-[ext_resource type="Script" uid="uid://47q63cb3g1db" path="res://credit.gd" id="1_hjq4g"]
-[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://Background.png" id="2_qxitq"]
+[ext_resource type="Script" path="res://scripts/UI/credit.gd" id="1_wg3bf"]
+[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://assets/Backgrounds/Main_menu/Background.png" id="2_qxitq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlxw3"]
 atlas = ExtResource("2_qxitq")
@@ -354,7 +354,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_hjq4g")
+script = ExtResource("1_wg3bf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(576.5, 323.75)

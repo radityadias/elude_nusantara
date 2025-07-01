@@ -1,10 +1,10 @@
 [gd_scene load_steps=55 format=3 uid="uid://cj7miucq8nwih"]
 
-[ext_resource type="Script" uid="uid://gwuo5hg2sqll" path="res://option_menu.gd" id="1_ycfsm"]
-[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://Background.png" id="2_34lk6"]
-[ext_resource type="FontFile" uid="uid://b5c72kmeixian" path="res://Jersey25-Regular.ttf" id="3_awk8e"]
-[ext_resource type="StyleBox" uid="uid://clo1tupaqxenu" path="res://hover_style_box_flat.tres" id="4_k43r8"]
-[ext_resource type="StyleBox" uid="uid://crj3hx468hjul" path="res://style_box_flat.tres" id="5_pt063"]
+[ext_resource type="Script" uid="uid://gwuo5hg2sqll" path="res://scripts/UI/option_menu.gd" id="1_bj0cr"]
+[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://assets/Backgrounds/Main_menu/Background.png" id="2_34lk6"]
+[ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="2_nsjon"]
+[ext_resource type="StyleBox" uid="uid://clo1tupaqxenu" path="res://assets/Palette/hover_style_box_flat.tres" id="4_k43r8"]
+[ext_resource type="StyleBox" uid="uid://crj3hx468hjul" path="res://assets/Palette/style_box_flat.tres" id="5_pt063"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlxw3"]
 atlas = ExtResource("2_34lk6")
@@ -350,14 +350,14 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="Menu" type="Control"]
+[node name="OptionMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ycfsm")
+script = ExtResource("1_bj0cr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(576.5, 323.75)
@@ -399,7 +399,7 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.2, 0.101961, 0.239216, 1)
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
-theme_override_fonts/font = ExtResource("3_awk8e")
+theme_override_fonts/font = ExtResource("2_nsjon")
 theme_override_font_sizes/font_size = 75
 theme_override_styles/hover = ExtResource("4_k43r8")
 theme_override_styles/normal = ExtResource("5_pt063")
@@ -410,7 +410,7 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.2, 0.101961, 0.239216, 1)
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
-theme_override_fonts/font = ExtResource("3_awk8e")
+theme_override_fonts/font = ExtResource("2_nsjon")
 theme_override_font_sizes/font_size = 75
 theme_override_styles/hover = ExtResource("4_k43r8")
 theme_override_styles/normal = ExtResource("5_pt063")
@@ -421,7 +421,7 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.2, 0.101961, 0.239216, 1)
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
-theme_override_fonts/font = ExtResource("3_awk8e")
+theme_override_fonts/font = ExtResource("2_nsjon")
 theme_override_font_sizes/font_size = 75
 theme_override_styles/hover = ExtResource("4_k43r8")
 theme_override_styles/normal = ExtResource("5_pt063")

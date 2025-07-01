@@ -6,4 +6,4 @@ func _ready():
 	anim_back.play("Background")
 
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://Main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/UI/Main_menu.tscn")
