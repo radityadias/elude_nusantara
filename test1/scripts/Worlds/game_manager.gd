@@ -1,8 +1,8 @@
 extends Node
 
 # ======= SIGNALS =======
-signal cards_changed(value: int)
-signal scanner_validated(value: bool)
+signal cards_changed(card_type: String, count: int)
+signal scanner_validated(card_type: String, success: bool)
 signal counted_stars(value: int)
 signal game_finished
 signal game_pause
@@ -16,6 +16,7 @@ signal player_died
 @onready var delay: Timer = $Delay
 
 # ======= STATE =======
+var collected_cards: Dictionary = {}
 var cards_collected: int = 0
 var is_having_card: bool = false
 var player_is_dead: bool = false
@@ -64,16 +65,27 @@ func box_reset() -> void:
 	box_reseted.emit()
 
 # ======= CARD SYSTEM =======
-func add_card() -> void:
-	cards_collected += 1
-	cards_changed.emit(cards_collected)
-	
-func validate_scan() -> void:
-	if cards_collected > 0:
-		is_having_card = true
-		scanner_validated.emit(true)
+func add_card(card_type: String) -> void:
+	collected_cards[card_type] = collected_cards.get(card_type, 0) + 1
+	cards_changed.emit(card_type, collected_cards[card_type])
+	print("Collected %s key. Total %s %s keys." % [card_type, collected_cards[card_type], card_type]) # For debugging
+
+func has_card(card_type: String, required_count: int = 1) -> bool:
+	return collected_cards.get(card_type, 0) >= required_count
+
+func consume_card(card_type: String, count: int = 1) -> void:
+	if collected_cards.has(card_type):
+		collected_cards[card_type] -= count
+		if collected_cards[card_type] <= 0:
+			collected_cards.erase(card_type)
+		cards_changed.emit(card_type, collected_cards.get(card_type, 0))
+		print("Consumed %s %s key. Remaining %s %s keys." % [count, card_type, collected_cards.get(card_type, 0), card_type]) # For debugging
+
+func validate_scan(card_type: String, required_count: int = 1) -> void:
+	if has_card(card_type, required_count):
+		scanner_validated.emit(card_type, true)
 	else:
-		scanner_validated.emit(false)
+		scanner_validated.emit(card_type, false)
 
 # ======= STOPWATCH SYSTEM =======
 func get_stopwatch_time_string() -> String:
@@ -89,6 +101,6 @@ func get_stopwatch_raw_time() -> float:
 
 # ======= RESET =======
 func reset_game_state() -> void:
-	cards_collected = 0
+	collected_cards.clear()
 	is_having_card = false
 	player_is_dead = false

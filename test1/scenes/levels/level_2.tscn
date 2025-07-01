@@ -1,20 +1,20 @@
 [gd_scene load_steps=55 format=4 uid="uid://lhti2o58fwjy"]
 
-[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="1_ra442"]
+[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/Players/player.tscn" id="1_ra442"]
 [ext_resource type="Script" uid="uid://cgcop84nu4v2o" path="res://scripts/Levels/level_1.gd" id="1_wikm6"]
-[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="2_fiq81"]
+[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/Terrains/Assets/Tiles.png" id="2_fiq81"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="3_l37oo"]
-[ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/traps/saw.tscn" id="3_qpwj6"]
-[ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/traps/spike.tscn" id="5_brxtv"]
-[ext_resource type="Texture2D" uid="uid://qjetf2krjnsk" path="res://assets/backgrounds/1/Day/1.png" id="7_1a10c"]
-[ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/terrains/Assets/Buildings.png" id="9_mx6s3"]
+[ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/Traps/saw.tscn" id="3_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/Traps/spike.tscn" id="5_brxtv"]
+[ext_resource type="Texture2D" uid="uid://qjetf2krjnsk" path="res://assets/Backgrounds/1/Day/1.png" id="7_1a10c"]
+[ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/Terrains/Assets/Buildings.png" id="9_mx6s3"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="9_tv7cl"]
-[ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/terrains/Assets/Props-01.png" id="10_7d3nu"]
+[ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/Terrains/Assets/Props-01.png" id="10_7d3nu"]
 [ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="10_r88tb"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="11_r6ket"]
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="12_wxjxf"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="12_xworo"]
-[ext_resource type="Resource" uid="uid://4enap2bg81wa" path="res://scripts/Levels/Data/Level Data/level_2_data.tres" id="13_2ewt3"]
+[ext_resource type="Resource" uid="uid://b6vyjhj7x2mrd" path="res://scripts/Levels/Data/Level Data/level_2_data.tres" id="13_2ewt3"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="13_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="14_2hpwu"]
 [ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/moving_plaltform.tscn" id="14_wwjag"]
@@ -1463,12 +1463,15 @@ position = Vector2(581, 461)
 
 [node name="Scanner" parent="Interactables" instance=ExtResource("10_r88tb")]
 position = Vector2(216, 371)
+required_card_type = "red"
 
 [node name="Card" parent="Interactables" instance=ExtResource("9_tv7cl")]
 position = Vector2(769, 566)
+card_type = "red"
 
 [node name="Door" parent="Interactables" instance=ExtResource("3_l37oo")]
 position = Vector2(1074, 425)
+required_card_type = "red"
 
 [node name="Push Block" parent="Interactables" instance=ExtResource("19_yxkvy")]
 position = Vector2(223, 560)
@@ -1523,4 +1526,5 @@ autoplay = "move"
 [node name="Stopwatch" parent="." instance=ExtResource("24_tn15g")]
 
 [editable path="Worlds/Player"]
+[editable path="Interactables/Card"]
 [editable path="UI"]

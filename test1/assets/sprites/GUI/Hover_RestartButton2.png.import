@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjxadl2nd1i0n"
-path="res://.godot/imported/Hover_RestartButton2.png-214c0d0081c1285a8ccb7e345763fad7.ctex"
+path="res://.godot/imported/Hover_RestartButton2.png-d11679b43a24c5724df142b372e43d80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/GUI/Hover_RestartButton2.png"
-dest_files=["res://.godot/imported/Hover_RestartButton2.png-214c0d0081c1285a8ccb7e345763fad7.ctex"]
+source_file="res://assets/Sprites/GUI/Hover_RestartButton2.png"
+dest_files=["res://.godot/imported/Hover_RestartButton2.png-d11679b43a24c5724df142b372e43d80.ctex"]
 
 [params]
 

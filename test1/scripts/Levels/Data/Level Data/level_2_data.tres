@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://4enap2bg81wa"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://b6vyjhj7x2mrd"]
 
 [ext_resource type="Script" uid="uid://brfikl74cqumy" path="res://scripts/Levels/Data/level_data.gd" id="1_bvq2q"]
 
@@ -9,7 +9,8 @@ level_cleared = true
 time_target = 30.0
 player_damaged = false
 stage_finished = true
-player_time = 27.848
+player_time = 22.367
+player_time_string = "00 : 22 : 367"
 target_time_reached = true
 total_stars = 3
 metadata/_custom_type_script = "uid://brfikl74cqumy"

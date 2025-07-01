@@ -6,14 +6,16 @@ extends AnimatableBody2D
 @onready var finish_collision: CollisionShape2D = $Finish/FinishCollision
 @onready var timer: Timer = $Timer
 
+@export var required_card_type: String = "default"
+
 var is_unlocked : bool = false
 
 func _ready() -> void:
 	GameManager.scanner_validated.connect(_on_scanner_result)
 	finish_collision.disabled = true
 
-func _on_scanner_result(value: bool):
-	if value:
+func _on_scanner_result(scanned_card_type: String, value: bool):
+	if scanned_card_type == required_card_type and value:
 		unlock()
 
 func unlock():
