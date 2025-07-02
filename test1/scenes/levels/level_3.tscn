@@ -1,7 +1,7 @@
-[gd_scene load_steps=63 format=4 uid="uid://cw70gpvn2f2d4"]
+[gd_scene load_steps=65 format=4 uid="uid://cw70gpvn2f2d4"]
 
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="1_lt4p7"]
-[ext_resource type="Resource" uid="uid://chsrpcrme3qln" path="res://scripts/Levels/Data/Level Data/level_3_data.tres" id="2_3o2ls"]
+[ext_resource type="Resource" uid="uid://cu2j235pg0ibp" path="res://scripts/Levels/Data/Level Data/level_3_data.tres" id="2_3o2ls"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="2_fkk1g"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="3_fhpes"]
 [ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/terrains/Assets/Props-01.png" id="3_ugcn1"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://7rsxwn8xmxi2" path="res://scenes/Platforms/static_platform.tscn" id="7_2bnyt"]
 [ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/traps/spike.tscn" id="7_fkk1g"]
 [ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/traps/laser_beam.tscn" id="7_ugcn1"]
-[ext_resource type="PackedScene" uid="uid://dguspea60h3bt" path="res://scenes/Platforms/moving_plaltform.tscn" id="8_n6eey"]
+[ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/moving_plaltform.tscn" id="8_n6eey"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="11_n6eey"]
 [ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/traps/saw.tscn" id="11_t4txi"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="12_f6egh"]
@@ -20,6 +20,66 @@
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="15_josfm"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="16_lgrx1"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="17_lgrx1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nwmf"]
+texture = ExtResource("2_fkk1g")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5f5xw"]
+sources/0 = SubResource("TileSetAtlasSource_1nwmf")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n6eey"]
 texture = ExtResource("4_pimnq")
@@ -1182,6 +1242,10 @@ pause_ui = ExtResource("17_lgrx1")
 level_data = ExtResource("2_3o2ls")
 
 [node name="World" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="World"]
+tile_set = SubResource("TileSet_5f5xw")
+format = 2
 
 [node name="Background" type="TileMapLayer" parent="World"]
 tile_map_data = PackedByteArray("AAAIABgAAAATAAYAAAAJABgAAAAUAAYAAAAKABgAAAAVAAYAAAAMABgAAAATAAYAAAANABgAAAAUAAYAAAAOABgAAAAVAAYAAAADABQAAAAFAAcAAAAEABQAAAAGAAkAAAAFABQAAAAHAAsAAAAFABMAAAAFAAkAAAAGABMAAAAGAAgAAAAHABMAAAAHAAgAAADFACIAAAAAAAMAAADGACIAAAABAAMAAADHACIAAAACAAMAAADIACIAAAACAAMAAADJACIAAAACAAMAAADKACIAAAACAAMAAADLACIAAAACAAMAAADMACIAAAACAAMAAADNACIAAAADAAMAAADOACIAAAADAAMAAADPACIAAAAEAAMAAADQACIAAAAFAAMAAADQACEAAAAFAAIAAADQACAAAAAFAAEAAADQAB8AAAAFAAAAAADFACEAAAAAAAIAAADFACAAAAAAAAIAAADFAB8AAAAAAAEAAADGAB8AAAABAAEAAADHAB8AAAACAAEAAADIAB8AAAACAAEAAADJAB8AAAACAAEAAADKAB8AAAACAAEAAADLAB8AAAACAAEAAADMAB8AAAACAAEAAADNAB8AAAACAAEAAADOAB8AAAADAAIAAADPAB8AAAAEAAEAAADGACAAAAABAAIAAADGACEAAAABAAIAAADHACAAAAABAAIAAADHACEAAAABAAIAAADIACEAAAABAAIAAADIACAAAAABAAEAAADJACAAAAABAAIAAADKACAAAAACAAIAAADKACEAAAACAAIAAADJACEAAAABAAIAAADLACEAAAACAAIAAADMACEAAAACAAIAAADLACAAAAACAAIAAADMACAAAAACAAIAAADNACAAAAACAAEAAADNACEAAAACAAEAAADOACEAAAADAAIAAADOACAAAAADAAIAAADPACAAAAAEAAIAAADPACEAAAAEAAIAAAA=")
