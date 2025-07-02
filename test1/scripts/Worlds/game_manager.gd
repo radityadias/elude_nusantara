@@ -15,11 +15,15 @@ signal player_died
 @onready var stopwatch: Stopwatch = get_tree().get_first_node_in_group("stopwatch")
 @onready var delay: Timer = $Delay
 
+
 # ======= STATE =======
 var collected_cards: Dictionary = {}
 var cards_collected: int = 0
 var is_having_card: bool = false
 var player_is_dead: bool = false
+var current_level_data: LevelData
+var base_path: String = "res://scenes/levels/level_"
+var level_data_base_path: String = "res://scripts/Levels/Data/Level Data/level_"
 
 # ======= READY =======
 func _ready() -> void:
@@ -34,6 +38,16 @@ func _process(delta: float) -> void:
 # ======= LEVEL SYSTEM =======
 func handle_stars(value: int) -> void:
 	counted_stars.emit(value)
+
+func set_current_level_data(current_data: LevelData) -> void:
+	current_level_data = current_data
+
+func next_level() -> void:
+	var next_level_id = current_level_data.level_id + 1
+	var target_level_path = base_path + str(next_level_id) + ".tscn"
+	var target_level_data_path = level_data_base_path + str(next_level_id) + "_data.tres"
+	current_level_data  = load(target_level_data_path)
+	SceneManager.change_scene(target_level_path)
 
 # ======= GAME FLOW =======
 func game_finish() -> void:

@@ -35,7 +35,6 @@ func _on_player_finished() -> void:
 		if calculate_stars() >= level_data.total_stars:
 			level_data.total_stars = calculate_stars()
 		level_data.level_cleared = true
-		print("Player finished with ", level_data.total_stars, " stars")
 		save_level_data(level_data)
 
 		show_finish_ui()
@@ -52,7 +51,6 @@ func save_level_data(data: LevelData) -> void:
 		print("LevelData saved successfully to: ", data.resource_path)
 
 func show_gameover_ui() -> void:
-	print("Show game over ui get called")
 	if current_active_ui != null and is_instance_valid(current_active_ui):
 		current_active_ui.queue_free()
 		current_active_ui = null 
@@ -60,7 +58,6 @@ func show_gameover_ui() -> void:
 	var gameover_instance = gameover_ui.instantiate()
 	var ui_root_layer = get_tree().get_first_node_in_group("callable_ui")
 	if ui_root_layer:
-		print("Node Found")
 		ui_root_layer.add_child(gameover_instance)
 		current_active_ui = gameover_instance
 	else:
@@ -75,7 +72,6 @@ func show_finish_ui() -> void:
 
 	var finish_instance = finish_ui.instantiate()
 	if finish_instance is StageComplete:
-		print("Finish instaance found with : ", level_data.total_stars, " stars")
 		(finish_instance as StageComplete).set_initial_stars(calculate_stars())
 	var ui_root_layer = get_tree().get_first_node_in_group("callable_ui")
 	if ui_root_layer:
@@ -86,7 +82,6 @@ func show_finish_ui() -> void:
 		push_error("No node found in 'callable ui' group")
 
 func show_pause_ui() -> void:
-	print("Show game over ui get called")
 	if current_active_ui != null and is_instance_valid(current_active_ui):
 		current_active_ui.queue_free()
 		current_active_ui = null 

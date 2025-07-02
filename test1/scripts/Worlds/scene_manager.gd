@@ -11,7 +11,6 @@ signal scene_loaded(loaded_scene_node: Node)
 
 # This function will be called from any other script to change scenes
 func change_scene(target_scene_path: String) -> void:
-	print("change_scene() func get executed with path: ", target_scene_path)
 	# Emit a signal that a scene change is starting
 	scene_change_initiated.emit(target_scene_path)
 	

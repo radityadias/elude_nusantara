@@ -9,6 +9,7 @@ class_name StageComplete
 @onready var restart: TextureButton = $CenterContainer/Panel/HBoxContainer/Restart
 
 var initial_stars: int = 0 
+var base_path: String = "res://scenes/levels/level_"
 
 func _ready() -> void:
 	next.pressed.connect(_on_next_pressed)
@@ -33,7 +34,7 @@ func _on_home_pressed() -> void:
 func _on_next_pressed() -> void:
 	print("Button next pressed")
 	get_tree().paused = false 
-	GameManager.emit_signal("load_next_level")
+	GameManager.next_level()
 	queue_free()
 
 func _on_restart_pressed() -> void:

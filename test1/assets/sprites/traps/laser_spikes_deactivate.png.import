@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bx8qr05u34ob5"
-path="res://.godot/imported/laser_spikes_deactivate.png-d8a9962b477418f40dc27fd6d2e4e88f.ctex"
+path="res://.godot/imported/laser_spikes_deactivate.png-d24bd29baea634c2d6d156a69bb85182.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/traps/laser_spikes_deactivate.png"
-dest_files=["res://.godot/imported/laser_spikes_deactivate.png-d8a9962b477418f40dc27fd6d2e4e88f.ctex"]
+source_file="res://assets/sprites/traps/laser_spikes_deactivate.png"
+dest_files=["res://.godot/imported/laser_spikes_deactivate.png-d24bd29baea634c2d6d156a69bb85182.ctex"]
 
 [params]
 

@@ -21,9 +21,8 @@ func _ready() -> void:
 
 func set_level_data(level_data_resource: LevelData) -> void:
 	current_level_data = level_data_resource
+	GameManager.set_current_level_data(level_data_resource)
 	
-	print("set_level_data called. Is 'level' valid? ", is_instance_valid(level)) # <-- Add this line
-
 	if current_level_data:
 		level_id = current_level_data.level_id 
 		
@@ -64,10 +63,8 @@ func _on_texture_button_pressed() -> void:
 
 func _on_play_pressed() -> void: # Removed 'value: int' parameter from signal receiver
 	if current_level_data:
-		print("Current level data: ", current_level_data.level_id)
 		var file_path = base_path + str(current_level_data.level_id) + ".tscn"
 		SceneManager.change_scene(file_path)
-		print("change_scene() get called with path: ", file_path)
 	else:
 		push_warning("Cannot play level: current_level_data is null.")
 
@@ -83,7 +80,6 @@ func update_star_display() -> void:
 			push_warning("STARS array contains non-TextureRect nodes at index %d. Skipping." % i)
 
 func update_level_label(value: int) -> void:
-	print("Level label: ", value)
 	level.text = "Level " + str(value)
 
 func update_stopwatch_label(time: String) -> void:

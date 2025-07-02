@@ -11,10 +11,8 @@ var loading_successful: bool = false # This flag will be key to preventing doubl
 var loaded_scene: PackedScene = null
 
 func _ready() -> void:
-	print("Loading Screen _ready func executed!")
 	if animation_player:
 		animation_player.play("fade_in")
-		print("Fade in animation executed")
 		await animation_player.animation_finished
 		loading_timer.start()
 	
@@ -68,7 +66,6 @@ func transition_to_next_scene() -> void:
 
 	if animation_player:
 		animation_player.play("fade_out")
-		print("Fade Out animation executed!")
 		await animation_player.animation_finished
 	
 	if loaded_scene:

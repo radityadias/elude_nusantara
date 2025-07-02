@@ -52,4 +52,3 @@ func update_star_display() -> void:
 
 func _on_pressed() -> void:
 	level_selected.emit(level_num)
-	print("Level Selected: ", level_num)

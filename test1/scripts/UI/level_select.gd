@@ -15,11 +15,6 @@ var is_ui_opened: bool = false
 
 func _ready():
 	load_all_level_data()
-
-	for i in range(all_levels_data.size()):
-		print("Level ID: ", all_levels_data[i].level_id)
-		print("Level Cleared: ", all_levels_data[i].level_cleared)
-		print(" ")
 	anim_back.play("Background")
 	setup_level_box()
 
@@ -31,10 +26,8 @@ func load_all_level_data() -> void:
 			var loaded_resource = ResourceLoader.load(file_path)
 			if loaded_resource is LevelData:
 				all_levels_data.append(loaded_resource as LevelData)
-				print("Loaded level data: ", file_path)
 			else:
 				push_warning("Resource at '%s' is not a LevelData type." % file_path)
-	print("Finished loading %d level data files." % all_levels_data.size())
 
 func setup_level_box():
 	var level_buttons = level_container.get_children()
@@ -55,9 +48,7 @@ func setup_level_box():
 		else:
 			button.locked = true
 
-func on_level_button_selected(level_num_selected: int) -> void:
-	print("Connected with level ", level_num_selected)
-	
+func on_level_button_selected(level_num_selected: int) -> void:	
 	if is_ui_opened:
 		print("UI already opened, ignoring new request.")
 		return
@@ -66,7 +57,6 @@ func on_level_button_selected(level_num_selected: int) -> void:
 	for button_node in level_container.get_children():
 		if button_node is TextureButton and button_node.level_num == level_num_selected:
 			current_pressed_button = button_node as TextureButton
-			print("Current pressed button: ", current_pressed_button)
 			break
 
 	# Only proceed if a button was actually found

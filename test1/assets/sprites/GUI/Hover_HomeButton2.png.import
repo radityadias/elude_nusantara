@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d246se4g4bflu"
-path="res://.godot/imported/Hover_HomeButton2.png-05bf18c2d6f78f13d20a0cb69b89d634.ctex"
+path="res://.godot/imported/Hover_HomeButton2.png-c7c94165e7293a26b428c36156598e23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/GUI/Hover_HomeButton2.png"
-dest_files=["res://.godot/imported/Hover_HomeButton2.png-05bf18c2d6f78f13d20a0cb69b89d634.ctex"]
+source_file="res://assets/sprites/GUI/Hover_HomeButton2.png"
+dest_files=["res://.godot/imported/Hover_HomeButton2.png-c7c94165e7293a26b428c36156598e23.ctex"]
 
 [params]
 
