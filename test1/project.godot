@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://scripts/Worlds/game_manager.gd"
+GameManager="*res://scripts/Controllers/game_manager.gd"
 InteractionManager="*res://interactions/interaction_manager.tscn"
-SceneManager="*res://scripts/Worlds/scene_manager.gd"
+SceneManager="*res://scripts/Controllers/scene_manager.gd"
 
 [input]
 

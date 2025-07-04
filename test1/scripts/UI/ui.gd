@@ -10,9 +10,7 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	
-	if input_pressed:
-		stopwatch_label.text = GameManager.get_stopwatch_time_string()
+	stopwatch_label.text = GameManager.get_stopwatch_time_string()
 	
 	GameManager.cards_changed.connect(change_card_opacity)
 	GameManager.scanner_validated.connect(card_used)
