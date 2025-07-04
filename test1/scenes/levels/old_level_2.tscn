@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="2_ysfae"]
 [ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_failed.tscn" id="3_ksko6"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="4_mskxw"]
-[ext_resource type="Resource" uid="uid://4enap2bg81wa" path="res://scripts/Levels/Data/Level Data/level_2_data.tres" id="5_ug77s"]
+[ext_resource type="Resource" uid="uid://c0o8isj3c2gg1" path="res://scripts/Levels/Data/Level Data/level_2_data.tres" id="5_ug77s"]
 [ext_resource type="PackedScene" uid="uid://7rsxwn8xmxi2" path="res://scenes/Platforms/static_platform.tscn" id="6_htj6f"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="7_dcmw8"]
 [ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/traps/saw.tscn" id="8_5bkcv"]
