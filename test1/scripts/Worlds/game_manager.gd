@@ -37,6 +37,12 @@ func handle_stars(value: int) -> void:
 # ======= GAME FLOW =======
 func game_finish() -> void:
 	game_finished.emit()
+	if AudioManager:
+		AudioManager.stop_music()
+		AudioManager.play_sfx(AudioManager.win_sound_path, -10.0)
+	else:
+		print("ERROR: AudioManager not found when trying to play win stage sound!")
+	
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Escape"):
@@ -56,6 +62,12 @@ func player_damaged() -> void:
 func player_dead() -> void:
 	player_is_dead = true
 	player_died.emit()
+	if AudioManager:
+		AudioManager.stop_music()
+		AudioManager.play_sfx(AudioManager.lose_sound_path, -10.0)
+	else:
+		print("ERROR: AudioManager not found when trying to play win stage sound!")
+	
 
 func using_jumppad() -> void:
 	jumppad_used.emit()

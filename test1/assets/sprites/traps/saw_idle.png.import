@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0hlf461grsng"
-path="res://.godot/imported/saw_idle.png-6d73405fb14c3e2c792d731f9e5dce05.ctex"
+path="res://.godot/imported/saw_idle.png-d2a106e94115b918731ee405c89e0be0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/traps/saw_idle.png"
-dest_files=["res://.godot/imported/saw_idle.png-6d73405fb14c3e2c792d731f9e5dce05.ctex"]
+source_file="res://assets/sprites/traps/saw_idle.png"
+dest_files=["res://.godot/imported/saw_idle.png-d2a106e94115b918731ee405c89e0be0.ctex"]
 
 [params]
 
