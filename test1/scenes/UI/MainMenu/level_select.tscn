@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bbohos76n5rh1" path="res://scripts/UI/MainMenu/level_select.gd" id="1_byqsh"]
 [ext_resource type="PackedScene" uid="uid://btech4gvanwp8" path="res://scenes/UI/MainMenu/level_detail.tscn" id="2_wfav5"]
 [ext_resource type="PackedScene" uid="uid://b7mcbw4ts20wu" path="res://scenes/UI/MainMenu/level_button.tscn" id="3_3xyim"]
-[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://assets/Backgrounds/Main_menu/Background.png" id="4_41sph"]
-[ext_resource type="Texture2D" uid="uid://cv03567tnw5jw" path="res://assets/Sprites/GUI/BackButton.png" id="5_2law7"]
+[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://assets/backgrounds/Main_menu/Background.png" id="4_41sph"]
+[ext_resource type="Texture2D" uid="uid://cv03567tnw5jw" path="res://assets/sprites/GUI/BackButton.png" id="5_2law7"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="6_iv7jl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlxw3"]

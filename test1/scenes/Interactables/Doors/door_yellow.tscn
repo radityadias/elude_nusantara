@@ -114,16 +114,15 @@ size = Vector2(30, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gg805"]
 size = Vector2(30, 62)
 
-[node name="Door" type="AnimatableBody2D"]
+[node name="Yellow Door" type="AnimatableBody2D"]
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_2ip7j")
+required_card_type = "yellow"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dspee")
 animation = &"door open"
-frame = 4
-frame_progress = 1.0
 
 [node name="MainCollision" type="CollisionShape2D" parent="."]
 visible = false

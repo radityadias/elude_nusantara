@@ -12,6 +12,9 @@ var is_unlocked : bool = false
 
 func _ready() -> void:
 	GameManager.scanner_validated.connect(_on_scanner_result)
+	if not required_card_type == "red":
+		finish_collision.queue_free()
+	
 	finish_collision.disabled = true
 
 func _on_scanner_result(scanned_card_type: String, value: bool):
@@ -23,7 +26,8 @@ func unlock():
 		is_unlocked = true
 		animation.play("door open")
 		main_collision.queue_free()
-		finish_collision.disabled = false
+		if finish_collision:
+			finish_collision.disabled = false
 
 func _on_finish_body_entered(body: Node2D) -> void:
 	GameManager.game_finish()

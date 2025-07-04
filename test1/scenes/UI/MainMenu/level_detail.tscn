@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cjd8yf00qied4" path="res://scripts/UI/MainMenu/level_detail.gd" id="1_46wj5"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="2_2uuhi"]
-[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/Sprites/GUI/Unactive_Star.png" id="3_cvkdm"]
-[ext_resource type="Texture2D" uid="uid://wqyhniuupvw" path="res://assets/Sprites/GUI/Hover_NextButton2.png" id="4_fq4tx"]
-[ext_resource type="Texture2D" uid="uid://dq08ssa4wgs4q" path="res://assets/Sprites/GUI/NextButton2.png" id="5_m1061"]
-[ext_resource type="Texture2D" uid="uid://f57lyjxrd4el" path="res://assets/Sprites/GUI/Active_Star.png" id="6_q1o31"]
-[ext_resource type="Texture2D" uid="uid://cjf08mpduajs" path="res://assets/Sprites/GUI/Close.png" id="7_p8u2t"]
+[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/sprites/GUI/Unactive_Star.png" id="3_cvkdm"]
+[ext_resource type="Texture2D" uid="uid://wqyhniuupvw" path="res://assets/sprites/GUI/Hover_NextButton2.png" id="4_fq4tx"]
+[ext_resource type="Texture2D" uid="uid://dq08ssa4wgs4q" path="res://assets/sprites/GUI/NextButton2.png" id="5_m1061"]
+[ext_resource type="Texture2D" uid="uid://f57lyjxrd4el" path="res://assets/sprites/GUI/Active_Star.png" id="6_q1o31"]
+[ext_resource type="Texture2D" uid="uid://cjf08mpduajs" path="res://assets/sprites/GUI/Close.png" id="7_p8u2t"]
 
 [sub_resource type="Animation" id="Animation_wfq5m"]
 length = 0.001
