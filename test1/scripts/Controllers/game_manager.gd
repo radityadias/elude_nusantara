@@ -15,7 +15,6 @@ signal player_died
 @onready var stopwatch: Stopwatch = get_tree().get_first_node_in_group("stopwatch")
 @onready var delay: Timer = $Delay
 
-
 # ======= STATE =======
 var collected_cards: Dictionary = {}
 var cards_collected: int = 0

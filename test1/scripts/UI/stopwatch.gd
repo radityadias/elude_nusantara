@@ -6,15 +6,20 @@ var stopped: bool = false
 
 func _ready() -> void:
 	GameManager.game_finished.connect(finish)
+	set_process(false)
 
 func _process(delta: float) -> void:
 	if not stopped:
 		time += delta
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("move_left") or event.is_action_pressed('move_right') or event.is_action_pressed("jump"):
+		set_process(true)
+
 func finish() -> void:
-	var last_time = time_to_string()
-	print(last_time)
+	set_process(false)
 	stopped = true
+	var last_time = time_to_string()
 
 func reset() -> void:
 	time = 0.0

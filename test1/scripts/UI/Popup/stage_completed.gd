@@ -28,7 +28,7 @@ func set_initial_stars(value: int) -> void:
 func _on_home_pressed() -> void:
 	print("Button Home Pressed")
 	get_tree().paused = false 
-	get_tree().change_scene_to_file("res://scenes/UI/level_select.tscn")
+	get_tree().change_scene_to_file("res://scenes/UI/MainMenu/level_select.tscn")
 	queue_free() 
 
 func _on_next_pressed() -> void:
@@ -58,12 +58,8 @@ func update_star_display(value: int) -> void:
 		if STARS[i] is TextureRect: # Always check the type
 			var star_texture_rect = STARS[i] as TextureRect
 			if i < value:
-				# Set active star texture
 				star_texture_rect.texture = load("res://assets/Sprites/GUI/Active_Star.png")
 			else:
-				# Set inactive star texture (assuming you have one, or clear it)
-				# If you have an "inactive_star.png", load that here.
-				# Otherwise, you might want to set it to null or a default empty texture.
-				star_texture_rect.texture = load("res://assets/Sprites/GUI/Inactive_Star.png") # <--- ASSUMING YOU HAVE THIS
+				star_texture_rect.texture = load("res://assets/Sprites/GUI/Unactive_Star.png")
 		else:
 			push_warning("STARS array contains non-TextureRect nodes at index %d. Skipping." % i)

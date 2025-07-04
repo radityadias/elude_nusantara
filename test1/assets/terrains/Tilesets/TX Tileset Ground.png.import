@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cx1ytthnr80ch"
-path="res://.godot/imported/TX Tileset Ground.png-4b47ce628bd065b36c7e17226a8c464b.ctex"
+path="res://.godot/imported/TX Tileset Ground.png-776acafe3e882a51a7354eb2e25c92ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/terrains/Tilesets/TX Tileset Ground.png"
-dest_files=["res://.godot/imported/TX Tileset Ground.png-4b47ce628bd065b36c7e17226a8c464b.ctex"]
+source_file="res://assets/Terrains/Tilesets/TX Tileset Ground.png"
+dest_files=["res://.godot/imported/TX Tileset Ground.png-776acafe3e882a51a7354eb2e25c92ad.ctex"]
 
 [params]
 
