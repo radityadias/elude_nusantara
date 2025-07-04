@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gfqc2lonw3i6"
-path="res://.godot/imported/SmokeFX Lite SpriteSheet 2A-9.png-330135b6091f75caa8fdd825126a7eab.ctex"
+path="res://.godot/imported/SmokeFX Lite SpriteSheet 2A-9.png-be7e09601f0331fc73170d91c60b3b1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/effects/SmokeFX Lite SpriteSheet 2A-9.png"
-dest_files=["res://.godot/imported/SmokeFX Lite SpriteSheet 2A-9.png-330135b6091f75caa8fdd825126a7eab.ctex"]
+source_file="res://assets/sprites/effects/SmokeFX Lite SpriteSheet 2A-9.png"
+dest_files=["res://.godot/imported/SmokeFX Lite SpriteSheet 2A-9.png-be7e09601f0331fc73170d91c60b3b1c.ctex"]
 
 [params]
 
