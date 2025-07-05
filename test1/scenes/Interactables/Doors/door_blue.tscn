@@ -1,0 +1,151 @@
+[gd_scene load_steps=21 format=3 uid="uid://b0btykpsvg3tu"]
+
+[ext_resource type="Script" uid="uid://bmwafy0lpkcrv" path="res://scripts/Interactables/door.gd" id="1_jg1y6"]
+[ext_resource type="Texture2D" uid="uid://cpocsb2n73do2" path="res://assets/sprites/doors/Entry.png" id="2_6es06"]
+[ext_resource type="Texture2D" uid="uid://dr3ffprartum" path="res://assets/sprites/doors/Entry2.png" id="3_6es06"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8esva"]
+atlas = ExtResource("2_6es06")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw5xq"]
+atlas = ExtResource("2_6es06")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twrlo"]
+atlas = ExtResource("2_6es06")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlyfr"]
+atlas = ExtResource("2_6es06")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yup2u"]
+atlas = ExtResource("2_6es06")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls0qb"]
+atlas = ExtResource("2_6es06")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7xi4"]
+atlas = ExtResource("2_6es06")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6arfv"]
+atlas = ExtResource("2_6es06")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaf3j"]
+atlas = ExtResource("3_6es06")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp2lu"]
+atlas = ExtResource("3_6es06")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bupn5"]
+atlas = ExtResource("3_6es06")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg5eb"]
+atlas = ExtResource("3_6es06")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdv54"]
+atlas = ExtResource("3_6es06")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2ood"]
+atlas = ExtResource("3_6es06")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dspee"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8esva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw5xq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twrlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlyfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yup2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls0qb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7xi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6arfv")
+}],
+"loop": false,
+"name": &"door",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaf3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp2lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bupn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg5eb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdv54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2ood")
+}],
+"loop": false,
+"name": &"door open",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhfd4"]
+size = Vector2(30, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg805"]
+size = Vector2(30, 62)
+
+[node name="Blue Door" type="AnimatableBody2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_jg1y6")
+required_card_type = "blue"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dspee")
+animation = &"door open"
+
+[node name="MainCollision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_dhfd4")
+
+[node name="Finish" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="FinishCollision" type="CollisionShape2D" parent="Finish"]
+shape = SubResource("RectangleShape2D_gg805")
+debug_color = Color(0, 0.644754, 0.274531, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]

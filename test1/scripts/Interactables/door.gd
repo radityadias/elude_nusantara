@@ -6,16 +6,21 @@ extends AnimatableBody2D
 @onready var finish_collision: CollisionShape2D = $Finish/FinishCollision
 @onready var timer: Timer = $Timer
 
+@export var required_card_type: String = "default"
+
 var is_unlocked : bool = false
 
 func _ready() -> void:
 	GameManager.scanner_validated.connect(_on_scanner_result)
+	if not required_card_type == "red":
+		finish_collision.queue_free()
+	
 	finish_collision.disabled = true
 	if AudioManager == null:
 		print("ERROR: AudioManager AutoLoad not found in Door script!")
 
-func _on_scanner_result(value: bool):
-	if value:
+func _on_scanner_result(scanned_card_type: String, value: bool):
+	if scanned_card_type == required_card_type and value:
 		unlock()
 
 func unlock():
@@ -23,7 +28,9 @@ func unlock():
 		is_unlocked = true
 		animation.play("door open")
 		main_collision.queue_free()
-		finish_collision.disabled = false
+		if finish_collision:
+			finish_collision.disabled = false
+		
 		print("Pintu terbuka!") # Pesan debugging
 
 		# --- AUDIO: Mainkan suara pintu terbuka ---
