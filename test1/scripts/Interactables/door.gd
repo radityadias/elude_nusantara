@@ -16,6 +16,8 @@ func _ready() -> void:
 		finish_collision.queue_free()
 	
 	finish_collision.disabled = true
+	if AudioManager == null:
+		print("ERROR: AudioManager AutoLoad not found in Door script!")
 
 func _on_scanner_result(scanned_card_type: String, value: bool):
 	if scanned_card_type == required_card_type and value:
@@ -28,6 +30,14 @@ func unlock():
 		main_collision.queue_free()
 		if finish_collision:
 			finish_collision.disabled = false
+		
+		print("Pintu terbuka!") # Pesan debugging
+
+		# --- AUDIO: Mainkan suara pintu terbuka ---
+		if AudioManager: # Pastikan AudioManager tidak null sebelum memanggilnya
+			AudioManager.play_sfx(AudioManager.door_open_sound_path, 0.0, 2.0) # Contoh volume -8.0 dB
+		else:
+			print("ERROR: AudioManager not found when trying to play door sound!")
 
 func _on_finish_body_entered(body: Node2D) -> void:
 	GameManager.game_finish()

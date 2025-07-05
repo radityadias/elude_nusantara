@@ -4,6 +4,8 @@ class_name LevelManager
 @export var finish_ui: PackedScene
 @export var gameover_ui: PackedScene
 @export var pause_ui: PackedScene
+@export var level_bgm_path: String = "res://assets/SFX ELUDE/BGM/IN GAME (sementara).mp3" 
+
 var current_active_ui: Control = null
 
 @export var level_data: LevelData
@@ -17,6 +19,16 @@ func _ready() -> void:
 	GameManager.took_damage.connect(_on_player_damaged)
 	GameManager.player_died.connect(_on_player_died)
 	GameManager.game_pause.connect(show_pause_ui)
+	 # Pastikan AudioManager tersedia
+	if AudioManager:
+		# 1. Hentikan BGM yang sedang berjalan (dari scene sebelumnya)
+		AudioManager.stop_music()
+		print("BGM stopped upon entering level scene.")
+
+		
+		AudioManager.play_music(level_bgm_path, -15.0) # Sesuaikan volume sesuai kebutuhan
+	else:
+		print("ERROR: AudioManager AutoLoad not found!")
 	
 
 func _on_player_damaged() -> void:

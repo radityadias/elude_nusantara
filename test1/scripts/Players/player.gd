@@ -16,7 +16,7 @@ const KNOCKBACK_DURATION: float = 0.2
 
 # ===== STATE MANAGEMENT =====
 enum State {
-	IDLE, 
+	IDLE,
 	RUN,
 	JUMP,
 	DOUBLE_JUMP,
@@ -40,6 +40,10 @@ var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
 var knockback_timer : float = 0.0
 
+# ===== AUDIO VARIABLES =====
+var is_running_sound_playing: bool = false # Flag untuk melacak status suara lari
+var is_pushing_sound_playing: bool = false
+
 # ===== NODE REFERENCES =====
 @onready var character: AnimatedSprite2D = $Character
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -47,6 +51,8 @@ var knockback_timer : float = 0.0
 @onready var dust = preload("res://scenes/players/jump_particle.tscn")
 @onready var invincibility_timer: Timer = $InvincibilityTimer
 @onready var marker_2d: Marker2D = $Marker2D
+# @onready var player_audio: AudioStreamPlayer2D = $CharSound # Node ini tidak lagi digunakan oleh AudioManager.
+# AudioManager kini mengelola dan memutar AudioStreamPlayer-nya sendiri secara global.
 
 # ===== ANIMATION OFFSETS =====
 var right_offset := Vector2(-8, 0)
@@ -58,6 +64,11 @@ var last_offset := Vector2.INF
 func _ready() -> void:
 	connect_signals()
 	setup_pushable_connections()
+	# Memastikan AudioManager sudah siap
+	if AudioManager == null:
+		print("ERROR: AudioManager AutoLoad not found! Pastikan sudah diatur di Project Settings -> AutoLoad.")
+		set_physics_process(false) # Hentikan proses fisika jika AudioManager tidak ada
+		set_process(false) # Hentikan proses reguler juga
 
 func connect_signals() -> void:
 	GameManager.jumppad_used.connect(try_jump_pad)
@@ -77,10 +88,10 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if state == State.DEAD:
-		return 
+		return
 	
 	handle_knockback_state(delta)
-	if is_knockback_active(): 
+	if is_knockback_active():
 		move_and_slide()
 		return
 	
@@ -89,6 +100,18 @@ func _physics_process(delta: float) -> void:
 	update_animations(direction)
 	move_and_slide()
 	update_state_based_on_movement(direction)
+	
+	# --- AUDIO: Update suara lari berdasarkan pergerakan ---
+	# Suara lari hanya diputar jika dalam state RUN dan kecepatan horizontal cukup
+	if state == State.RUN and abs(velocity.x) > 0.1:
+		if not is_running_sound_playing:
+			AudioManager.play_looped_sfx(AudioManager.run_step_sound_path, -10.0, randf_range(0.8, 1.1)) # Tambahkan pitch variasi
+			is_running_sound_playing = true
+	else: # Jika tidak di lantai, pastikan suara lari berhenti
+		if is_running_sound_playing:
+			print("DEBUG_RUN_SOUND_STATE: Off-floor. Forcing stop of run sound.")
+			AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path) # <--- PERBAIKAN DI SINI!
+			is_running_sound_playing = false
 
 # ===== MOVEMENT SYSTEM =====
 func handle_knockback_state(delta: float) -> void:
@@ -125,15 +148,15 @@ func handle_state_movement(direction: float, delta: float) -> void:
 		try_double_jump()
 
 func apply_horizontal_movement(direction: float, delta: float) -> void:
-	if direction != 0: 
+	if direction != 0:
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta * 2)
-	else: 
+	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta * 2)
 
 func apply_jumppad_movement(direction: float, delta: float) -> void:
-	if direction != 0: 
+	if direction != 0:
 		velocity.x = move_toward(velocity.x, direction * SPEED, 400 * delta)
-	else: 
+	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta * 2)
 
 # ===== JUMP SYSTEM =====
@@ -153,6 +176,9 @@ func execute_jump(new_state: State) -> void:
 	state = new_state
 	JUMP_COUNT += 1
 	reset_jump_timers()
+	
+	# AUDIO: Memutar suara lompat
+	AudioManager.play_sfx(AudioManager.jump_sound_path, 0.0, randf_range(0.9, 1.1))
 
 func reset_jump_timers() -> void:
 	jump_buffer_timer = 0
@@ -165,20 +191,47 @@ func update_timers(delta: float) -> void:
 
 # ===== STATE MANAGEMENT =====
 func update_state_based_on_movement(direction: float) -> void:
+	var old_state = state # Untuk debugging
+
 	if is_on_floor():
 		JUMP_COUNT = 0
-		if state in [State.JUMP, State.DOUBLE_JUMP]:
+		# Pastikan suara lari berhenti saat mendarat dari semua jenis lompatan
+		if is_running_sound_playing and old_state in [State.JUMP, State.DOUBLE_JUMP, State.JUMP_PAD]:
+			print("DEBUG_RUN_SOUND: Landed from jump/jumppad. Forcing stop of run sound.")
+			AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
+			is_running_sound_playing = false
+			
+		if state in [State.JUMP, State.DOUBLE_JUMP, State.JUMP_PAD]:
 			state = State.RUN if abs(velocity.x) >= 1.0 else State.IDLE
 		elif state != State.PUSH:
 			state = State.RUN if direction != 0 else State.IDLE
+	else: # Jika tidak di lantai, pastikan suara lari berhenti
+		if is_running_sound_playing:
+			AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
+			is_running_sound_playing = false
 
 # ===== PUSH SYSTEM =====
 func _on_push_state_changed(is_pushing: bool, direction: int) -> void:
 	if is_pushing:
 		state = State.PUSH
 		character.flip_h = direction < 0
+		
+		# AUDIO: Jika sedang push, hentikan suara lari
+		if is_running_sound_playing:
+			print("DEBUG_RUN_SOUND: Entered PUSH state. Forcing stop of run sound.")
+			AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
+			is_running_sound_playing = false
+		# --- AUDIO: Mainkan suara box dorong/tarik (mulai loop) ---
+		if not is_pushing_sound_playing: # Hanya mainkan jika belum diputar
+			print("DEBUG_PUSH_SOUND: Started pushing. Playing push/pull sound.")
+			AudioManager.play_looped_sfx(AudioManager.dragging_sound_path, -10.0) # Contoh volume
+			is_pushing_sound_playing = true
 	elif state == State.PUSH:
 		state = State.IDLE
+		if is_pushing_sound_playing: # Hanya hentikan jika sedang diputar
+			print("DEBUG_PUSH_SOUND: Stopped pushing. Stopping push/pull sound.")
+			AudioManager.stop_looped_sfx(AudioManager.dragging_sound_path)
+			is_pushing_sound_playing = false # Set flag ke false
 
 # ===== ANIMATION SYSTEM =====
 func update_animations(direction: float) -> void:
@@ -197,10 +250,10 @@ func update_animation_state() -> void:
 		return
 	
 	match state:
-		State.IDLE: 
+		State.IDLE:
 			play_animation("Idle", "idle")
 			run_particle.stop()
-		State.RUN: 
+		State.RUN:
 			play_animation("Run", "run")
 			run_particle.play("running_dust")
 		State.JUMP, State.JUMP_PAD:
@@ -241,13 +294,22 @@ func spawn_dust() -> void:
 	get_parent().add_child(instance)
 
 # ===== COMBAT SYSTEM =====
-func decrease_health() -> void:	
+func decrease_health() -> void:
 	if state == State.INVINCIBLE or state == State.DEAD:
 		return
 	
 	character.play("Knockback")
 	run_particle.stop()
 	run_particle.visible = false
+	
+	# AUDIO: Hentikan suara lari jika terkena damage
+	if is_running_sound_playing:
+		print("DEBUG_RUN_SOUND: Took damage. Forcing stop of run sound.")
+		AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
+		is_running_sound_playing = false
+		
+	# --- AUDIO: Mainkan suara ketika kena hit ---
+	AudioManager.play_sfx(AudioManager.hit_sound_path, -20.0,  randf_range(1.1, 1.5))
 	
 	lives -= 1
 	update_hearth_display()
@@ -273,6 +335,12 @@ func start_invincibility() -> void:
 	is_invincible = true
 	invincibility_timer.start()
 	character.modulate.a = 0.5
+	
+	# AUDIO: Hentikan suara lari saat invicible
+	if is_running_sound_playing:
+		print("DEBUG_RUN_SOUND: Entered INVINCIBLE state. Forcing stop of run sound.")
+		AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
+		is_running_sound_playing = false
 
 func end_invincibility() -> void:
 	state = State.IDLE
@@ -283,8 +351,25 @@ func end_invincibility() -> void:
 func handle_dead() -> void:
 	state = State.DEAD
 	GameManager.player_dead()
+	
+	# AUDIO: Hentikan semua suara lari jika pemain mati
+	if is_running_sound_playing:
+		print("DEBUG_RUN_SOUND: Player died. Forcing stop of run sound.")
+		AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
+		is_running_sound_playing = false
+	# --- AUDIO: Mainkan suara karakter mati ---
+	AudioManager.play_sfx(AudioManager.death_sound_path, -12.0)
 
 # ===== SPECIAL ABILITIES =====
 func try_jump_pad() -> void:
 	velocity.y = JUMP_PAD_FORCE
 	state = State.JUMP_PAD
+	
+	# AUDIO: Memutar suara jump pad
+	AudioManager.play_sfx(AudioManager.jump_sound_path, -10.0, randf_range(1.0, 1.2))
+	
+	# Pastikan suara lari berhenti saat menggunakan jump pad
+	if is_running_sound_playing:
+		print("DEBUG_RUN_SOUND: Used Jump Pad. Forcing stop of run sound.")
+		AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
+		is_running_sound_playing = false
