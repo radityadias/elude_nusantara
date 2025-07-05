@@ -1467,11 +1467,9 @@ required_card_type = "red"
 
 [node name="Card" parent="Interactables" instance=ExtResource("9_tv7cl")]
 position = Vector2(769, 566)
-card_type = "red"
 
 [node name="Door" parent="Interactables" instance=ExtResource("3_l37oo")]
 position = Vector2(1074, 425)
-required_card_type = "red"
 
 [node name="Push Block" parent="Interactables" instance=ExtResource("19_yxkvy")]
 position = Vector2(223, 560)

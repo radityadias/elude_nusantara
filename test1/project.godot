@@ -19,11 +19,9 @@ config/icon="res://icon.svg"
 
 GameManager="*res://scripts/Controllers/game_manager.gd"
 InteractionManager="*res://interactions/interaction_manager.tscn"
-<<<<<<< HEAD
-AudioManager="*res://scripts/AudioManager.gd"
-=======
 SceneManager="*res://scripts/Controllers/scene_manager.gd"
->>>>>>> origin/develop
+AudioManager="*res://scripts/AudioManager.gd"
+<<<<<<<HEADAudioManager="*res://scripts/AudioManager.gd"
 
 [input]
 
