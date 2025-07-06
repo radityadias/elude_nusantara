@@ -1,22 +1,24 @@
-[gd_scene load_steps=21 format=4 uid="uid://d4bjdgv0hbi2q"]
+[gd_scene load_steps=23 format=4 uid="uid://d4bjdgv0hbi2q"]
 
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Controllers/level_manager.gd" id="1_741xk"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="2_i0fhw"]
 [ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/Popup/stage_failed.tscn" id="3_5wshb"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="4_7x7cx"]
-[ext_resource type="Resource" path="res://scripts/Levels/Data/Level Data/level_6_data.tres" id="5_b6i88"]
+[ext_resource type="Resource" uid="uid://b8kr4gg0uhvcp" path="res://scripts/Levels/Data/Level Data/level_6_data.tres" id="5_b6i88"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="6_e18e5"]
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="7_m5qie"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="8_kydov"]
 [ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="9_e18e5"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="9_m5qie"]
 [ext_resource type="PackedScene" uid="uid://cn3gbl6hqymm3" path="res://scenes/Interactables/Cards/card_blue.tscn" id="11_4wfvb"]
-[ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="12_tqv5a"]
+[ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/Scanners/scanner.tscn" id="12_tqv5a"]
 [ext_resource type="PackedScene" uid="uid://b0btykpsvg3tu" path="res://scenes/Interactables/Doors/door_blue.tscn" id="13_ppjov"]
 [ext_resource type="PackedScene" uid="uid://c3v2nx6sx7fu0" path="res://scenes/Interactables/Cards/card_yellow.tscn" id="14_gf2l7"]
 [ext_resource type="PackedScene" uid="uid://dfcmc2s2ouoj5" path="res://scenes/Interactables/Doors/door_yellow.tscn" id="15_glmj6"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/Cards/card_red.tscn" id="16_cfbu6"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/Doors/door_red.tscn" id="17_bvftm"]
+[ext_resource type="PackedScene" uid="uid://mcnyxp43nnni" path="res://scenes/Interactables/lever.tscn" id="18_glmj6"]
+[ext_resource type="PackedScene" uid="uid://dje0ue517ujs3" path="res://scenes/traps/barrier.tscn" id="19_cfbu6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwlxl"]
 texture = ExtResource("8_kydov")
@@ -147,5 +149,11 @@ required_card_type = "red"
 
 [node name="Red Door" parent="." instance=ExtResource("17_bvftm")]
 position = Vector2(633, 386)
+
+[node name="Lever" parent="." instance=ExtResource("18_glmj6")]
+position = Vector2(231, 400)
+
+[node name="Barrier" parent="." instance=ExtResource("19_cfbu6")]
+position = Vector2(301, 384)
 
 [editable path="UI"]
