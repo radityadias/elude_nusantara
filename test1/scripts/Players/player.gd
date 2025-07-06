@@ -51,8 +51,7 @@ var is_pushing_sound_playing: bool = false
 @onready var dust = preload("res://scenes/players/jump_particle.tscn")
 @onready var invincibility_timer: Timer = $InvincibilityTimer
 @onready var marker_2d: Marker2D = $Marker2D
-# @onready var player_audio: AudioStreamPlayer2D = $CharSound # Node ini tidak lagi digunakan oleh AudioManager.
-# AudioManager kini mengelola dan memutar AudioStreamPlayer-nya sendiri secara global.
+@onready var camera_marker: Marker2D = $CameraMarker
 
 # ===== ANIMATION OFFSETS =====
 var right_offset := Vector2(-8, 0)
@@ -244,6 +243,7 @@ func update_character_direction(direction: float) -> void:
 		character.flip_h = direction < 0
 		run_particle.flip_h = direction < 0
 		run_particle.position.x = abs(run_particle.position.x) * (-1 if direction > 0 else 1)
+		camera_marker.position.x = abs(camera_marker.position.x) * (1 if direction > 0 else -1)
 
 func update_animation_state() -> void:
 	if state == State.DEAD:

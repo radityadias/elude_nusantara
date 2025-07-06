@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cojsj35fsuroi"
-path="res://.godot/imported/Card3.png-62f70d0073a4b9d4989e4737f033cd9a.ctex"
+uid="uid://dr5yf57ct7ckc"
+path="res://.godot/imported/Card2.png-ead140ce6b35dae6396c8baeb0ac6c90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/doors/Card3.png"
-dest_files=["res://.godot/imported/Card3.png-62f70d0073a4b9d4989e4737f033cd9a.ctex"]
+source_file="res://assets/terrains/doors/Card2.png"
+dest_files=["res://.godot/imported/Card2.png-ead140ce6b35dae6396c8baeb0ac6c90.ctex"]
 
 [params]
 

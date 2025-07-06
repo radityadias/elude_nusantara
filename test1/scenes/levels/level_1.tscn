@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dy6si25j7fdps" path="res://scenes/Platforms/test_falling_platforms.tscn" id="12_hfo4s"]
 [ext_resource type="PackedScene" uid="uid://b647r3r5v0waq" path="res://scenes/Interactables/jump_pad.tscn" id="12_oorix"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/Cards/card_red.tscn" id="13_udpyv"]
-[ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="14_rt8wg"]
+[ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/Scanners/scanner_red.tscn" id="14_rt8wg"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/Doors/door_red.tscn" id="15_gx6sj"]
 [ext_resource type="Texture2D" uid="uid://qjetf2krjnsk" path="res://assets/backgrounds/1/Day/1.png" id="22_yhe24"]
 [ext_resource type="Texture2D" uid="uid://em3vyoxwudo3" path="res://assets/backgrounds/1/Day/2.png" id="23_x5rd6"]
@@ -900,13 +900,12 @@ shape = SubResource("RectangleShape2D_o7j4k")
 position = Vector2(568, 717)
 
 [node name="Player" parent="Worlds" node_paths=PackedStringArray("HEARTH") instance=ExtResource("3_6i3av")]
-position = Vector2(-219, 498)
+position = Vector2(-216, 498)
 HEARTH = [NodePath("../../UI/CanvasLayer/Health/HBoxContainer/Health1"), NodePath("../../UI/CanvasLayer/Health/HBoxContainer/Health2"), NodePath("../../UI/CanvasLayer/Health/HBoxContainer/Health3")]
 
-[node name="Camera2D" parent="Worlds/Player" index="5"]
+[node name="Camera2D" parent="Worlds/Player/CameraMarker" index="0"]
 limit_left = -352
-limit_top = 200
-limit_right = 1343
+limit_right = 1342
 limit_bottom = 648
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Worlds"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cxnfh2657dtu6"]
 
 [ext_resource type="Script" uid="uid://bjn3sn4jl6hh8" path="res://scripts/Interactables/scanner.gd" id="1_rkjhj"]
-[ext_resource type="Texture2D" uid="uid://be6wc5ter4ble" path="res://assets/sprites/doors/ScreenYellow-export.png" id="2_rkjhj"]
+[ext_resource type="Texture2D" uid="uid://be6wc5ter4ble" path="res://assets/terrains/doors/ScreenYellow-export.png" id="2_rkjhj"]
 [ext_resource type="PackedScene" uid="uid://7msgfwu63fmo" path="res://interactions/interaction area/interaction_area.tscn" id="3_6gtw2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ihbd6"]

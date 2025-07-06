@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr3ffprartum"
-path="res://.godot/imported/Entry2.png-dc48350576f707faae0f9ff4bd28ed74.ctex"
+uid="uid://cpocsb2n73do2"
+path="res://.godot/imported/Entry.png-ae00b2ace7c3195b505063357f5a28f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/doors/Entry2.png"
-dest_files=["res://.godot/imported/Entry2.png-dc48350576f707faae0f9ff4bd28ed74.ctex"]
+source_file="res://assets/terrains/doors/Entry.png"
+dest_files=["res://.godot/imported/Entry.png-ae00b2ace7c3195b505063357f5a28f7.ctex"]
 
 [params]
 

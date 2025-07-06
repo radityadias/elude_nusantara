@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqjjptnmtrh46"
-path="res://.godot/imported/Screen2.png-0886a12e3d2fa2b69a560b5619e8464d.ctex"
+uid="uid://be6wc5ter4ble"
+path="res://.godot/imported/ScreenYellow-export.png-fccde3d73781efb52ce03afbafc55413.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/doors/Screen2.png"
-dest_files=["res://.godot/imported/Screen2.png-0886a12e3d2fa2b69a560b5619e8464d.ctex"]
+source_file="res://assets/terrains/doors/ScreenYellow-export.png"
+dest_files=["res://.godot/imported/ScreenYellow-export.png-fccde3d73781efb52ce03afbafc55413.ctex"]
 
 [params]
 

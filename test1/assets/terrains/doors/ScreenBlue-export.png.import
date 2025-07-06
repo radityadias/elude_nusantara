@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u0biucc4c700"
-path="res://.godot/imported/Card.png-070e41d4f7c94426a77d74d63399b03b.ctex"
+uid="uid://hq1eo48bagrj"
+path="res://.godot/imported/ScreenBlue-export.png-b1367fa229ba697c3cb0dcc0903ebb26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/doors/Card.png"
-dest_files=["res://.godot/imported/Card.png-070e41d4f7c94426a77d74d63399b03b.ctex"]
+source_file="res://assets/terrains/doors/ScreenBlue-export.png"
+dest_files=["res://.godot/imported/ScreenBlue-export.png-b1367fa229ba697c3cb0dcc0903ebb26.ctex"]
 
 [params]
 
