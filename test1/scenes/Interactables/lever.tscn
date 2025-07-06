@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://mcnyxp43nnni"]
+
+[ext_resource type="Script" uid="uid://dgowf4hhdwm1l" path="res://scripts/Interactables/lever.gd" id="1_1spml"]
+[ext_resource type="Texture2D" uid="uid://bs5rnx6q7bh8d" path="res://assets/sprites/interactable/lever.png" id="1_sknl6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1spml"]
+atlas = ExtResource("1_sknl6")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt24h"]
+atlas = ExtResource("1_sknl6")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg0ey"]
+atlas = ExtResource("1_sknl6")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45bpa"]
+atlas = ExtResource("1_sknl6")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk24s"]
+atlas = ExtResource("1_sknl6")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pu481"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1spml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt24h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg0ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45bpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk24s")
+}],
+"loop": false,
+"name": &"on",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sknl6"]
+radius = 34.0147
+
+[node name="Lever" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_1spml")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pu481")
+animation = &"on"
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_sknl6")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

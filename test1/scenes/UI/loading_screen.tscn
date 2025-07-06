@@ -1,9 +1,9 @@
 [gd_scene load_steps=72 format=3 uid="uid://bu8wm8hlpoug2"]
 
 [ext_resource type="Script" uid="uid://n0wiikib6rrw" path="res://scripts/UI/loading_screen.gd" id="1_7uno8"]
-[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://assets/Backgrounds/Main_menu/Background.png" id="1_85qbq"]
+[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://assets/backgrounds/Main_menu/Background.png" id="1_85qbq"]
 [ext_resource type="Shader" uid="uid://ctfbw20hycgh5" path="res://shaders/loading_screen_white_player.gdshader" id="2_7uno8"]
-[ext_resource type="Texture2D" uid="uid://78qyd6lfbc4i" path="res://assets/Sprites/players/Run Animation 48x48/Run Animation 48x48.png" id="3_4x40i"]
+[ext_resource type="Texture2D" uid="uid://78qyd6lfbc4i" path="res://assets/sprites/players/Run Animation 48x48/Run Animation 48x48.png" id="3_4x40i"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="4_oheac"]
 
 [sub_resource type="Gradient" id="Gradient_pbjre"]
@@ -433,6 +433,45 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="Animation" id="Animation_ga6n6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Background:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Player:material:shader_parameter/fade_alpha")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/LoadingLabel:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_i4hq7"]
 resource_name = "fade_in"
 length = 0.5
@@ -471,45 +510,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ga6n6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Background:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/Player:material:shader_parameter/fade_alpha")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/LoadingLabel:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_tap06"]
@@ -601,6 +601,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 17.0
+offset_right = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_oheac")

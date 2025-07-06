@@ -26,7 +26,7 @@ signal level_selected(value: int)
 @onready var label_node = $Label
 
 var base_path: String = "res://scenes/Levels/level_"
-var select_ui: PackedScene = load("res://scenes/UI/level_select.tscn")
+var select_ui: PackedScene = load("res://scenes/UI/MainMenu/level_select.tscn")
 
 func _ready():
 	update_display()

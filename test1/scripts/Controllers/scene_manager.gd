@@ -7,7 +7,6 @@ extends Node
 # Signal to emit when a scene change is initiated (optional, but useful for UI updates)
 signal scene_change_initiated(target_path: String)
 # Signal to emit when the target scene has finished loading and is about to be displayed
-signal scene_loaded(loaded_scene_node: Node)
 
 # This function will be called from any other script to change scenes
 func change_scene(target_scene_path: String) -> void:

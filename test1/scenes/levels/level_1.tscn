@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://bdwfhakjqedmh"]
+[gd_scene load_steps=45 format=4 uid="uid://bdwfhakjqedmh"]
 
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Controllers/level_manager.gd" id="1_uve2h"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="2_8nofh"]
@@ -783,6 +783,9 @@ size = Vector2(704, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xf47x"]
 size = Vector2(320, 160)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7j4k"]
+size = Vector2(20, 165)
+
 [sub_resource type="Animation" id="Animation_g1oo3"]
 length = 0.001
 tracks/0/type = "value"
@@ -888,6 +891,10 @@ shape = SubResource("RectangleShape2D_81i13")
 [node name="CollisionShape2D24" type="CollisionShape2D" parent="Worlds/Tiles/StaticBody2D"]
 position = Vector2(1328, 192)
 shape = SubResource("RectangleShape2D_xf47x")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Worlds/Tiles/StaticBody2D"]
+position = Vector2(-218, 77.5)
+shape = SubResource("RectangleShape2D_o7j4k")
 
 [node name="WorldBoundry" parent="Worlds" instance=ExtResource("4_c14h2")]
 position = Vector2(568, 717)
