@@ -13,7 +13,6 @@ signal player_died
 
 # ======= NODES =======
 @onready var stopwatch: Stopwatch = get_tree().get_first_node_in_group("stopwatch")
-@onready var delay: Timer = $Delay
 
 # ======= STATE =======
 var collected_cards: Dictionary = {}
@@ -27,7 +26,6 @@ var level_data_base_path: String = "res://scripts/Levels/Data/Level Data/level_"
 # ======= READY =======
 func _ready() -> void:
 	reset_game_state()
-	var player = get_tree().get_first_node_in_group("player")
 
 # ======= PROCESS =======
 func _process(delta: float) -> void:

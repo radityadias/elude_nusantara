@@ -19,7 +19,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func finish() -> void:
 	set_process(false)
 	stopped = true
-	var last_time = time_to_string()
 
 func reset() -> void:
 	time = 0.0
