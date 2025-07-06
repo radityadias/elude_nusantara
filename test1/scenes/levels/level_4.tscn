@@ -1,13 +1,13 @@
 [gd_scene load_steps=64 format=4 uid="uid://b344pe2gfwx0h"]
 
-[ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="1_woy8g"]
+[ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Controllers/level_manager.gd" id="1_woy8g"]
 [ext_resource type="Resource" path="res://scripts/Levels/Data/Level Data/level_4_data.tres" id="2_mndr2"]
 [ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/terrains/Assets/Buildings.png" id="2_ts8eg"]
-[ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="2_xt2o7"]
-[ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="3_beuva"]
+[ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="2_xt2o7"]
+[ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="3_beuva"]
 [ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/terrains/Assets/Props-01.png" id="3_um320"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="4_glw47"]
-[ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_failed.tscn" id="4_woy8g"]
+[ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/Popup/stage_failed.tscn" id="4_woy8g"]
 [ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="5_4wsov"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="6_hsvsk"]
 [ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/traps/spike.tscn" id="6_qvnao"]
@@ -18,10 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://105chyqe2ydq" path="res://scenes/Interactables/pressure_button.tscn" id="8_fcb7b"]
 [ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/traps/laser_beam.tscn" id="8_pmra4"]
 [ext_resource type="PackedScene" uid="uid://b647r3r5v0waq" path="res://scenes/Interactables/jump_pad.tscn" id="9_um320"]
-[ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="11_4wsov"]
+[ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/Cards/card_red.tscn" id="11_4wsov"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="12_qvnao"]
 [ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="15_1bx01"]
-[ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="18_beuva"]
+[ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/Doors/door_red.tscn" id="18_beuva"]
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="19_05se8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afq43"]
@@ -1489,6 +1489,7 @@ tile_map_data = PackedByteArray("AADw/wYAAgAEAAcAAADx/wYAAgAFAAcAAADy/wYAAgAEAAc
 tile_set = SubResource("TileSet_12cdj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World/Tiles"]
+visible = false
 position = Vector2(-465, -741)
 script = ExtResource("7_afq43")
 tilemaplayers_nodepaths = Array[NodePath]([NodePath("..")])

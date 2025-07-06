@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://1wx0txg02mx8"
+path="res://.godot/imported/JUMPING.wav-704cb574ada264448691b001fe46ce88.sample"
+
+[deps]
+
+source_file="res://assets/SFX ELUDE/Character/JUMPING.wav"
+dest_files=["res://.godot/imported/JUMPING.wav-704cb574ada264448691b001fe46ce88.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

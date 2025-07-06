@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfuok3fr40dsf"]
+[gd_scene load_steps=6 format=3 uid="uid://cfuok3fr40dsf"]
 
-[ext_resource type="Texture2D" uid="uid://rh1lsvbofub" path="res://assets/sprites/players/Health UI Black.png" id="1_gdt2y"]
+[ext_resource type="Texture2D" uid="uid://rh1lsvbofub" path="res://assets/Sprites/players/Health UI Black.png" id="1_gdt2y"]
 [ext_resource type="Script" uid="uid://bj8m8cjn8xm8l" path="res://scripts/UI/ui.gd" id="1_wm3ai"]
-[ext_resource type="Texture2D" uid="uid://diha3887w3e13" path="res://assets/sprites/players/Pause.png" id="2_wm3ai"]
 [ext_resource type="FontFile" uid="uid://dpqkv5qel71na" path="res://assets/Fonts/Jersey10-Regular.ttf" id="3_8dubc"]
-[ext_resource type="Texture2D" uid="uid://u0biucc4c700" path="res://assets/sprites/doors/Card.png" id="4_p7vwb"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iav0o"]
+[ext_resource type="Texture2D" uid="uid://u0biucc4c700" path="res://assets/Sprites/doors/Card.png" id="4_p7vwb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtwp4"]
 atlas = ExtResource("4_p7vwb")
@@ -21,10 +18,10 @@ script = ExtResource("1_wm3ai")
 
 [node name="Health" type="Panel" parent="CanvasLayer"]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 84.0
-offset_top = 7.0
-offset_right = 254.0
-offset_bottom = 50.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 180.0
+offset_bottom = 48.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -49,23 +46,6 @@ expand_mode = 2
 [node name="Health3" type="TextureRect" parent="CanvasLayer/Health/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_gdt2y")
-expand_mode = 2
-
-[node name="Pause" type="Panel" parent="CanvasLayer"]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = 9.0
-offset_top = 9.0
-offset_right = 49.0
-offset_bottom = 49.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_iav0o")
-
-[node name="PauseIcon" type="TextureRect" parent="CanvasLayer/Pause"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_wm3ai")
 expand_mode = 2
 
 [node name="Timer" type="Panel" parent="CanvasLayer"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfi45uw8hv4ea"
+path="res://.godot/imported/DRAGGING N PUSHING OBJECT.wav-5254c7283376c0e810282cc0eb313997.sample"
+
+[deps]
+
+source_file="res://assets/SFX ELUDE/Interactables/DRAGGING N PUSHING OBJECT.wav"
+dest_files=["res://.godot/imported/DRAGGING N PUSHING OBJECT.wav-5254c7283376c0e810282cc0eb313997.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

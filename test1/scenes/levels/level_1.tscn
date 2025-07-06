@@ -1,14 +1,14 @@
-[gd_scene load_steps=44 format=4 uid="uid://bdwfhakjqedmh"]
+[gd_scene load_steps=45 format=4 uid="uid://bdwfhakjqedmh"]
 
-[ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Levels/level_manager.gd" id="1_uve2h"]
-[ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/stage_completed.tscn" id="2_8nofh"]
+[ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Controllers/level_manager.gd" id="1_uve2h"]
+[ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="2_8nofh"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="2_gma0p"]
 [ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="3_6i3av"]
-[ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/stage_failed.tscn" id="3_o8nn7"]
-[ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/pause_menu.tscn" id="4_5afox"]
+[ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/Popup/stage_failed.tscn" id="3_o8nn7"]
+[ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="4_5afox"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="4_c14h2"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="5_8nofh"]
-[ext_resource type="Resource" path="res://scripts/Levels/Data/Level Data/level_1_data.tres" id="5_gmpev"]
+[ext_resource type="Resource" uid="uid://d2h2636ucn4r0" path="res://scripts/Levels/Data/Level Data/level_1_data.tres" id="5_gmpev"]
 [ext_resource type="Texture2D" uid="uid://cx1ytthnr80ch" path="res://assets/terrains/Tilesets/TX Tileset Ground.png" id="6_hc568"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="6_lyg7s"]
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="6_o8nn7"]
@@ -18,9 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/moving_plaltform.tscn" id="12_7eaqk"]
 [ext_resource type="PackedScene" uid="uid://dy6si25j7fdps" path="res://scenes/Platforms/test_falling_platforms.tscn" id="12_hfo4s"]
 [ext_resource type="PackedScene" uid="uid://b647r3r5v0waq" path="res://scenes/Interactables/jump_pad.tscn" id="12_oorix"]
-[ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/card.tscn" id="13_udpyv"]
+[ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/Cards/card_red.tscn" id="13_udpyv"]
 [ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="14_rt8wg"]
-[ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/door.tscn" id="15_gx6sj"]
+[ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/Doors/door_red.tscn" id="15_gx6sj"]
 [ext_resource type="Texture2D" uid="uid://qjetf2krjnsk" path="res://assets/backgrounds/1/Day/1.png" id="22_yhe24"]
 [ext_resource type="Texture2D" uid="uid://em3vyoxwudo3" path="res://assets/backgrounds/1/Day/2.png" id="23_x5rd6"]
 [ext_resource type="Texture2D" uid="uid://c3in5hjn2lifl" path="res://assets/backgrounds/1/Day/3.png" id="24_sl41b"]
@@ -783,6 +783,9 @@ size = Vector2(704, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xf47x"]
 size = Vector2(320, 160)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7j4k"]
+size = Vector2(20, 165)
+
 [sub_resource type="Animation" id="Animation_g1oo3"]
 length = 0.001
 tracks/0/type = "value"
@@ -821,7 +824,7 @@ _data = {
 &"up": SubResource("Animation_qi4hn")
 }
 
-[node name="Level1New" type="Node2D"]
+[node name="Level1" type="Node2D"]
 
 [node name="CallableUI" type="CanvasLayer" parent="." groups=["callable_ui"]]
 
@@ -889,6 +892,10 @@ shape = SubResource("RectangleShape2D_81i13")
 position = Vector2(1328, 192)
 shape = SubResource("RectangleShape2D_xf47x")
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Worlds/Tiles/StaticBody2D"]
+position = Vector2(-218, 77.5)
+shape = SubResource("RectangleShape2D_o7j4k")
+
 [node name="WorldBoundry" parent="Worlds" instance=ExtResource("4_c14h2")]
 position = Vector2(568, 717)
 
@@ -901,7 +908,6 @@ limit_left = -352
 limit_top = 200
 limit_right = 1343
 limit_bottom = 648
-limit_smoothed = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Worlds"]
 
@@ -914,6 +920,7 @@ position = Vector2(-99, -324)
 scale = Vector2(2, 2)
 texture = ExtResource("22_yhe24")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Worlds/ParallaxBackground"]
 position = Vector2(-1078, 495)
@@ -924,6 +931,7 @@ position = Vector2(431, -494)
 scale = Vector2(2, 2)
 texture = ExtResource("23_x5rd6")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Worlds/ParallaxBackground"]
 position = Vector2(-345, 524)
@@ -934,6 +942,7 @@ position = Vector2(-302, -524)
 scale = Vector2(2, 2)
 texture = ExtResource("24_sl41b")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Worlds/ParallaxBackground"]
 position = Vector2(-345, 524)
@@ -944,6 +953,7 @@ position = Vector2(-302, -524)
 scale = Vector2(2, 2)
 texture = ExtResource("25_f2xmq")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="Worlds/ParallaxBackground"]
 position = Vector2(-345, 524)
@@ -954,6 +964,7 @@ position = Vector2(-302, -524)
 scale = Vector2(2, 2)
 texture = ExtResource("26_81i13")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Traps" type="Node" parent="."]
 
@@ -1009,6 +1020,7 @@ position = Vector2(919, 585)
 
 [node name="Scanner" parent="Interactables" instance=ExtResource("14_rt8wg")]
 position = Vector2(1088, 421)
+required_card_type = "red"
 
 [node name="Door" parent="Interactables" instance=ExtResource("15_gx6sj")]
 position = Vector2(1212, 410)

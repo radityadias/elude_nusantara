@@ -17,8 +17,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://scripts/Worlds/game_manager.gd"
+GameManager="*res://scripts/Controllers/game_manager.gd"
 InteractionManager="*res://interactions/interaction_manager.tscn"
+SceneManager="*res://scripts/Controllers/scene_manager.gd"
+AudioManager="*res://scripts/AudioManager.gd"
+<<<<<<<HEADAudioManager="*res://scripts/AudioManager.gd"
 
 [input]
 

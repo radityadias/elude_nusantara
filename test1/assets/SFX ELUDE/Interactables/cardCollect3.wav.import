@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ck1cextqe4d31"
+path="res://.godot/imported/cardCollect3.wav-93811693f3b42131e29b0e33f1e59ec2.sample"
+
+[deps]
+
+source_file="res://assets/SFX ELUDE/Interactables/cardCollect3.wav"
+dest_files=["res://.godot/imported/cardCollect3.wav-93811693f3b42131e29b0e33f1e59ec2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

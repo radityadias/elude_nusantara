@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://benxumuuee62n"]
 
-[ext_resource type="Texture2D" uid="uid://kfigk80miq2e" path="res://assets/Sprites/traps/wall_blades.png" id="1_hop41"]
+[ext_resource type="Texture2D" uid="uid://kfigk80miq2e" path="res://assets/sprites/traps/wall_blades.png" id="1_hop41"]
 [ext_resource type="Script" uid="uid://w311rmglmbbt" path="res://scripts/Traps/wall_spike.gd" id="1_hx68k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ssg10"]
