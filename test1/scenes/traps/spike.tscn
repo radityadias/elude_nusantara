@@ -152,7 +152,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 12.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -230,6 +230,8 @@ script = ExtResource("1_eikeo")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e3cya")
 animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0579064
 
 [node name="MainCollision" type="CollisionShape2D" parent="."]
 visible = false

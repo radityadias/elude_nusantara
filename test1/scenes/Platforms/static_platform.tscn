@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://7rsxwn8xmxi2"]
 
-[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="1_cebc6"]
+[ext_resource type="Texture2D" uid="uid://fnt1v1aamf36" path="res://assets/terrains/Objects/static_platforms.png" id="1_rr6r7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cebc6"]
-size = Vector2(34, 16)
+size = Vector2(64, 7)
 
 [node name="platform1" type="AnimatableBody2D"]
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_cebc6")
-region_enabled = true
+texture = ExtResource("1_rr6r7")
 region_rect = Rect2(-1, 0, 34, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_cebc6")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://hlnn8ujj4mss"]
+
+[ext_resource type="Texture2D" uid="uid://crw5hrb6pcthh" path="res://assets/terrains/Objects/platforms.png" id="1_xtcih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkbgh"]
+size = Vector2(64, 7)
+
+[node name="FloatingPlatform" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xtcih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_qkbgh")
+one_way_collision = true
