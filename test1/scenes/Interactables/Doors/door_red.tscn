@@ -135,9 +135,3 @@ collision_mask = 2
 [node name="FinishCollision" type="CollisionShape2D" parent="Finish"]
 shape = SubResource("RectangleShape2D_gg805")
 debug_color = Color(0, 0.644754, 0.274531, 0.42)
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]

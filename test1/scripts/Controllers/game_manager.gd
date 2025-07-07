@@ -5,6 +5,7 @@ signal cards_changed(card_type: String, count: int)
 signal scanner_validated(card_type: String, success: bool)
 signal counted_stars(value: int)
 signal lever_activated(value: bool, required_order: int)
+signal exit_door_open(value: bool)
 signal game_finished
 signal game_pause
 signal took_damage
@@ -19,6 +20,7 @@ signal player_died
 var collected_cards: Dictionary = {}
 var cards_collected: int = 0
 var is_having_card: bool = false
+var is_game_finished: bool = false
 var player_is_dead: bool = false
 var current_level_data: LevelData
 var base_path: String = "res://scenes/levels/level_"
@@ -50,11 +52,12 @@ func next_level() -> void:
 # ======= GAME FLOW =======
 func game_finish() -> void:
 	game_finished.emit()
+	is_game_finished = true
 	if AudioManager:
 		AudioManager.stop_music()
-		AudioManager.play_sfx(AudioManager.win_sound_path, -10.0)
+		AudioManager.play_sfx(AudioManager.win_sound_path, -25.0)
 	else:
-		print("ERROR: AudioManager not found when trying to play win stage sound!")
+		push_error("ERROR: AudioManager not found when trying to play win stage sound!")
 	
 
 func _input(event: InputEvent) -> void:
@@ -79,7 +82,7 @@ func player_dead() -> void:
 		AudioManager.stop_music()
 		AudioManager.play_sfx(AudioManager.lose_sound_path, -10.0)
 	else:
-		print("ERROR: AudioManager not found when trying to play win stage sound!")
+		push_error("ERROR: AudioManager not found when trying to play win stage sound!")
 	
 
 func using_jumppad() -> void:
@@ -92,7 +95,6 @@ func box_reset() -> void:
 func add_card(card_type: String) -> void:
 	collected_cards[card_type] = collected_cards.get(card_type, 0) + 1
 	cards_changed.emit(card_type, collected_cards[card_type])
-	print("Collected %s key. Total %s %s keys." % [card_type, collected_cards[card_type], card_type]) # For debugging
 
 func has_card(card_type: String, required_count: int = 1) -> bool:
 	return collected_cards.get(card_type, 0) >= required_count
@@ -103,7 +105,6 @@ func consume_card(card_type: String, count: int = 1) -> void:
 		if collected_cards[card_type] <= 0:
 			collected_cards.erase(card_type)
 		cards_changed.emit(card_type, collected_cards.get(card_type, 0))
-		print("Consumed %s %s key. Remaining %s %s keys." % [count, card_type, collected_cards.get(card_type, 0), card_type]) # For debugging
 
 func validate_scan(card_type: String, required_count: int = 1) -> void:
 	if has_card(card_type, required_count):
@@ -128,3 +129,4 @@ func reset_game_state() -> void:
 	collected_cards.clear()
 	is_having_card = false
 	player_is_dead = false
+	is_game_finished = false

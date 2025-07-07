@@ -384,7 +384,7 @@ grow_vertical = 2
 script = ExtResource("1_lwpty")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(576.5, 323.75)
+position = Vector2(576, 324)
 scale = Vector2(1.12598, 1.19871)
 sprite_frames = SubResource("SpriteFrames_dgcoy")
 animation = &"Background"

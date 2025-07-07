@@ -40,8 +40,6 @@ func _ready():
 	music_player.bus = "BGM" # Mengarahkan musik ke bus "Music"
 	add_child(music_player)
 	
-	print("AudioManager initialized.")
-
 	# Memutar musik latar default saat game dimulai (opsional)
 	if default_bgm_path and not default_bgm_path.is_empty():
 		play_music(default_bgm_path, -10.0) # Contoh volume untuk BGM
@@ -63,10 +61,9 @@ func _get_free_sfx_player() -> AudioStreamPlayer:
 		add_child(new_player)
 		sfx_player_pool.append(new_player)
 		new_player.finished.connect(_on_sfx_finished.bind(new_player), CONNECT_ONE_SHOT)
-		print("Created new SFX player due to pool exhaustion. Current count: ", sfx_player_pool.size())
 		return new_player
 	
-	print("Warning: SFX player pool exhausted and max players reached. Cannot play new SFX.")
+	push_warning("Warning: SFX player pool exhausted and max players reached. Cannot play new SFX.")
 	return null
 
 ## Memutar SFX satu kali (misal: jump, hit, UI click).
@@ -77,9 +74,8 @@ func play_sfx(audio_path: String, volume_db: float = 0.0, pitch_scale: float = 1
 		player.volume_db = volume_db
 		player.pitch_scale = pitch_scale
 		player.play()
-		print("AudioManager: Successfully playing SFX: ", audio_path, " on player ", player.get_name(), " (Volume: ", volume_db, "dB, Pitch: ", pitch_scale, ")") # <-- PASTIKAN INI ADA
 	else:
-		print("AudioManager: WARNING: No free SFX player available to play: ", audio_path) # <-- PASTIKAN INI ADA
+		push_warning("AudioManager: WARNING: No free SFX player available to play: ", audio_path) # <-- PASTIKAN INI ADA
 		
 		
 ## Memutar SFX yang akan di-loop (misal: suara lari).
@@ -98,7 +94,7 @@ func play_looped_sfx(audio_path: String, volume_db: float = 0.0, pitch_scale: fl
 			if not player.playing or player.stream != audio_stream:
 				player.play()
 		else:
-			print("Warning: Failed to load AudioStream for looped SFX: ", audio_path)
+			push_warning("Warning: Failed to load AudioStream for looped SFX: ", audio_path)
 
 ## Menghentikan SFX yang sedang di-loop berdasarkan path audio.
 func stop_looped_sfx(audio_path: String):
@@ -137,16 +133,15 @@ func play_music(audio_path: String, volume_db: float = 0.0):
 			
 			if new_stream is AudioStreamOggVorbis or new_stream is AudioStreamWAV:
 				if not new_stream.loop:
-					print("Warning: BGM stream is not set to loop in import settings: ", audio_path)
+					push_warning("Warning: BGM stream is not set to loop in import settings: ", audio_path)
 	else:
-		print("Error: Could not load AudioStream for BGM: ", audio_path)
+		push_error("Error: Could not load AudioStream for BGM: ", audio_path)
 
 ## Menghentikan musik latar.
 func stop_music():
 	if music_player.playing:
 		music_player.stop()
 		music_player.stream = null # Hapus stream
-		print("BGM stopped.")
 
 ## Mengatur volume bus Music secara global (0.0 - 1.0 linear scale).
 func set_music_volume(volume_linear: float):
@@ -177,7 +172,6 @@ func get_sfx_volume() -> float:
 	return 0.0
 
 func stop_all_looped_sfx():
-	print("DEBUG: AudioManager: Stopping all currently playing looped SFX.")
 	for player in sfx_player_pool:
 		if is_instance_valid(player) and player.playing and player.loop:
 			player.stop()
@@ -185,4 +179,3 @@ func stop_all_looped_sfx():
 			player.stream = null # Hapus stream
 			player.volume_db = 0.0 # Reset volume
 			player.pitch_scale = 1.0 # Reset pitch
-			print("DEBUG: AudioManager: Stopped looped player: ", player.name)

@@ -65,7 +65,6 @@ func _ready() -> void:
 	setup_pushable_connections()
 	# Memastikan AudioManager sudah siap
 	if AudioManager == null:
-		print("ERROR: AudioManager AutoLoad not found! Pastikan sudah diatur di Project Settings -> AutoLoad.")
 		set_physics_process(false) # Hentikan proses fisika jika AudioManager tidak ada
 		set_process(false) # Hentikan proses reguler juga
 
@@ -108,7 +107,6 @@ func _physics_process(delta: float) -> void:
 			is_running_sound_playing = true
 	else: # Jika tidak di lantai, pastikan suara lari berhenti
 		if is_running_sound_playing:
-			print("DEBUG_RUN_SOUND_STATE: Off-floor. Forcing stop of run sound.")
 			AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path) # <--- PERBAIKAN DI SINI!
 			is_running_sound_playing = false
 
@@ -196,7 +194,6 @@ func update_state_based_on_movement(direction: float) -> void:
 		JUMP_COUNT = 0
 		# Pastikan suara lari berhenti saat mendarat dari semua jenis lompatan
 		if is_running_sound_playing and old_state in [State.JUMP, State.DOUBLE_JUMP, State.JUMP_PAD]:
-			print("DEBUG_RUN_SOUND: Landed from jump/jumppad. Forcing stop of run sound.")
 			AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
 			is_running_sound_playing = false
 			
@@ -217,18 +214,15 @@ func _on_push_state_changed(is_pushing: bool, direction: int) -> void:
 		
 		# AUDIO: Jika sedang push, hentikan suara lari
 		if is_running_sound_playing:
-			print("DEBUG_RUN_SOUND: Entered PUSH state. Forcing stop of run sound.")
 			AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
 			is_running_sound_playing = false
 		# --- AUDIO: Mainkan suara box dorong/tarik (mulai loop) ---
 		if not is_pushing_sound_playing: # Hanya mainkan jika belum diputar
-			print("DEBUG_PUSH_SOUND: Started pushing. Playing push/pull sound.")
 			AudioManager.play_looped_sfx(AudioManager.dragging_sound_path, -10.0) # Contoh volume
 			is_pushing_sound_playing = true
 	elif state == State.PUSH:
 		state = State.IDLE
 		if is_pushing_sound_playing: # Hanya hentikan jika sedang diputar
-			print("DEBUG_PUSH_SOUND: Stopped pushing. Stopping push/pull sound.")
 			AudioManager.stop_looped_sfx(AudioManager.dragging_sound_path)
 			is_pushing_sound_playing = false # Set flag ke false
 
@@ -304,7 +298,6 @@ func decrease_health() -> void:
 	
 	# AUDIO: Hentikan suara lari jika terkena damage
 	if is_running_sound_playing:
-		print("DEBUG_RUN_SOUND: Took damage. Forcing stop of run sound.")
 		AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
 		is_running_sound_playing = false
 		
@@ -338,7 +331,6 @@ func start_invincibility() -> void:
 	
 	# AUDIO: Hentikan suara lari saat invicible
 	if is_running_sound_playing:
-		print("DEBUG_RUN_SOUND: Entered INVINCIBLE state. Forcing stop of run sound.")
 		AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
 		is_running_sound_playing = false
 
@@ -354,7 +346,6 @@ func handle_dead() -> void:
 	
 	# AUDIO: Hentikan semua suara lari jika pemain mati
 	if is_running_sound_playing:
-		print("DEBUG_RUN_SOUND: Player died. Forcing stop of run sound.")
 		AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
 		is_running_sound_playing = false
 	# --- AUDIO: Mainkan suara karakter mati ---
@@ -370,6 +361,5 @@ func try_jump_pad() -> void:
 	
 	# Pastikan suara lari berhenti saat menggunakan jump pad
 	if is_running_sound_playing:
-		print("DEBUG_RUN_SOUND: Used Jump Pad. Forcing stop of run sound.")
 		AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path)
 		is_running_sound_playing = false
