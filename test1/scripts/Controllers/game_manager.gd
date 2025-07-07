@@ -5,7 +5,6 @@ signal cards_changed(card_type: String, count: int)
 signal scanner_validated(card_type: String, success: bool)
 signal counted_stars(value: int)
 signal lever_activated(value: bool, required_order: int)
-signal exit_door_open(value: bool)
 signal game_finished
 signal game_pause
 signal took_damage

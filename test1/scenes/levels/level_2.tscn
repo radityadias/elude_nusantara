@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://lhti2o58fwjy"]
+[gd_scene load_steps=60 format=4 uid="uid://lhti2o58fwjy"]
 
 [ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="1_ra442"]
 [ext_resource type="Script" uid="uid://cgcop84nu4v2o" path="res://scripts/Levels/level_1.gd" id="1_wikm6"]
@@ -14,15 +14,20 @@
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="11_r6ket"]
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Controllers/level_manager.gd" id="12_wxjxf"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="12_xworo"]
-[ext_resource type="Resource" path="res://scripts/Levels/Data/Level Data/level_2_data.tres" id="13_2ewt3"]
+[ext_resource type="Resource" uid="uid://by30xdnynou5p" path="res://scripts/Levels/Data/Level Data/level_2_data.tres" id="13_2ewt3"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="13_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="14_2hpwu"]
 [ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/moving_plaltform.tscn" id="14_wwjag"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="15_0lf7e"]
 [ext_resource type="PackedScene" uid="uid://dy6si25j7fdps" path="res://scenes/Platforms/test_falling_platforms.tscn" id="15_rvwo1"]
 [ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/Popup/stage_failed.tscn" id="16_410d2"]
+[ext_resource type="Texture2D" uid="uid://k0ahb1dinmku" path="res://assets/backgrounds/city 5/1.png" id="16_r6ket"]
+[ext_resource type="Texture2D" uid="uid://c88p26r2rpvgb" path="res://assets/backgrounds/2/Day/2.png" id="17_xworo"]
+[ext_resource type="Texture2D" uid="uid://cx3v0lapiarpw" path="res://assets/backgrounds/2/Day/3.png" id="18_wwjag"]
+[ext_resource type="Texture2D" uid="uid://b3x0ofjcxjrx" path="res://assets/backgrounds/2/Day/4.png" id="19_rvwo1"]
 [ext_resource type="PackedScene" uid="uid://4whpvx36wsog" path="res://scenes/Interactables/push_block.tscn" id="19_yxkvy"]
 [ext_resource type="PackedScene" uid="uid://105chyqe2ydq" path="res://scenes/Interactables/pressure_button.tscn" id="20_joiyc"]
+[ext_resource type="Texture2D" uid="uid://cb54uklbcipfy" path="res://assets/backgrounds/2/Day/5.png" id="20_yxkvy"]
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="24_tn15g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bahl2"]
@@ -1451,6 +1456,48 @@ autoplay = "move"
 
 [node name="FallingPlatform" parent="Worlds/Platforms" instance=ExtResource("15_rvwo1")]
 position = Vector2(581, 461)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Worlds"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Worlds/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Worlds/ParallaxBackground/ParallaxLayer"]
+position = Vector2(354, 450)
+scale = Vector2(2, 2)
+texture = ExtResource("16_r6ket")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Worlds/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Worlds/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(354, 450)
+scale = Vector2(2, 2)
+texture = ExtResource("17_xworo")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Worlds/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Worlds/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(354, 450)
+scale = Vector2(2, 2)
+texture = ExtResource("18_wwjag")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Worlds/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Worlds/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(354, 450)
+scale = Vector2(2, 2)
+texture = ExtResource("19_rvwo1")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Worlds/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Worlds/ParallaxBackground/ParallaxLayer5"]
+position = Vector2(354, 450)
+scale = Vector2(2, 2)
+texture = ExtResource("20_yxkvy")
 
 [node name="Interactables" type="Node" parent="."]
 
