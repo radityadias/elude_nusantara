@@ -10,18 +10,18 @@
 [ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/terrains/Assets/Buildings.png" id="9_mx6s3"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/Cards/card_red.tscn" id="9_tv7cl"]
 [ext_resource type="Texture2D" uid="uid://petqpopievk6" path="res://assets/terrains/Assets/Props-01.png" id="10_7d3nu"]
-[ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/scanner.tscn" id="10_r88tb"]
+[ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/Scanners/scanner_red.tscn" id="10_r88tb"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="11_r6ket"]
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Controllers/level_manager.gd" id="12_wxjxf"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="12_xworo"]
-[ext_resource type="Resource" uid="uid://b7qhd5uqt10r5" path="res://scripts/Levels/Data/Level Data/level_2_data.tres" id="13_2ewt3"]
+[ext_resource type="Resource" uid="uid://by30xdnynou5p" path="res://scripts/Levels/Data/Level Data/level_2_data.tres" id="13_2ewt3"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="13_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="14_2hpwu"]
 [ext_resource type="PackedScene" uid="uid://dn36pv88qhqpi" path="res://scenes/Platforms/moving_plaltform.tscn" id="14_wwjag"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="15_0lf7e"]
 [ext_resource type="PackedScene" uid="uid://dy6si25j7fdps" path="res://scenes/Platforms/test_falling_platforms.tscn" id="15_rvwo1"]
 [ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/Popup/stage_failed.tscn" id="16_410d2"]
-[ext_resource type="Texture2D" uid="uid://c6qlqwp253ixt" path="res://assets/backgrounds/2/Day/1.png" id="16_r6ket"]
+[ext_resource type="Texture2D" uid="uid://k0ahb1dinmku" path="res://assets/backgrounds/city 5/1.png" id="16_r6ket"]
 [ext_resource type="Texture2D" uid="uid://c88p26r2rpvgb" path="res://assets/backgrounds/2/Day/2.png" id="17_xworo"]
 [ext_resource type="Texture2D" uid="uid://cx3v0lapiarpw" path="res://assets/backgrounds/2/Day/3.png" id="18_wwjag"]
 [ext_resource type="Texture2D" uid="uid://b3x0ofjcxjrx" path="res://assets/backgrounds/2/Day/4.png" id="19_rvwo1"]
@@ -1443,13 +1443,6 @@ position = Vector2(0, 816)
 position = Vector2(35, 513)
 HEARTH = [NodePath("../../UI/CanvasLayer/Health/HBoxContainer/Health1"), NodePath("../../UI/CanvasLayer/Health/HBoxContainer/Health2"), NodePath("../../UI/CanvasLayer/Health/HBoxContainer/Health3")]
 
-[node name="Camera2D" parent="Worlds/Player" index="5"]
-limit_left = -200
-limit_top = 0
-limit_right = 1200
-limit_bottom = 700
-editor_draw_limits = true
-
 [node name="Platforms" type="Node" parent="Worlds"]
 
 [node name="Platform3" parent="Worlds/Platforms" instance=ExtResource("14_wwjag")]
@@ -1470,7 +1463,7 @@ position = Vector2(581, 461)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Worlds/ParallaxBackground/ParallaxLayer"]
-position = Vector2(356, 450)
+position = Vector2(354, 450)
 scale = Vector2(2, 2)
 texture = ExtResource("16_r6ket")
 
@@ -1478,7 +1471,7 @@ texture = ExtResource("16_r6ket")
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Worlds/ParallaxBackground/ParallaxLayer2"]
-position = Vector2(356, 450)
+position = Vector2(354, 450)
 scale = Vector2(2, 2)
 texture = ExtResource("17_xworo")
 
@@ -1486,7 +1479,7 @@ texture = ExtResource("17_xworo")
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Worlds/ParallaxBackground/ParallaxLayer3"]
-position = Vector2(356, 450)
+position = Vector2(354, 450)
 scale = Vector2(2, 2)
 texture = ExtResource("18_wwjag")
 
@@ -1494,7 +1487,7 @@ texture = ExtResource("18_wwjag")
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Worlds/ParallaxBackground/ParallaxLayer4"]
-position = Vector2(356, 450)
+position = Vector2(354, 450)
 scale = Vector2(2, 2)
 texture = ExtResource("19_rvwo1")
 
@@ -1502,7 +1495,7 @@ texture = ExtResource("19_rvwo1")
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Worlds/ParallaxBackground/ParallaxLayer5"]
-position = Vector2(356, 450)
+position = Vector2(354, 450)
 scale = Vector2(2, 2)
 texture = ExtResource("20_yxkvy")
 

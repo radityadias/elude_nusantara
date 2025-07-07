@@ -25,7 +25,8 @@ func update_star_display(value: int) -> void:
 
 
 func _on_home_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/UI/level_select.tscn")
+	print("Home Button Pressed!")
+	
 func _on_restart_pressed() -> void:
 	print("Restart button pressed!")
 	animation_player.play_backwards("on")

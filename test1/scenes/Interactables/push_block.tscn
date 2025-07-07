@@ -10,7 +10,6 @@ size = Vector2(32, 47)
 size = Vector2(20, 40)
 
 [node name="Push Block" type="CharacterBody2D" groups=["pushable"]]
-position = Vector2(1, 0)
 collision_layer = 16
 collision_mask = 3
 script = ExtResource("1_l8x17")

@@ -1,20 +1,25 @@
 [gd_scene load_steps=3 format=3 uid="uid://btkysig0hxc0c"]
 
 [ext_resource type="Script" uid="uid://cywlb717qvote" path="res://interactions/interaction_manager.gd" id="1_8wbdq"]
-[ext_resource type="FontFile" uid="uid://dpqkv5qel71na" path="res://assets/Fonts/Jersey10-Regular.ttf" id="2_f3i48"]
+[ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="2_8wbdq"]
 
 [node name="InteractionManager" type="Node2D"]
 script = ExtResource("1_8wbdq")
 
 [node name="Label" type="Label" parent="."]
 z_index = 15
-texture_filter = 2
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -8.0
+offset_right = 49.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_f3i48")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8wbdq")
 theme_override_font_sizes/font_size = 15
 text = "[E] TO INTERACT "
 horizontal_alignment = 1
