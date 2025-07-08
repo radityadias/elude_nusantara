@@ -1451,6 +1451,7 @@ position = Vector2(3167, 527)
 
 [node name="Scanner" parent="Interactable" instance=ExtResource("13_t4txi")]
 position = Vector2(1384, 330)
+required_card_type = "red"
 
 [node name="Stopwatch" parent="." instance=ExtResource("15_josfm")]
 
