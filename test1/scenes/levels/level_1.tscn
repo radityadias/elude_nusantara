@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b0xsx4mdhgtlt" path="res://assets/backgrounds/nature_5/3.png" id="4_x7jkp"]
 [ext_resource type="Texture2D" uid="uid://cn70bt4ge6bh0" path="res://assets/backgrounds/nature_5/4.png" id="5_0qwwm"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="5_8nofh"]
-[ext_resource type="Resource" uid="uid://cdppj1v6qandn" path="res://scripts/Levels/Data/Level Data/level_1_data.tres" id="5_gmpev"]
+[ext_resource type="Resource" uid="uid://i22y3a377w7d" path="res://scripts/Levels/Data/Level Data/level_1_data.tres" id="5_gmpev"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="6_lyg7s"]
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="6_o8nn7"]
 [ext_resource type="Texture2D" uid="uid://dqxtv2ntcntaj" path="res://assets/backgrounds/nature_5/5.png" id="6_t4umt"]
@@ -216,7 +216,7 @@ level_data = ExtResource("5_gmpev")
 
 [node name="Stopwatch" parent="Controllers" instance=ExtResource("6_o8nn7")]
 
-[node name="UI" parent="." instance=ExtResource("5_8nofh")]
+[node name="UI" parent="Controllers" instance=ExtResource("5_8nofh")]
 offset_left = 55.0
 offset_top = 16.0
 offset_right = 55.0
@@ -351,4 +351,4 @@ text = "press E to scan the card"
 [connection signal="body_entered" from="Map/FinishArea" to="." method="_on_finish_area_body_entered"]
 
 [editable path="Worlds/Player"]
-[editable path="UI"]
+[editable path="Controllers/UI"]

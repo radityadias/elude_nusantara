@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/Scanners/scanner_red.tscn" id="14_iu1q5"]
 [ext_resource type="Texture2D" uid="uid://b3riaerom8qsn" path="res://assets/backgrounds/city 5/4.png" id="14_k7ksp"]
 [ext_resource type="Texture2D" uid="uid://dp8e75kgpeajc" path="res://assets/backgrounds/city 5/5.png" id="15_mcllb"]
-[ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/traps/saw.tscn" id="17_fea5r"]
+[ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/traps/moving_saw.tscn" id="17_fea5r"]
 [ext_resource type="Texture2D" uid="uid://k3tn6tdostcc" path="res://assets/backgrounds/buildings/building_02.png" id="17_k7ksp"]
 [ext_resource type="PackedScene" uid="uid://kin2n7xmotbc" path="res://scenes/traps/laser_beam.tscn" id="17_l8eod"]
 
