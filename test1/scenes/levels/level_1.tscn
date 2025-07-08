@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="4_5afox"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="4_c14h2"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="5_8nofh"]
-[ext_resource type="Resource" uid="uid://d2h2636ucn4r0" path="res://scripts/Levels/Data/Level Data/level_1_data.tres" id="5_gmpev"]
+[ext_resource type="Resource" path="res://scripts/Levels/Data/Level Data/level_1_data.tres" id="5_gmpev"]
 [ext_resource type="Texture2D" uid="uid://cx1ytthnr80ch" path="res://assets/terrains/Tilesets/TX Tileset Ground.png" id="6_hc568"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="6_lyg7s"]
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="6_o8nn7"]
