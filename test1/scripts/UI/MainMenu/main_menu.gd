@@ -7,7 +7,7 @@ func _ready():
 	if AudioManager:
 		AudioManager.play_music(AudioManager.default_bgm_path, -5.0)
 	else:
-		print("Error: AudioManager not found!")
+		push_error("Error: AudioManager not found!")
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/UI/MainMenu/level_select.tscn")

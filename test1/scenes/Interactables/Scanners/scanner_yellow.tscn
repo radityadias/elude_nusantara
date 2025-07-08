@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxnfh2657dtu6"]
+
+[ext_resource type="Script" uid="uid://bjn3sn4jl6hh8" path="res://scripts/Interactables/scanner.gd" id="1_rkjhj"]
+[ext_resource type="Texture2D" uid="uid://be6wc5ter4ble" path="res://assets/terrains/doors/ScreenYellow-export.png" id="2_rkjhj"]
+[ext_resource type="PackedScene" uid="uid://7msgfwu63fmo" path="res://interactions/interaction area/interaction_area.tscn" id="3_6gtw2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihbd6"]
+atlas = ExtResource("2_rkjhj")
+region = Rect2(0, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gtw2"]
+atlas = ExtResource("2_rkjhj")
+region = Rect2(32, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmw5s"]
+atlas = ExtResource("2_rkjhj")
+region = Rect2(64, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hfw4"]
+atlas = ExtResource("2_rkjhj")
+region = Rect2(96, 0, 32, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r71kl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihbd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gtw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmw5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hfw4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jdblb"]
+radius = 36.1248
+
+[node name="Scanner" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_rkjhj")
+required_card_type = "yellow"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r71kl")
+autoplay = "default"
+frame_progress = 0.393793
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_6gtw2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_jdblb")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]

@@ -14,7 +14,7 @@ func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	
 	if AudioManager == null:
-		print("ERROR: AudioManager AutoLoad not found in ScannerLogic.gd!")
+		push_error("ERROR: AudioManager AutoLoad not found in ScannerLogic.gd!")
 
 func _on_game_manager_scanner_validated(scanned_card_type: String, success: bool):
 	if scanned_card_type == required_card_type:
@@ -24,7 +24,6 @@ func _on_game_manager_scanner_validated(scanned_card_type: String, success: bool
 			# ✅ SUCCESS SOUND
 			if AudioManager:
 				AudioManager.play_sfx(AudioManager.scanner_sound_path, -3.0, 1.1) # louder and normal pitch
-			print("DEBUG: ScannerLogic: Scan success. Played SUCCESS sound.")
 
 			GameManager.consume_card(required_card_type, required_cards)
 		else:
@@ -34,7 +33,6 @@ func _on_game_manager_scanner_validated(scanned_card_type: String, success: bool
 			# ❌ FAIL SOUND (invalid card)
 			if AudioManager:
 				AudioManager.play_sfx(AudioManager.scanner_sound_path, -10.0, 0.7) # quieter and lower pitch
-			print("DEBUG: ScannerLogic: Scan failed. Played FAIL sound.")
 
 func _on_interact():
 	if GameManager.has_card(required_card_type, required_cards):
@@ -46,7 +44,6 @@ func _on_interact():
 		# ❌ FAIL SOUND (no card)
 		if AudioManager:
 			AudioManager.play_sfx(AudioManager.scanner_sound_path, -10.0, 0.7)
-		print("DEBUG: ScannerLogic: No card. Played FAIL sound.")
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if not is_scanned:

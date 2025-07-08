@@ -1,0 +1,166 @@
+[gd_scene load_steps=24 format=4 uid="uid://d4bjdgv0hbi2q"]
+
+[ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Controllers/level_manager.gd" id="1_741xk"]
+[ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="2_i0fhw"]
+[ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/Popup/stage_failed.tscn" id="3_5wshb"]
+[ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="4_7x7cx"]
+[ext_resource type="Resource" uid="uid://o0ba6slp5n2m" path="res://scripts/Levels/Data/Level Data/level_6_data.tres" id="5_b6i88"]
+[ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="6_e18e5"]
+[ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="7_m5qie"]
+[ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="8_kydov"]
+[ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="9_e18e5"]
+[ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="9_m5qie"]
+[ext_resource type="PackedScene" uid="uid://cn3gbl6hqymm3" path="res://scenes/Interactables/Cards/card_blue.tscn" id="11_4wfvb"]
+[ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/Scanners/scanner_red.tscn" id="12_tqv5a"]
+[ext_resource type="PackedScene" uid="uid://b0btykpsvg3tu" path="res://scenes/Interactables/Doors/door_blue.tscn" id="13_ppjov"]
+[ext_resource type="PackedScene" uid="uid://c3v2nx6sx7fu0" path="res://scenes/Interactables/Cards/card_yellow.tscn" id="14_gf2l7"]
+[ext_resource type="PackedScene" uid="uid://dfcmc2s2ouoj5" path="res://scenes/Interactables/Doors/door_yellow.tscn" id="15_glmj6"]
+[ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/Cards/card_red.tscn" id="16_cfbu6"]
+[ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/Doors/door_red.tscn" id="17_bvftm"]
+[ext_resource type="PackedScene" uid="uid://mcnyxp43nnni" path="res://scenes/Interactables/lever.tscn" id="18_glmj6"]
+[ext_resource type="PackedScene" uid="uid://dje0ue517ujs3" path="res://scenes/traps/barrier.tscn" id="19_cfbu6"]
+[ext_resource type="PackedScene" uid="uid://bfpnmk4m3sw6e" path="res://scenes/Interactables/Doors/exit_door.tscn" id="20_bvftm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwlxl"]
+texture = ExtResource("8_kydov")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4wfvb"]
+sources/0 = SubResource("TileSetAtlasSource_uwlxl")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5qie"]
+size = Vector2(800, 48)
+
+[node name="Level_6" type="Node2D"]
+
+[node name="CallableUI" type="CanvasLayer" parent="." groups=["callable_ui"]]
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("1_741xk")
+finish_ui = ExtResource("2_i0fhw")
+gameover_ui = ExtResource("3_5wshb")
+pause_ui = ExtResource("4_7x7cx")
+level_data = ExtResource("5_b6i88")
+
+[node name="UI" parent="." instance=ExtResource("6_e18e5")]
+offset_left = 55.0
+offset_top = 16.0
+offset_right = 55.0
+offset_bottom = 16.0
+
+[node name="Stopwatch" parent="." instance=ExtResource("7_m5qie")]
+
+[node name="Worlds" type="Node" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Worlds"]
+tile_map_data = PackedByteArray("AAABABoAAAADAAQAAAACABoAAAADAAQAAAADABoAAAADAAQAAAAEABoAAAADAAQAAAAFABoAAAADAAQAAAAGABoAAAADAAQAAAAHABoAAAADAAQAAAAIABoAAAADAAQAAAAJABoAAAADAAQAAAAKABoAAAADAAQAAAALABoAAAADAAQAAAAMABoAAAADAAQAAAANABoAAAADAAQAAAAOABoAAAADAAQAAAAPABoAAAADAAQAAAAQABoAAAADAAQAAAARABoAAAADAAQAAAASABoAAAADAAQAAAATABoAAAADAAQAAAAUABoAAAADAAQAAAAVABoAAAADAAQAAAAWABoAAAADAAQAAAAXABoAAAADAAQAAAAYABoAAAADAAQAAAAZABoAAAADAAQAAAAaABoAAAADAAQAAAAbABoAAAADAAQAAAAcABoAAAADAAQAAAAdABoAAAADAAQAAAAeABoAAAADAAQAAAAfABoAAAADAAQAAAAgABoAAAADAAQAAAAhABoAAAADAAQAAAAiABoAAAADAAQAAAAjABoAAAADAAQAAAAkABoAAAADAAQAAAAlABoAAAADAAQAAAAmABoAAAADAAQAAAAnABoAAAADAAQAAAAoABoAAAADAAQAAAApABoAAAADAAQAAAAqABoAAAADAAQAAAArABoAAAADAAQAAAAsABoAAAADAAQAAAAtABoAAAADAAQAAAAuABoAAAADAAQAAAAvABoAAAADAAQAAAAwABoAAAADAAQAAAAAABoAAAACAAQAAAAAABsAAAACAAUAAAAAABwAAAACAAYAAAABABwAAAADAAYAAAACABwAAAADAAYAAAADABwAAAADAAYAAAAEABwAAAADAAYAAAAFABwAAAADAAYAAAAGABwAAAADAAYAAAAHABwAAAADAAYAAAAIABwAAAADAAYAAAAJABwAAAADAAYAAAAKABwAAAADAAYAAAALABwAAAADAAYAAAAMABwAAAADAAYAAAANABwAAAADAAYAAAAOABwAAAADAAYAAAAPABwAAAADAAYAAAAQABwAAAADAAYAAAARABwAAAADAAYAAAASABwAAAADAAYAAAATABwAAAADAAYAAAAUABwAAAADAAYAAAAVABwAAAADAAYAAAAWABwAAAADAAYAAAAXABwAAAADAAYAAAAYABwAAAADAAYAAAAZABwAAAADAAYAAAAaABwAAAADAAYAAAAbABwAAAADAAYAAAAcABwAAAADAAYAAAAdABwAAAADAAYAAAAeABwAAAADAAYAAAAfABwAAAADAAYAAAAgABwAAAADAAYAAAAhABwAAAADAAYAAAAiABwAAAADAAYAAAAjABwAAAADAAYAAAAkABwAAAADAAYAAAAlABwAAAADAAYAAAAmABwAAAADAAYAAAAnABwAAAADAAYAAAAoABwAAAADAAYAAAApABwAAAADAAYAAAAqABwAAAADAAYAAAArABwAAAADAAYAAAAsABwAAAADAAYAAAAtABwAAAADAAYAAAAuABwAAAADAAYAAAAvABwAAAADAAYAAAAwABwAAAADAAYAAAAxABoAAAAEAAQAAAAxABsAAAAEAAUAAAAxABwAAAAEAAYAAAABABsAAAADAAUAAAACABsAAAADAAUAAAADABsAAAADAAUAAAAEABsAAAADAAUAAAAFABsAAAADAAUAAAAGABsAAAADAAUAAAAHABsAAAADAAUAAAAIABsAAAADAAUAAAAJABsAAAADAAUAAAAKABsAAAADAAUAAAALABsAAAADAAUAAAAMABsAAAADAAUAAAANABsAAAADAAUAAAAOABsAAAADAAUAAAAPABsAAAADAAUAAAAQABsAAAADAAUAAAARABsAAAADAAUAAAASABsAAAADAAUAAAATABsAAAADAAUAAAAUABsAAAADAAUAAAAVABsAAAADAAUAAAAWABsAAAADAAUAAAAXABsAAAADAAUAAAAYABsAAAADAAUAAAAZABsAAAADAAUAAAAaABsAAAADAAUAAAAbABsAAAADAAUAAAAcABsAAAADAAUAAAAdABsAAAADAAUAAAAeABsAAAADAAUAAAAfABsAAAADAAUAAAAgABsAAAADAAUAAAAhABsAAAADAAUAAAAiABsAAAADAAUAAAAjABsAAAADAAUAAAAkABsAAAADAAUAAAAlABsAAAADAAUAAAAmABsAAAADAAUAAAAnABsAAAADAAUAAAAoABsAAAADAAUAAAApABsAAAADAAUAAAAqABsAAAADAAUAAAArABsAAAADAAUAAAAsABsAAAADAAUAAAAtABsAAAADAAUAAAAuABsAAAADAAUAAAAvABsAAAADAAUAAAAwABsAAAADAAUAAAA=")
+tile_set = SubResource("TileSet_4wfvb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Worlds/TileMapLayer"]
+visible = false
+script = ExtResource("9_m5qie")
+tilemaplayers_nodepaths = Array[NodePath]([NodePath("..")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Worlds/TileMapLayer/StaticBody2D"]
+position = Vector2(400, 440)
+shape = SubResource("RectangleShape2D_m5qie")
+
+[node name="Player" parent="Worlds" instance=ExtResource("9_e18e5")]
+position = Vector2(48, 393)
+
+[node name="Blue Card" parent="." instance=ExtResource("11_4wfvb")]
+position = Vector2(102, 398)
+
+[node name="Scanner" parent="." instance=ExtResource("12_tqv5a")]
+position = Vector2(146, 394)
+required_card_type = "blue"
+
+[node name="Blue Door" parent="." instance=ExtResource("13_ppjov")]
+position = Vector2(193, 384)
+
+[node name="Yellow Card" parent="." instance=ExtResource("14_gf2l7")]
+position = Vector2(266, 395)
+
+[node name="Scanner2" parent="." instance=ExtResource("12_tqv5a")]
+position = Vector2(328, 394)
+required_card_type = "yellow"
+
+[node name="Yellow Door" parent="." instance=ExtResource("15_glmj6")]
+position = Vector2(399, 384)
+
+[node name="Red Card" parent="." instance=ExtResource("16_cfbu6")]
+position = Vector2(480, 394)
+
+[node name="Scanner3" parent="." instance=ExtResource("12_tqv5a")]
+position = Vector2(555, 391)
+required_card_type = "red"
+
+[node name="Red Door" parent="." instance=ExtResource("17_bvftm")]
+position = Vector2(633, 386)
+
+[node name="Barrier" parent="." instance=ExtResource("19_cfbu6")]
+position = Vector2(301, 384)
+
+[node name="Lever" parent="." instance=ExtResource("18_glmj6")]
+position = Vector2(229, 399)
+
+<<<<<<< HEAD
+[node name="ExitDoor" parent="." instance=ExtResource("20_bvftm")]
+position = Vector2(740, 384)
+
+=======
+>>>>>>> 9bd1b191f168065f02c40bf18133c4e3b20ed86a
+[editable path="UI"]
