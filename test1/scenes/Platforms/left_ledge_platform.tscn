@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf38hq00r63sv"]
+
+[ext_resource type="Texture2D" uid="uid://px2l5x2wlnva" path="res://assets/terrains/Objects/ledge_platform.png" id="1_k20t4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thq00"]
+size = Vector2(32, 7)
+
+[node name="LeftLedgePlatform" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("1_k20t4")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-16, -1.5)
+shape = SubResource("RectangleShape2D_thq00")
+one_way_collision = true

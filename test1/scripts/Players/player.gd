@@ -110,6 +110,10 @@ func _physics_process(delta: float) -> void:
 			AudioManager.stop_looped_sfx(AudioManager.run_step_sound_path) # <--- PERBAIKAN DI SINI!
 			is_running_sound_playing = false
 
+func _input(event: InputEvent) -> void:
+	if is_grounded and event.is_action_pressed("move_down"):
+		position.y += 1
+
 # ===== MOVEMENT SYSTEM =====
 func handle_knockback_state(delta: float) -> void:
 	if knockback_timer > 0:
