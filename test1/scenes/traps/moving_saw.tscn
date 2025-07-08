@@ -1,7 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://bnstnofu5hpr7"]
+[gd_scene load_steps=39 format=3 uid="uid://xgx5h8twow"]
 
 [ext_resource type="Texture2D" uid="uid://0hlf461grsng" path="res://assets/sprites/traps/saw_idle.png" id="1_286b1"]
-[ext_resource type="Script" uid="uid://ddj76ciugodjq" path="res://scripts/Traps/saw.gd" id="1_hd0mb"]
+[ext_resource type="Script" uid="uid://djwx1n2aylrla" path="res://scripts/Traps/moving_saw.gd" id="1_hd0mb"]
 [ext_resource type="Texture2D" uid="uid://cq04pnsakr0jj" path="res://assets/sprites/traps/saw_deactivate.png" id="2_maawh"]
 [ext_resource type="Texture2D" uid="uid://c1fs0uvyukuy0" path="res://assets/sprites/traps/saw_activate.png" id="3_hd0mb"]
 
@@ -250,7 +250,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_klnev"]
 radius = 13.0
 
-[node name="Saw" type="Area2D"]
+[node name="MovingSaw" type="Area2D"]
 collision_layer = 9
 collision_mask = 2
 script = ExtResource("1_hd0mb")
@@ -260,12 +260,21 @@ rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_mrorr")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.800161
+frame = 5
+frame_progress = 0.190889
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(1, 11)
 shape = SubResource("CircleShape2D_klnev")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(17, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-17, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

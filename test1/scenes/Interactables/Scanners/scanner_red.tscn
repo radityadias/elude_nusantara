@@ -43,9 +43,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_jdblb"]
 radius = 36.1248
 
-[node name="Scanner" type="Area2D"]
+[node name="ScannerRed" type="Area2D"]
 collision_layer = 16
 script = ExtResource("1_bcp13")
+required_card_type = "red"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r71kl")
