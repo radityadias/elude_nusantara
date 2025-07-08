@@ -3,7 +3,7 @@ extends Control
 @onready var anim_back = $AnimatedSprite2D
 @onready var level_container = $Control/LevelContainer
 
-@export var level_count: int = 10
+@export var level_count: int = 5
 @export var base_path: String = "res://scripts/Levels/Data/Level Data/level_" # Base path to your level data files
 @export var detail_ui: PackedScene
 @export var level_button_ui: PackedScene
