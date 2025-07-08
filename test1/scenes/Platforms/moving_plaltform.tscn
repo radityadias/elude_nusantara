@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://crw5hrb6pcthh" path="res://assets/terrains/Objects/platforms.png" id="1_igyq2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egscr"]
-size = Vector2(120, 9.5)
+size = Vector2(64, 9.5)
 
 [node name="Platform2" type="AnimatableBody2D"]
 collision_mask = 2
@@ -12,6 +12,6 @@ collision_mask = 2
 texture = ExtResource("1_igyq2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -3.75)
 shape = SubResource("RectangleShape2D_egscr")
+one_way_collision = true

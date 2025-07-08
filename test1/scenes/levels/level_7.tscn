@@ -146,7 +146,6 @@ position = Vector2(480, 394)
 
 [node name="Scanner3" parent="." instance=ExtResource("12_tqv5a")]
 position = Vector2(555, 391)
-required_card_type = "red"
 
 [node name="Red Door" parent="." instance=ExtResource("17_bvftm")]
 position = Vector2(633, 386)
@@ -157,10 +156,5 @@ position = Vector2(301, 384)
 [node name="Lever" parent="." instance=ExtResource("18_glmj6")]
 position = Vector2(229, 399)
 
-<<<<<<< HEAD
 [node name="ExitDoor" parent="." instance=ExtResource("20_bvftm")]
 position = Vector2(740, 384)
-
-=======
->>>>>>> 9bd1b191f168065f02c40bf18133c4e3b20ed86a
-[editable path="UI"]
