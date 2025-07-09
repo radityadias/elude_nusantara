@@ -314,7 +314,7 @@ HEARTH = [NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health
 [node name="Camera2D" parent="World/Player/CameraMarker" index="0"]
 limit_left = -220
 limit_right = 1600
-limit_bottom = 669
+limit_bottom = 750
 
 [node name="WorldBoundry" parent="World" instance=ExtResource("6_hsvsk")]
 position = Vector2(0, 923)
