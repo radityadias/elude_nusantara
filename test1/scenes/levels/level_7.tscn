@@ -1,10 +1,10 @@
-[gd_scene load_steps=24 format=4 uid="uid://d4bjdgv0hbi2q"]
+[gd_scene load_steps=24 format=4 uid="uid://3n5ag47j8jkh"]
 
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Controllers/level_manager.gd" id="1_741xk"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="2_i0fhw"]
 [ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/Popup/stage_failed.tscn" id="3_5wshb"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="4_7x7cx"]
-[ext_resource type="Resource" uid="uid://o0ba6slp5n2m" path="res://scripts/Levels/Data/Level Data/level_6_data.tres" id="5_b6i88"]
+[ext_resource type="Resource" uid="uid://bgi83rluif33c" path="res://scripts/Levels/Data/LevelData/level_7_data.tres" id="5_rctaj"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="6_e18e5"]
 [ext_resource type="PackedScene" uid="uid://ddmrhdrbhajln" path="res://scenes/UI/stopwatch.tscn" id="7_m5qie"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="8_kydov"]
@@ -93,7 +93,7 @@ script = ExtResource("1_741xk")
 finish_ui = ExtResource("2_i0fhw")
 gameover_ui = ExtResource("3_5wshb")
 pause_ui = ExtResource("4_7x7cx")
-level_data = ExtResource("5_b6i88")
+level_data = ExtResource("5_rctaj")
 
 [node name="UI" parent="." instance=ExtResource("6_e18e5")]
 offset_left = 55.0
@@ -146,7 +146,6 @@ position = Vector2(480, 394)
 
 [node name="Scanner3" parent="." instance=ExtResource("12_tqv5a")]
 position = Vector2(555, 391)
-required_card_type = "red"
 
 [node name="Red Door" parent="." instance=ExtResource("17_bvftm")]
 position = Vector2(633, 386)
@@ -157,10 +156,7 @@ position = Vector2(301, 384)
 [node name="Lever" parent="." instance=ExtResource("18_glmj6")]
 position = Vector2(229, 399)
 
-<<<<<<< HEAD
 [node name="ExitDoor" parent="." instance=ExtResource("20_bvftm")]
 position = Vector2(740, 384)
 
-=======
->>>>>>> 9bd1b191f168065f02c40bf18133c4e3b20ed86a
 [editable path="UI"]

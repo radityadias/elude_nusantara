@@ -19,7 +19,7 @@ func update_star_display(value: int) -> void:
 	for i in STARS.size():
 		if i < value:
 			if STARS[i] is TextureRect: # Ensure it's a TextureRect or similar
-				(STARS[i] as TextureRect).texture = load("res://assets/Sprites/GUI/Active_Star.png")
+				(STARS[i] as TextureRect).texture = load("res://assets/sprites/GUI/Active_Star.png")
 			else:
 				push_warning("STARS array contains non-TextureRect nodes or similar.")
 

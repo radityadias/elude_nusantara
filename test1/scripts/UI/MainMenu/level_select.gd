@@ -4,7 +4,7 @@ extends Control
 @onready var level_container = $Control/LevelContainer
 
 @export var level_count: int = 5
-@export var base_path: String = "res://scripts/Levels/Data/Level Data/level_" # Base path to your level data files
+@export var base_path: String = "res://scripts/Levels/Data/LevelData/level_"
 @export var detail_ui: PackedScene
 @export var level_button_ui: PackedScene
 
@@ -20,14 +20,33 @@ func _ready():
 
 func load_all_level_data() -> void:
 	all_levels_data.clear()
+	
 	for i in range(1, level_count + 1):
-		var file_path = base_path + str(i) + "_data.tres"
+		var file_path: String
+		
+		if Engine.is_editor_hint():
+			file_path = base_path + str(i) + "_data.tres"
+		else:
+			file_path = "user://%d.tres" % i
+
+		var level_data: LevelData = null
+		
 		if ResourceLoader.exists(file_path):
 			var loaded_resource = ResourceLoader.load(file_path)
 			if loaded_resource is LevelData:
-				all_levels_data.append(loaded_resource as LevelData)
+				level_data = loaded_resource as LevelData
+				print("Loaded level %d from save." % i)
 			else:
 				push_warning("Resource at '%s' is not a LevelData type." % file_path)
+		
+		if level_data == null:
+			# Fallback: create a new default LevelData
+			level_data = LevelData.new()
+			level_data.level_id = i
+			print("Created default data for level %d" % i)
+
+		all_levels_data.append(level_data)
+		print_data()
 
 func setup_level_box():
 	var level_buttons = level_container.get_children()
@@ -37,7 +56,7 @@ func setup_level_box():
 		if not button.has_method("update_display"):
 			continue
 		
-		if button is TextureButton: # Ensure it's the correct type before connecting
+		if button is TextureButton: 
 			button.level_selected.connect(on_level_button_selected)
 		
 		button.level_num = i + 1
@@ -139,3 +158,8 @@ func on_detail_ui_closed() -> void:
 	if current_pressed_button:
 		current_pressed_button.disabled = false
 		current_pressed_button = null # Clear the reference
+
+func print_data() -> void:
+	for data in all_levels_data:
+		print("Level ID: ", data.level_id)
+		print("Cleared: ", data.level_cleared)

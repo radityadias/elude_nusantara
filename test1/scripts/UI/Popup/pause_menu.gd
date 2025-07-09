@@ -35,4 +35,4 @@ func _on_restart_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/UI/level_select.tscn")
+	get_tree().change_scene_to_file("res://scripts/UI/MainMenu/level_select.gd")

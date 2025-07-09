@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://m4wkfkd4gpav" path="res://scripts/UI/Popup/stage_completed.gd" id="1_7ddx5"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="1_x8qo5"]
-[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/Sprites/GUI/Unactive_Star.png" id="3_7ddx5"]
-[ext_resource type="Texture2D" uid="uid://b4p1suyh7ju7g" path="res://assets/Sprites/GUI/HomeButton2.png" id="4_o3aja"]
-[ext_resource type="Texture2D" uid="uid://d246se4g4bflu" path="res://assets/Sprites/GUI/Hover_HomeButton2.png" id="5_wv73s"]
-[ext_resource type="Texture2D" uid="uid://dq08ssa4wgs4q" path="res://assets/Sprites/GUI/NextButton2.png" id="6_wanhn"]
-[ext_resource type="Texture2D" uid="uid://wqyhniuupvw" path="res://assets/Sprites/GUI/Hover_NextButton2.png" id="7_eyp4k"]
-[ext_resource type="Texture2D" uid="uid://dbc8n1jae1axv" path="res://assets/Sprites/GUI/RestartButton2.png" id="8_lxnrm"]
-[ext_resource type="Texture2D" uid="uid://d2w84goldeonp" path="res://assets/Sprites/GUI/Hover_RestartButton.png" id="9_q4olj"]
+[ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/sprites/GUI/Unactive_Star.png" id="3_7ddx5"]
+[ext_resource type="Texture2D" uid="uid://b4p1suyh7ju7g" path="res://assets/sprites/GUI/HomeButton2.png" id="4_o3aja"]
+[ext_resource type="Texture2D" uid="uid://d246se4g4bflu" path="res://assets/sprites/GUI/Hover_HomeButton2.png" id="5_wv73s"]
+[ext_resource type="Texture2D" uid="uid://dq08ssa4wgs4q" path="res://assets/sprites/GUI/NextButton2.png" id="6_wanhn"]
+[ext_resource type="Texture2D" uid="uid://wqyhniuupvw" path="res://assets/sprites/GUI/Hover_NextButton2.png" id="7_eyp4k"]
+[ext_resource type="Texture2D" uid="uid://dbc8n1jae1axv" path="res://assets/sprites/GUI/RestartButton2.png" id="8_lxnrm"]
+[ext_resource type="Texture2D" uid="uid://d2w84goldeonp" path="res://assets/sprites/GUI/Hover_RestartButton.png" id="9_q4olj"]
 
 [sub_resource type="Animation" id="Animation_wfq5m"]
 length = 0.001

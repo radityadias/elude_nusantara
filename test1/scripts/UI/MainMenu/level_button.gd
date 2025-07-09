@@ -44,9 +44,9 @@ func update_star_display() -> void:
 		if STARS[i] is TextureRect: # Always check the type
 			var star_texture_rect = STARS[i] as TextureRect
 			if i < stars:
-				star_texture_rect.texture = load("res://assets/Sprites/GUI/Active_Star.png")
+				star_texture_rect.texture = load("res://assets/sprites/GUI/Active_Star.png")
 			else:
-				star_texture_rect.texture = load("res://assets/Sprites/GUI/Unactive_Star.png")
+				star_texture_rect.texture = load("res://assets/sprites/GUI/Unactive_Star.png")
 		else:
 			push_warning("STARS array contains non-TextureRect nodes at index %d. Skipping." % i)
 

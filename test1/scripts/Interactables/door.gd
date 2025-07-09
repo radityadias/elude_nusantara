@@ -2,7 +2,6 @@ extends AnimatableBody2D
 
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 @onready var main_collision: CollisionShape2D = $MainCollision
-@onready var interaction_area: InteractionArea = $InteractionArea
 
 @export var required_card_type: String = "default"
 

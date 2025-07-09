@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="2_hldbq"]
 [ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/Popup/stage_failed.tscn" id="3_fsnos"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="4_mxx4w"]
-[ext_resource type="Resource" path="res://scripts/Levels/Data/Level Data/level_5_data.tres" id="5_vvoq0"]
+[ext_resource type="Resource" uid="uid://cclfkf7fs3tnv" path="res://scripts/Levels/Data/LevelData/level_5_data.tres" id="5_vvoq0"]
 [ext_resource type="Texture2D" uid="uid://caam513wqd2ed" path="res://assets/terrains/Assets/Buildings.png" id="6_dwyms"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="7_6xwso"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="8_5ke18"]

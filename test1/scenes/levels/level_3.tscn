@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="3_22mqa"]
 [ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/Popup/stage_failed.tscn" id="4_6c6bd"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="5_2qmps"]
-[ext_resource type="Resource" uid="uid://b1rlhtd0s1od2" path="res://scripts/Levels/Data/Level Data/level_3_data.tres" id="6_k0dme"]
+[ext_resource type="Resource" uid="uid://b1rlhtd0s1od2" path="res://scripts/Levels/Data/LevelData/level_3_data.tres" id="6_k0dme"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="8_ju8vr"]
 [ext_resource type="PackedScene" uid="uid://bfpnmk4m3sw6e" path="res://scenes/Interactables/Doors/exit_door.tscn" id="9_do6pa"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="11_jnyl3"]
@@ -483,6 +483,12 @@ position = Vector2(-16, 1290)
 [node name="Player" parent="Worlds" node_paths=PackedStringArray("HEARTH") instance=ExtResource("13_fk6jg")]
 position = Vector2(-289, 209)
 HEARTH = [NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health1"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health2"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health3")]
+
+[node name="Camera2D" parent="Worlds/Player/CameraMarker" index="0"]
+limit_left = -350
+limit_top = 125
+limit_right = 1432
+limit_bottom = 668
 
 [node name="Traps" type="Node" parent="."]
 

@@ -23,7 +23,7 @@ var is_game_finished: bool = false
 var player_is_dead: bool = false
 var current_level_data: LevelData
 var base_path: String = "res://scenes/levels/level_"
-var level_data_base_path: String = "res://scripts/Levels/Data/Level Data/level_"
+var level_data_base_path: String = "res://scripts/Levels/Data/LevelData/level_"
 
 # ======= READY =======
 func _ready() -> void:

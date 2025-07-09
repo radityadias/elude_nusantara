@@ -1,7 +1,6 @@
 [gd_scene load_steps=86 format=4 uid="uid://b344pe2gfwx0h"]
 
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Controllers/level_manager.gd" id="1_woy8g"]
-[ext_resource type="Resource" uid="uid://dmoagjf1422on" path="res://scripts/Levels/Data/Level Data/level_4_data.tres" id="2_mndr2"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="2_xt2o7"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="3_beuva"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="4_glw47"]
@@ -33,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://b0btykpsvg3tu" path="res://scenes/Interactables/Doors/door_blue.tscn" id="28_idth2"]
 [ext_resource type="PackedScene" uid="uid://cn3gbl6hqymm3" path="res://scenes/Interactables/Cards/card_blue.tscn" id="29_idth2"]
 [ext_resource type="PackedScene" uid="uid://cfnetlw2baqqg" path="res://scenes/Interactables/Scanners/scanner_blue.tscn" id="30_gg75w"]
+[ext_resource type="Resource" uid="uid://cclfkf7fs3tnv" path="res://scripts/Levels/Data/LevelData/level_5_data.tres" id="33_2vq5a"]
 [ext_resource type="PackedScene" uid="uid://dy6si25j7fdps" path="res://scenes/Platforms/falling_platform.tscn" id="33_t4lb3"]
 [ext_resource type="PackedScene" uid="uid://bfpnmk4m3sw6e" path="res://scenes/Interactables/Doors/exit_door.tscn" id="35_2vq5a"]
 
@@ -346,8 +346,13 @@ scale = Vector2(10, 10)
 texture = ExtResource("10_n1pyt")
 
 [node name="Player" parent="World" node_paths=PackedStringArray("HEARTH") instance=ExtResource("5_4wsov")]
-position = Vector2(25, 609)
+position = Vector2(11, 621)
 HEARTH = [NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health1"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health2"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health3")]
+
+[node name="Camera2D" parent="World/Player/CameraMarker" index="0"]
+limit_left = -220
+limit_right = 1600
+limit_bottom = 669
 
 [node name="WorldBoundry" parent="World" instance=ExtResource("6_hsvsk")]
 position = Vector2(0, 923)
@@ -710,7 +715,7 @@ script = ExtResource("1_woy8g")
 finish_ui = ExtResource("2_xt2o7")
 gameover_ui = ExtResource("4_woy8g")
 pause_ui = ExtResource("3_beuva")
-level_data = ExtResource("2_mndr2")
+level_data = ExtResource("33_2vq5a")
 
 [node name="Stopwatch" parent="Controllers" instance=ExtResource("19_05se8")]
 
@@ -720,4 +725,5 @@ offset_top = -321.0
 offset_right = 392.0
 offset_bottom = -321.0
 
+[editable path="World/Player"]
 [editable path="Controllers/UI"]

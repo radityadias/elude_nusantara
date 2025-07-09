@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://bdwfhakjqedmh"]
+[gd_scene load_steps=48 format=4 uid="uid://bdwfhakjqedmh"]
 
 [ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="1_ra442"]
 [ext_resource type="PackedScene" uid="uid://xgx5h8twow" path="res://scenes/traps/moving_saw.tscn" id="3_qpwj6"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="11_r6ket"]
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Controllers/level_manager.gd" id="12_wxjxf"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="12_xworo"]
-[ext_resource type="Resource" uid="uid://bsee3nh8twfoj" path="res://scripts/Levels/Data/Level Data/level_2_data.tres" id="13_2ewt3"]
+[ext_resource type="Resource" uid="uid://bsee3nh8twfoj" path="res://scripts/Levels/Data/LevelData/level_2_data.tres" id="13_2ewt3"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="13_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="14_2hpwu"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="15_0lf7e"]
@@ -89,6 +89,9 @@ size = Vector2(320, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0y23r"]
 size = Vector2(12, 272)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1c1qw"]
+size = Vector2(20, 246)
+
 [node name="Level_2" type="Node2D"]
 
 [node name="CallableUI" type="CanvasLayer" parent="." groups=["callable_ui"]]
@@ -99,7 +102,7 @@ size = Vector2(12, 272)
 position = Vector2(94, 1030)
 
 [node name="Player" parent="Worlds" node_paths=PackedStringArray("HEARTH") instance=ExtResource("1_ra442")]
-position = Vector2(-275, 506)
+position = Vector2(-325, 505)
 HEARTH = [NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health1"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health2"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health3")]
 
 [node name="Camera2D" parent="Worlds/Player/CameraMarker" index="0"]
@@ -257,6 +260,14 @@ shape = SubResource("RectangleShape2D_6nfno")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Maps/Tiles/StaticBody2D"]
 position = Vector2(-362, 406)
 shape = SubResource("RectangleShape2D_0y23r")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Maps/Tiles/StaticBody2D"]
+position = Vector2(-367, 405)
+shape = SubResource("RectangleShape2D_1c1qw")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Maps/Tiles/StaticBody2D"]
+position = Vector2(1509, 325)
+shape = SubResource("RectangleShape2D_1c1qw")
 
 [node name="Platforms" type="Node" parent="Maps"]
 

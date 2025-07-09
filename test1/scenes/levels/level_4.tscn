@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ldqwyd4vpf7" path="res://scenes/Platforms/right_ledge_platform.tscn" id="25_uyomx"]
 [ext_resource type="PackedScene" uid="uid://ctltidboskac8" path="res://scenes/Interactables/left_normal_door.tscn" id="26_1s8bw"]
 [ext_resource type="PackedScene" uid="uid://bfpnmk4m3sw6e" path="res://scenes/Interactables/Doors/exit_door.tscn" id="26_uyomx"]
-[ext_resource type="Resource" uid="uid://dmoagjf1422on" path="res://scripts/Levels/Data/Level Data/level_4_data.tres" id="28_1s8bw"]
+[ext_resource type="Resource" uid="uid://dmoagjf1422on" path="res://scripts/Levels/Data/LevelData/level_4_data.tres" id="28_1s8bw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_io455"]
 texture = ExtResource("2_fkk1g")
@@ -320,6 +320,12 @@ size = Vector2(160, 240)
 [node name="Player" parent="World" node_paths=PackedStringArray("HEARTH") instance=ExtResource("5_2bnyt")]
 position = Vector2(-646, 329)
 HEARTH = [NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health1"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health2"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health3")]
+
+[node name="Camera2D" parent="World/Player/CameraMarker" index="0"]
+limit_left = -717
+limit_top = -45
+limit_right = 730
+limit_bottom = 741
 
 [node name="WorldBoundry" parent="World" instance=ExtResource("6_n6eey")]
 position = Vector2(2, 857)
@@ -718,4 +724,5 @@ level_data = ExtResource("28_1s8bw")
 
 [node name="Stopwatch" parent="Controllers" instance=ExtResource("15_josfm")]
 
+[editable path="World/Player"]
 [editable path="Controllers/UI"]
