@@ -318,14 +318,14 @@ size = Vector2(160, 240)
 [node name="World" type="Node" parent="."]
 
 [node name="Player" parent="World" node_paths=PackedStringArray("HEARTH") instance=ExtResource("5_2bnyt")]
-position = Vector2(-646, 329)
+position = Vector2(-660, 329)
 HEARTH = [NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health1"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health2"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health3")]
 
 [node name="Camera2D" parent="World/Player/CameraMarker" index="0"]
 limit_left = -717
 limit_top = -45
 limit_right = 730
-limit_bottom = 741
+limit_bottom = 785
 
 [node name="WorldBoundry" parent="World" instance=ExtResource("6_n6eey")]
 position = Vector2(2, 857)
@@ -342,31 +342,35 @@ scale = Vector2(4, 4)
 texture = ExtResource("3_1s8bw")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Maps/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Maps/ParallaxBackground/ParallaxLayer2"]
-position = Vector2(-17, 333)
-scale = Vector2(3, 3)
+position = Vector2(-17, 255)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("14_jql0x")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Maps/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Maps/ParallaxBackground/ParallaxLayer3"]
-position = Vector2(-17, 333)
-scale = Vector2(3, 3)
+position = Vector2(-30, 411)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("15_do6pa")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Maps/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Maps/ParallaxBackground/ParallaxLayer4"]
-position = Vector2(-17, 333)
-scale = Vector2(3, 3)
+position = Vector2(-30, 411)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("16_n8qcm")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="Maps/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Maps/ParallaxBackground/ParallaxLayer5"]
-position = Vector2(-17, 333)
-scale = Vector2(3, 3)
+position = Vector2(-30, 411)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("17_aey3y")
 
 [node name="Tiles" type="TileMapLayer" parent="Maps"]

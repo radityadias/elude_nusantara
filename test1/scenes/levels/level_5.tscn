@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="4_glw47"]
 [ext_resource type="PackedScene" uid="uid://bbnsl022fh4nt" path="res://scenes/UI/Popup/stage_failed.tscn" id="4_woy8g"]
 [ext_resource type="PackedScene" uid="uid://cy10gqast1lai" path="res://scenes/players/player.tscn" id="5_4wsov"]
-[ext_resource type="Texture2D" uid="uid://k0ahb1dinmku" path="res://assets/backgrounds/city 5/1.png" id="6_004to"]
 [ext_resource type="PackedScene" uid="uid://ceu1d0c2y3yy1" path="res://scenes/Worlds/world_boundry.tscn" id="6_hsvsk"]
 [ext_resource type="PackedScene" uid="uid://c0e1bmgryphos" path="res://scenes/traps/spike.tscn" id="6_qvnao"]
 [ext_resource type="Script" uid="uid://ywrgjnivpwtg" path="res://scripts/Worlds/TilemapCollisionBaker.gd" id="7_afq43"]
@@ -20,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://mbry2qbxryrr" path="res://assets/backgrounds/3/Day/5.png" id="10_n1pyt"]
 [ext_resource type="PackedScene" uid="uid://bybxg1dr025uu" path="res://scenes/Interactables/Cards/card_red.tscn" id="11_4wsov"]
 [ext_resource type="PackedScene" uid="uid://cfuok3fr40dsf" path="res://scenes/UI/ui.tscn" id="12_qvnao"]
+[ext_resource type="Texture2D" uid="uid://cs0801hdeswt7" path="res://assets/backgrounds/background/parallax_background_layer_1.png" id="13_2vq5a"]
 [ext_resource type="PackedScene" uid="uid://bdcge2fcxhorf" path="res://scenes/Interactables/Scanners/scanner_red.tscn" id="15_1bx01"]
 [ext_resource type="PackedScene" uid="uid://b0ldqwyd4vpf7" path="res://scenes/Platforms/right_ledge_platform.tscn" id="17_l8eod"]
 [ext_resource type="PackedScene" uid="uid://kci8fmhk2te5" path="res://scenes/Interactables/Doors/door_red.tscn" id="18_beuva"]
@@ -307,44 +307,6 @@ size = Vector2(112, 144)
 
 [node name="World" type="Node" parent="."]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="World"]
-visible = false
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="World/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="World/ParallaxBackground/ParallaxLayer"]
-position = Vector2(1015, -455)
-scale = Vector2(10, 10)
-texture = ExtResource("6_004to")
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="World/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="World/ParallaxBackground/ParallaxLayer2"]
-position = Vector2(1015, -455)
-scale = Vector2(10, 10)
-texture = ExtResource("7_e0v1o")
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="World/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="World/ParallaxBackground/ParallaxLayer3"]
-position = Vector2(1015, -455)
-scale = Vector2(10, 10)
-texture = ExtResource("8_idth2")
-
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="World/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="World/ParallaxBackground/ParallaxLayer4"]
-position = Vector2(1015, -455)
-scale = Vector2(10, 10)
-texture = ExtResource("9_gg75w")
-
-[node name="ParallaxLayer5" type="ParallaxLayer" parent="World/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="World/ParallaxBackground/ParallaxLayer5"]
-position = Vector2(1127, -408)
-scale = Vector2(10, 10)
-texture = ExtResource("10_n1pyt")
-
 [node name="Player" parent="World" node_paths=PackedStringArray("HEARTH") instance=ExtResource("5_4wsov")]
 position = Vector2(11, 621)
 HEARTH = [NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health1"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health2"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health3")]
@@ -622,6 +584,47 @@ position = Vector2(281, 243)
 
 [node name="JumpPad2" parent="Maps" instance=ExtResource("9_um320")]
 position = Vector2(658, 83)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Maps"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Maps/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Maps/ParallaxBackground/ParallaxLayer"]
+position = Vector2(755, 114)
+scale = Vector2(4, 4)
+texture = ExtResource("13_2vq5a")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Maps/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Maps/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(442, 284)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("7_e0v1o")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Maps/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Maps/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(442, 290)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_idth2")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Maps/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Maps/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(442, 290)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("9_gg75w")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Maps/ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Maps/ParallaxBackground/ParallaxLayer5"]
+position = Vector2(442, 290)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("10_n1pyt")
 
 [node name="Door Mechanic" type="Node" parent="."]
 

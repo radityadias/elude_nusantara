@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://3n5ag47j8jkh"]
+[gd_scene load_steps=24 format=4 uid="uid://d4bjdgv0hbi2q"]
 
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Controllers/level_manager.gd" id="1_741xk"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="2_i0fhw"]
