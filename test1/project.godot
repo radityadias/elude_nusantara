@@ -23,6 +23,11 @@ SceneManager="*res://scripts/Controllers/scene_manager.gd"
 AudioManager="*res://scripts/AudioManager.gd"
 <<<<<<<HEADAudioManager="*res://scripts/AudioManager.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [input]
 
 jump={

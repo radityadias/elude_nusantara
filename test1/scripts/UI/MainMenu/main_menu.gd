@@ -1,9 +1,6 @@
 extends Control
 
-@onready var anim_back = $AnimatedSprite2D
-
 func _ready():
-	anim_back.play("Background")
 	if AudioManager:
 		AudioManager.play_music(AudioManager.default_bgm_path, -5.0)
 	else:

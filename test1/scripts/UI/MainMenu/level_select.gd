@@ -1,7 +1,6 @@
 extends Control
 
-@onready var anim_back = $AnimatedSprite2D
-@onready var level_container = $Control/LevelContainer
+@onready var level_container = $CenterContainer/VBoxContainer/LevelContainer
 
 @export var level_count: int = 5
 @export var base_path: String = "res://scripts/Levels/Data/LevelData/level_"
@@ -15,7 +14,6 @@ var is_ui_opened: bool = false
 
 func _ready():
 	load_all_level_data()
-	anim_back.play("Background")
 	setup_level_box()
 
 func load_all_level_data() -> void:
