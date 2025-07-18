@@ -1,354 +1,50 @@
-[gd_scene load_steps=55 format=3 uid="uid://cj7miucq8nwih"]
+[gd_scene load_steps=11 format=3 uid="uid://cj7miucq8nwih"]
 
 [ext_resource type="Script" uid="uid://gwuo5hg2sqll" path="res://scripts/UI/MainMenu/option_menu.gd" id="1_bj0cr"]
-[ext_resource type="Texture2D" uid="uid://wcrq5m3evu1j" path="res://assets/backgrounds/Main_menu/Background.png" id="2_34lk6"]
+[ext_resource type="Texture2D" uid="uid://bmp1h6oouy0ti" path="res://assets/backgrounds/Main_menu/Backgroundv2.jpeg" id="2_d2wbx"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="2_nsjon"]
-[ext_resource type="StyleBox" uid="uid://clo1tupaqxenu" path="res://assets/Palette/hover_style_box_flat.tres" id="4_k43r8"]
-[ext_resource type="StyleBox" uid="uid://crj3hx468hjul" path="res://assets/Palette/style_box_flat.tres" id="5_pt063"]
+[ext_resource type="PackedScene" uid="uid://ca2m5l52di757" path="res://scenes/Controllers/volume_slider.tscn" id="3_r16an"]
+[ext_resource type="Texture2D" uid="uid://bx0go5bvqesey" path="res://assets/sprites/GUI/BackButton2.png" id="5_vu1q3"]
+[ext_resource type="Texture2D" uid="uid://deoo2bu6mbic4" path="res://assets/sprites/GUI/Hover_BackButton2.png" id="6_55gmb"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rlxw3"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(0, 0, 1024, 541)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0j3k"]
+bg_color = Color(0.2, 0.101961, 0.239216, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.952941, 0.901961, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5kukc"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(1024, 0, 1024, 541)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu1q3"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.952941, 0.901961, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ovav"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(2048, 0, 1024, 541)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r16an"]
+bg_color = Color(0.0138674, 0, 0.493541, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.952941, 0.901961, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qx8t1"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(3072, 0, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p42dv"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(4096, 0, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r1jqq"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(0, 541, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hv5cx"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(1024, 541, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_56ax1"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(2048, 541, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ljai8"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(3072, 541, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_minev"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(4096, 541, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j4lre"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(0, 1082, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l05ls"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(1024, 1082, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r6jt1"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(2048, 1082, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4kwkp"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(3072, 1082, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vd3lo"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(4096, 1082, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dacnh"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(0, 1623, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_25p2b"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(1024, 1623, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kntsg"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(2048, 1623, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4sy0"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(3072, 1623, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8kasr"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(4096, 1623, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vvwtf"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(0, 2164, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7hqmf"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(1024, 2164, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ggy4t"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(2048, 2164, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d7d7b"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(3072, 2164, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7n6ii"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(4096, 2164, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ea28"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(0, 2705, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b63ry"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(1024, 2705, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lrwxr"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(2048, 2705, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7pqu"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(3072, 2705, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c0rs7"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(4096, 2705, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_stm78"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(0, 3246, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ggldr"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(1024, 3246, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1g5nb"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(2048, 3246, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uwg66"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(3072, 3246, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fiq7k"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(4096, 3246, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kyspu"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(0, 3787, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1vo8u"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(1024, 3787, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ivb1"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(2048, 3787, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1wvq0"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(3072, 3787, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ap2bu"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(4096, 3787, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lxhqp"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(0, 4328, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yq3bm"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(1024, 4328, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b6jtf"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(2048, 4328, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2uplo"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(3072, 4328, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rgl6j"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(4096, 4328, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7glyk"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(0, 4869, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d1tg3"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(1024, 4869, 1024, 541)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a1gu7"]
-atlas = ExtResource("2_34lk6")
-region = Rect2(2048, 4869, 1024, 541)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hjqdp"]
-animations = [{
-"frames": [{
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_rlxw3")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_5kukc")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_8ovav")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_qx8t1")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_p42dv")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_r1jqq")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_hv5cx")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_56ax1")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_ljai8")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_minev")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_j4lre")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_l05ls")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_r6jt1")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_4kwkp")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_vd3lo")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_dacnh")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_25p2b")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_kntsg")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_b4sy0")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_8kasr")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_vvwtf")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_7hqmf")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_ggy4t")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_d7d7b")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_7n6ii")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_5ea28")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_b63ry")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_lrwxr")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_k7pqu")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_c0rs7")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_stm78")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_ggldr")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_1g5nb")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_uwg66")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_fiq7k")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_kyspu")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_1vo8u")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_8ivb1")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_1wvq0")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_ap2bu")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_lxhqp")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_yq3bm")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_b6jtf")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_2uplo")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_rgl6j")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_7glyk")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_d1tg3")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_a1gu7")
-}],
-"loop": true,
-"name": &"Background",
-"speed": 3.0
-}]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqxi1"]
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 10
 
 [node name="OptionMenu" type="Control"]
 layout_mode = 3
@@ -359,11 +55,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bj0cr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(576.5, 323.75)
-scale = Vector2(1.12598, 1.19871)
-sprite_frames = SubResource("SpriteFrames_hjqdp")
-animation = &"Background"
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d2wbx")
+expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -374,58 +74,89 @@ offset_left = -6.10352e-05
 offset_top = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.2, 0.101961, 0.239216, 0.607843)
+color = Color(0.117647, 0.117647, 0.117647, 0.501961)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -222.0
-offset_top = -106.0
-offset_right = 234.0
-offset_bottom = 159.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(600, 400)
 layout_mode = 2
-theme_override_constants/separation = 15
-metadata/_edit_lock_ = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0j3k")
 
-[node name="Volume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Option" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.2, 0.101961, 0.239216, 1)
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
 theme_override_fonts/font = ExtResource("2_nsjon")
 theme_override_font_sizes/font_size = 75
-theme_override_styles/hover = ExtResource("4_k43r8")
-theme_override_styles/normal = ExtResource("5_pt063")
-text = "Volume"
-metadata/_edit_lock_ = true
+text = "Option"
+horizontal_alignment = 1
 
-[node name="Sound" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.2, 0.101961, 0.239216, 1)
+theme_override_styles/separator = SubResource("StyleBoxFlat_vu1q3")
+
+[node name="Audio" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
 theme_override_fonts/font = ExtResource("2_nsjon")
-theme_override_font_sizes/font_size = 75
-theme_override_styles/hover = ExtResource("4_k43r8")
-theme_override_styles/normal = ExtResource("5_pt063")
-text = "Sound"
-metadata/_edit_lock_ = true
+theme_override_font_sizes/font_size = 50
+text = "Audio"
+horizontal_alignment = 1
 
-[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="AudioSlider" parent="CenterContainer/Panel/VBoxContainer" instance=ExtResource("3_r16an")]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.2, 0.101961, 0.239216, 1)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_r16an")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vqxi1")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vqxi1")
+
+[node name="Music" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
 theme_override_fonts/font = ExtResource("2_nsjon")
-theme_override_font_sizes/font_size = 75
-theme_override_styles/hover = ExtResource("4_k43r8")
-theme_override_styles/normal = ExtResource("5_pt063")
-text = "Back"
-metadata/_edit_lock_ = true
+theme_override_font_sizes/font_size = 50
+text = "Music"
+horizontal_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[node name="MusicSlider" parent="CenterContainer/Panel/VBoxContainer" instance=ExtResource("3_r16an")]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_r16an")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vqxi1")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vqxi1")
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/Panel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 93.0
+offset_bottom = 83.0
+texture_normal = ExtResource("5_vu1q3")
+texture_pressed = ExtResource("6_55gmb")
+texture_hover = ExtResource("6_55gmb")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="value_changed" from="CenterContainer/Panel/VBoxContainer/AudioSlider" to="." method="_on_audio_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/Panel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]

@@ -232,6 +232,7 @@ vertical_alignment = 1
 
 [node name="Play2" type="TextureButton" parent="CenterContainer/Panel"]
 custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
 offset_left = 451.0
 offset_top = 480.0
 offset_right = 601.0
