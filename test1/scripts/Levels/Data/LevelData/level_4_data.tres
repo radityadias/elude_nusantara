@@ -1,16 +1,16 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://dmoagjf1422on"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://4i0u0o2jwhxy"]
 
 [ext_resource type="Script" uid="uid://brfikl74cqumy" path="res://scripts/Levels/Data/level_data.gd" id="1_54yv0"]
 
 [resource]
 script = ExtResource("1_54yv0")
 level_id = 4
-level_cleared = false
+level_cleared = true
 time_target = 40.0
 player_damaged = false
-stage_finished = false
-player_time = 0.0
-player_time_string = "00:00:000"
+stage_finished = true
+player_time = 104.279
+player_time_string = "01 : 44 : 279"
 target_time_reached = false
-total_stars = 0
+total_stars = 2
 metadata/_custom_type_script = "uid://brfikl74cqumy"

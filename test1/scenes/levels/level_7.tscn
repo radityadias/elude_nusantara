@@ -158,5 +158,3 @@ position = Vector2(229, 399)
 
 [node name="ExitDoor" parent="." instance=ExtResource("20_bvftm")]
 position = Vector2(740, 384)
-
-[editable path="UI"]

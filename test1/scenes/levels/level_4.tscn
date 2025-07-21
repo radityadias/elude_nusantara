@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ldqwyd4vpf7" path="res://scenes/Platforms/right_ledge_platform.tscn" id="25_uyomx"]
 [ext_resource type="PackedScene" uid="uid://ctltidboskac8" path="res://scenes/Interactables/left_normal_door.tscn" id="26_1s8bw"]
 [ext_resource type="PackedScene" uid="uid://bfpnmk4m3sw6e" path="res://scenes/Interactables/Doors/exit_door.tscn" id="26_uyomx"]
-[ext_resource type="Resource" uid="uid://dmoagjf1422on" path="res://scripts/Levels/Data/LevelData/level_4_data.tres" id="28_1s8bw"]
+[ext_resource type="Resource" uid="uid://4i0u0o2jwhxy" path="res://scripts/Levels/Data/Level Data/level_4_data.tres" id="28_1s8bw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_io455"]
 texture = ExtResource("2_fkk1g")
