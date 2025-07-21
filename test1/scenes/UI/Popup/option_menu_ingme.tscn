@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cj7miucq8nwih"]
+[gd_scene load_steps=10 format=3 uid="uid://v82dvmpdw1fp"]
 
-[ext_resource type="Script" uid="uid://gwuo5hg2sqll" path="res://scripts/UI/MainMenu/option_menu.gd" id="1_bj0cr"]
-[ext_resource type="Texture2D" uid="uid://bmp1h6oouy0ti" path="res://assets/backgrounds/Main_menu/Backgroundv2.jpeg" id="2_d2wbx"]
-[ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="2_nsjon"]
-[ext_resource type="PackedScene" uid="uid://ca2m5l52di757" path="res://scenes/Controllers/volume_slider.tscn" id="3_r16an"]
-[ext_resource type="Texture2D" uid="uid://cv03567tnw5jw" path="res://assets/sprites/GUI/BackButton.png" id="5_vu1q3"]
-[ext_resource type="Texture2D" uid="uid://nemfkh0a6t0l" path="res://assets/sprites/GUI/Hover_BackButton.png" id="6_55gmb"]
+[ext_resource type="Script" uid="uid://cyw8qa6v1fdtj" path="res://scenes/UI/option_menu_ingme.gd" id="1_akn35"]
+[ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="2_rf6mt"]
+[ext_resource type="PackedScene" uid="uid://ca2m5l52di757" path="res://scenes/Controllers/volume_slider.tscn" id="3_1sfhd"]
+[ext_resource type="Texture2D" uid="uid://bx0go5bvqesey" path="res://assets/sprites/GUI/BackButton2.png" id="4_4aqhj"]
+[ext_resource type="Texture2D" uid="uid://deoo2bu6mbic4" path="res://assets/sprites/GUI/Hover_BackButton2.png" id="5_cmmff"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0j3k"]
 bg_color = Color(0.2, 0.101961, 0.239216, 1)
@@ -25,6 +24,7 @@ border_width_bottom = 1
 border_color = Color(0.952941, 0.901961, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r16an"]
+bg_color = Color(0.0138674, 0, 0.493541, 0)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
@@ -48,24 +48,14 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 10
 
-[node name="OptionMenu" type="Control"]
+[node name="OptionMenuInGame" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bj0cr")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_d2wbx")
-expand_mode = 2
+script = ExtResource("1_akn35")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -76,7 +66,7 @@ offset_left = -6.10352e-05
 offset_top = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.117647, 0.117647, 0.117647, 0.501961)
+color = Color(0.117647, 0.117647, 0.117647, 1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
@@ -105,7 +95,7 @@ theme_override_constants/separation = 25
 [node name="Option" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
-theme_override_fonts/font = ExtResource("2_nsjon")
+theme_override_fonts/font = ExtResource("2_rf6mt")
 theme_override_font_sizes/font_size = 75
 text = "Option"
 horizontal_alignment = 1
@@ -117,12 +107,12 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_vu1q3")
 [node name="Audio" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
-theme_override_fonts/font = ExtResource("2_nsjon")
+theme_override_fonts/font = ExtResource("2_rf6mt")
 theme_override_font_sizes/font_size = 50
 text = "Audio"
 horizontal_alignment = 1
 
-[node name="AudioSlider" parent="CenterContainer/Panel/VBoxContainer" instance=ExtResource("3_r16an")]
+[node name="AudioSlider" parent="CenterContainer/Panel/VBoxContainer" instance=ExtResource("3_1sfhd")]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -135,12 +125,12 @@ bus_name = "SFX"
 [node name="Music" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
-theme_override_fonts/font = ExtResource("2_nsjon")
+theme_override_fonts/font = ExtResource("2_rf6mt")
 theme_override_font_sizes/font_size = 50
 text = "Music"
 horizontal_alignment = 1
 
-[node name="MusicSlider" parent="CenterContainer/Panel/VBoxContainer" instance=ExtResource("3_r16an")]
+[node name="MusicSlider" parent="CenterContainer/Panel/VBoxContainer" instance=ExtResource("3_1sfhd")]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -152,13 +142,13 @@ bus_name = "BGM"
 
 [node name="TextureButton" type="TextureButton" parent="CenterContainer/Panel"]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 22.0
-offset_right = 131.0
-offset_bottom = 72.0
-texture_normal = ExtResource("5_vu1q3")
-texture_pressed = ExtResource("6_55gmb")
-texture_hover = ExtResource("6_55gmb")
+offset_left = 54.0
+offset_top = 8.0
+offset_right = 129.0
+offset_bottom = 83.0
+texture_normal = ExtResource("4_4aqhj")
+texture_pressed = ExtResource("5_cmmff")
+texture_hover = ExtResource("5_cmmff")
 ignore_texture_size = true
 stretch_mode = 5
 

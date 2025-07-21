@@ -32,7 +32,10 @@ func _on_resume_pressed() -> void:
 func _on_restart_pressed() -> void:
 	resume()
 	get_tree().reload_current_scene()
-
+	
+func _on_option_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/UI/Popup/option_menu_ingme.tscn")
+	
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scripts/UI/MainMenu/level_select.gd")

@@ -1,11 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://btech4gvanwp8"]
+[gd_scene load_steps=13 format=3 uid="uid://btech4gvanwp8"]
 
 [ext_resource type="Script" uid="uid://cjd8yf00qied4" path="res://scripts/UI/MainMenu/level_detail.gd" id="1_46wj5"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="2_2uuhi"]
 [ext_resource type="Texture2D" uid="uid://cfy8bek2oprej" path="res://assets/sprites/GUI/Unactive_Star.png" id="3_cvkdm"]
-[ext_resource type="Texture2D" uid="uid://bx0go5bvqesey" path="res://assets/sprites/GUI/BackButton2.png" id="4_cvkdm"]
 [ext_resource type="Texture2D" uid="uid://wqyhniuupvw" path="res://assets/sprites/GUI/Hover_NextButton2.png" id="4_fq4tx"]
-[ext_resource type="Texture2D" uid="uid://deoo2bu6mbic4" path="res://assets/sprites/GUI/Hover_BackButton2.png" id="5_fq4tx"]
 [ext_resource type="Texture2D" uid="uid://dq08ssa4wgs4q" path="res://assets/sprites/GUI/NextButton2.png" id="5_m1061"]
 [ext_resource type="Texture2D" uid="uid://f57lyjxrd4el" path="res://assets/sprites/GUI/Active_Star.png" id="6_q1o31"]
 [ext_resource type="Texture2D" uid="uid://cjf08mpduajs" path="res://assets/sprites/GUI/Close.png" id="7_p8u2t"]
@@ -212,17 +210,17 @@ metadata/_edit_lock_ = true
 
 [node name="Stopwatch" type="Label" parent="CenterContainer/Panel"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -152.0
-offset_top = 122.0
-offset_right = 155.0
-offset_bottom = 173.0
+anchor_bottom = 1.0
+offset_left = -153.5
+offset_top = -171.0
+offset_right = 153.5
+offset_bottom = -120.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
 theme_override_fonts/font = ExtResource("2_2uuhi")
 theme_override_font_sizes/font_size = 40
@@ -230,27 +228,20 @@ text = "Time : 00:00:000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Play2" type="TextureButton" parent="CenterContainer/Panel"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 0
-offset_left = 451.0
-offset_top = 480.0
-offset_right = 601.0
-offset_bottom = 580.0
-size_flags_horizontal = 2
-texture_normal = ExtResource("4_cvkdm")
-texture_pressed = ExtResource("5_fq4tx")
-texture_hover = ExtResource("5_fq4tx")
-ignore_texture_size = true
-stretch_mode = 5
-
 [node name="Play" type="TextureButton" parent="CenterContainer/Panel"]
 custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-offset_left = 237.0
-offset_top = 480.0
-offset_right = 387.0
-offset_bottom = 580.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -114.0
+offset_right = 75.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 2
 texture_normal = ExtResource("4_fq4tx")
 texture_pressed = ExtResource("5_m1061")
@@ -347,6 +338,5 @@ stretch_mode = 5
 wait_time = 0.5
 one_shot = true
 
-[connection signal="pressed" from="CenterContainer/Panel/Play2" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/TextureButton" to="." method="_on_texture_button_pressed"]

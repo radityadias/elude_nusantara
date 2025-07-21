@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://btech4gvanwp8" path="res://scenes/UI/MainMenu/level_detail.tscn" id="2_wfav5"]
 [ext_resource type="PackedScene" uid="uid://b7mcbw4ts20wu" path="res://scenes/UI/MainMenu/level_button.tscn" id="3_3xyim"]
 [ext_resource type="Texture2D" uid="uid://bmp1h6oouy0ti" path="res://assets/backgrounds/Main_menu/Backgroundv2.jpeg" id="4_wfav5"]
-[ext_resource type="Texture2D" uid="uid://bx0go5bvqesey" path="res://assets/sprites/GUI/BackButton2.png" id="5_3xyim"]
-[ext_resource type="Texture2D" uid="uid://deoo2bu6mbic4" path="res://assets/sprites/GUI/Hover_BackButton2.png" id="6_41sph"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="6_iv7jl"]
+[ext_resource type="Texture2D" uid="uid://cv03567tnw5jw" path="res://assets/sprites/GUI/BackButton.png" id="6_wfav5"]
+[ext_resource type="Texture2D" uid="uid://nemfkh0a6t0l" path="res://assets/sprites/GUI/Hover_BackButton.png" id="7_3xyim"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3
@@ -27,6 +27,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_wfav5")
+expand_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -58,14 +59,14 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 5.0
-offset_top = -44.5
-offset_right = 130.0
-offset_bottom = 55.5
+offset_left = 10.0
+offset_top = -15.5
+offset_right = 85.0
+offset_bottom = 34.5
 grow_vertical = 2
-texture_normal = ExtResource("5_3xyim")
-texture_pressed = ExtResource("6_41sph")
-texture_hover = ExtResource("6_41sph")
+texture_normal = ExtResource("6_wfav5")
+texture_pressed = ExtResource("7_3xyim")
+texture_hover = ExtResource("7_3xyim")
 ignore_texture_size = true
 stretch_mode = 5
 

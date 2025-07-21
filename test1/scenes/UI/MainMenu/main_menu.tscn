@@ -36,6 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lwpty")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -45,7 +46,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_lwpty")
-expand_mode = 1
+expand_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -102,5 +104,19 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_rlxw3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_x2ps0")
 text = "Option"
 
+[node name="Credit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.670588, 0.635294, 0, 1)
+theme_override_colors/icon_pressed_color = Color(1, 0.968627, 0.505882, 1)
+theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
+theme_override_fonts/font = ExtResource("3_65fln")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxFlat_sahmk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rlxw3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_x2ps0")
+text = "Credit
+"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Credit" to="." method="_on_credit_pressed"]
