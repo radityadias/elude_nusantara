@@ -1,15 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://5l4a4fm81lfb"]
+[gd_scene load_steps=8 format=3 uid="uid://5l4a4fm81lfb"]
 
 [ext_resource type="Script" uid="uid://dx8528gh7afh6" path="res://scripts/UI/MainMenu/main_menu.gd" id="1_lwpty"]
 [ext_resource type="Texture2D" uid="uid://bmp1h6oouy0ti" path="res://assets/backgrounds/Main_menu/Backgroundv2.jpeg" id="2_lwpty"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="3_65fln"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwpty"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlxw3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
 border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -18,15 +18,15 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2ps0"]
 bg_color = Color(0.6, 0.6, 0.588235, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
 border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sahmk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -77,24 +77,27 @@ grow_vertical = 0
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 15
-metadata/_edit_lock_ = true
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.2, 0.101961, 0.239216, 1)
+theme_override_colors/font_hover_color = Color(0.671587, 0.634837, 1.92523e-07, 1)
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_65fln")
 theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxFlat_lwpty")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rlxw3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_x2ps0")
 text = "Play"
 
 [node name="Option" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.2, 0.101961, 0.239216, 1)
+theme_override_colors/font_hover_color = Color(0.670588, 0.635294, 0, 1)
+theme_override_colors/icon_pressed_color = Color(1, 0.968627, 0.505882, 1)
 theme_override_colors/font_color = Color(0.952941, 0.901961, 0, 1)
 theme_override_fonts/font = ExtResource("3_65fln")
 theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxFlat_sahmk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rlxw3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_x2ps0")
 text = "Option"

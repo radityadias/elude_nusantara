@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://gwuo5hg2sqll" path="res://scripts/UI/MainMenu/option_menu.gd" id="1_bj0cr"]
 [ext_resource type="Texture2D" uid="uid://bmp1h6oouy0ti" path="res://assets/backgrounds/Main_menu/Backgroundv2.jpeg" id="2_d2wbx"]
 [ext_resource type="FontFile" uid="uid://bnutn7cc24q22" path="res://assets/Fonts/Jersey25-Regular.ttf" id="2_nsjon"]
-[ext_resource type="PackedScene" uid="uid://ca2m5l52di757" path="res://scenes/Controllers/volume_slider.tscn" id="3_r16an"]
+[ext_resource type="PackedScene" uid="uid://dw2hf3ycicecp" path="res://scenes/Controllers/volume_slider.tscn" id="3_r16an"]
 [ext_resource type="Texture2D" uid="uid://bx0go5bvqesey" path="res://assets/sprites/GUI/BackButton2.png" id="5_vu1q3"]
 [ext_resource type="Texture2D" uid="uid://deoo2bu6mbic4" path="res://assets/sprites/GUI/Hover_BackButton2.png" id="6_55gmb"]
 
@@ -28,18 +28,19 @@ border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0.952941, 0.901961, 0, 1)
+border_color = Color(0.6, 0.6, 0.6, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqxi1"]
+bg_color = Color(0.952941, 0.901961, 0, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0.6, 0.6, 0.6, 1)
+border_color = Color(0.952941, 0.901961, 0, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -128,6 +129,7 @@ size_flags_vertical = 4
 theme_override_styles/slider = SubResource("StyleBoxFlat_r16an")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vqxi1")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vqxi1")
+bus_name = "SFX"
 
 [node name="Music" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
 layout_mode = 2
@@ -145,6 +147,7 @@ size_flags_vertical = 4
 theme_override_styles/slider = SubResource("StyleBoxFlat_r16an")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vqxi1")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vqxi1")
+bus_name = "BGM"
 
 [node name="TextureButton" type="TextureButton" parent="CenterContainer/Panel"]
 layout_mode = 0
@@ -160,3 +163,4 @@ stretch_mode = 5
 
 [connection signal="value_changed" from="CenterContainer/Panel/VBoxContainer/AudioSlider" to="." method="_on_audio_slider_value_changed"]
 [connection signal="value_changed" from="CenterContainer/Panel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/Panel/TextureButton" to="." method="_on_texture_button_pressed"]

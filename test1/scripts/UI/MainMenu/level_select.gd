@@ -2,7 +2,7 @@ extends Control
 
 @onready var level_container = $CenterContainer/VBoxContainer/LevelContainer
 
-@export var level_count: int = 5
+@export var level_count: int = 10
 @export var base_path: String = "res://scripts/Levels/Data/LevelData/level_"
 @export var detail_ui: PackedScene
 @export var level_button_ui: PackedScene

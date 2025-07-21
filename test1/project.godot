@@ -21,7 +21,7 @@ GameManager="*res://scripts/Controllers/game_manager.gd"
 InteractionManager="*res://interactions/interaction_manager.tscn"
 SceneManager="*res://scripts/Controllers/scene_manager.gd"
 AudioManager="*res://scripts/AudioManager.gd"
-<<<<<<<HEADAudioManager="*res://scripts/AudioManager.gd"
+<<<<<<<HEADAudioManager="res://scripts/AudioManager.gd"
 
 [display]
 

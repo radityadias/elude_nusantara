@@ -1,7 +1,6 @@
 [gd_scene load_steps=86 format=4 uid="uid://b344pe2gfwx0h"]
 
 [ext_resource type="Script" uid="uid://boplxiur4pf0j" path="res://scripts/Controllers/level_manager.gd" id="1_woy8g"]
-[ext_resource type="Resource" uid="uid://4i0u0o2jwhxy" path="res://scripts/Levels/Data/Level Data/level_4_data.tres" id="2_mndr2"]
 [ext_resource type="PackedScene" uid="uid://b3xvrj2ssrr0d" path="res://scenes/UI/Popup/stage_completed.tscn" id="2_xt2o7"]
 [ext_resource type="PackedScene" uid="uid://dti7o032c0fd4" path="res://scenes/UI/Popup/pause_menu.tscn" id="3_beuva"]
 [ext_resource type="Texture2D" uid="uid://cey373135ckbx" path="res://assets/terrains/Assets/Tiles.png" id="4_glw47"]

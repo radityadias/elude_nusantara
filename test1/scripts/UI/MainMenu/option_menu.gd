@@ -4,12 +4,12 @@ extends Control
 @onready var music_slider: HSlider = $CenterContainer/Panel/VBoxContainer/MusicSlider
 
 func _ready():
-	load_settings()
 	music_slider.value_changed.connect(_on_music_volume_changed)
 	sfx_slider.value_changed.connect(_on_sfx_volume_changed)
+	load_settings()
 	
 func _on_music_volume_changed(value: float) -> void:
-	var bus_idx = AudioServer.get_bus_index("Music")
+	var bus_idx = AudioServer.get_bus_index("BGM")
 	AudioServer.set_bus_volume_db(bus_idx, linear_to_db(value))
 	save_settings()
 	
@@ -41,3 +41,6 @@ func load_settings() -> void:
 
 	sfx_slider.value = sfx_vol
 	_on_sfx_volume_changed(sfx_vol)
+
+func _on_texture_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/UI/MainMenu/main_menu.tscn")
