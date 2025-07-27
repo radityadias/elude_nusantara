@@ -41,7 +41,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -400.0
 offset_right = 400.0
-offset_bottom = 600.0
+offset_bottom = 968.0
 grow_horizontal = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CreditContainer"]
@@ -56,20 +56,31 @@ theme_override_fonts/mono_font = ExtResource("3_38l06")
 theme_override_fonts/italics_font = ExtResource("3_38l06")
 theme_override_fonts/bold_italics_font = ExtResource("3_38l06")
 theme_override_fonts/bold_font = ExtResource("3_38l06")
-theme_override_font_sizes/bold_italics_font_size = 50
-theme_override_font_sizes/italics_font_size = 50
-theme_override_font_sizes/mono_font_size = 50
-theme_override_font_sizes/normal_font_size = 50
-theme_override_font_sizes/bold_font_size = 50
+theme_override_font_sizes/bold_italics_font_size = 45
+theme_override_font_sizes/italics_font_size = 45
+theme_override_font_sizes/mono_font_size = 45
+theme_override_font_sizes/normal_font_size = 45
+theme_override_font_sizes/bold_font_size = 45
 bbcode_enabled = true
-text = "[center][b]Tim Pengembang
-[center][color=gray]Game oleh RuangKreatif Studio[/color][/center]
+text = "[center][b]Development Team
+[center][color=gray]Radiobody Studio[/color][/center]
 
-[b]Desain Game:[/b] Andi Saputra  
-[b]Pemrograman:[/b] Rina Wijaya  
-[b]Musik & Suara:[/b] Yoga Ramadhan  
-[b]Testing:[/b] Putri Ayu
+[b]Map Design:[/b] Atqiya Trianda Putra Anugrah
+[b]Programing:[/b] Muhammad Raditya Nur Aziz  
+[b]SFX Developert:[/b] Tigor Neilson Sinaga  
+[b]UI Design:[/b] Taufiq Kurniawan Akbar
 
-[img]res://assets/logo.png[/img]
+[img]res://assets/backgrounds/Logo Studio.png[/img]
 
-[center][i]Terima kasih telah bermain![/i][/center]"
+[center][i]Thanks To[/i][/center]
+
+[b]escape-pixel[/b] 
+[b]Free Game Assets (GUI, Sprite, Tilesets)[/b] 
+[b]Anokolisa[/b] 
+[b]Cainos[/b] 
+[b] Chroma Dave[/b] 
+
+[center][i]Thanks You For Playing/i][/center]"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
