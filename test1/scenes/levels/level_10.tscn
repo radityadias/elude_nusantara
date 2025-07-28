@@ -995,22 +995,6 @@ _data = {
 &"Up": SubResource("Animation_b1ylm")
 }
 
-[sub_resource type="Animation" id="Animation_odo46"]
-resource_name = "up"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(536, 374), Vector2(536, 254)]
-}
-
 [sub_resource type="Animation" id="Animation_nk72f"]
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1040,15 +1024,8 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_2xxxy"]
 resource_name = "SideUp"
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxf3i"]
-_data = {
-&"RESET": SubResource("Animation_nk72f"),
-&"SideUp": SubResource("Animation_2xxxy"),
-&"up": SubResource("Animation_odo46")
-}
-
-[sub_resource type="Animation" id="Animation_kn1qc"]
-resource_name = "Up"
+[sub_resource type="Animation" id="Animation_odo46"]
+resource_name = "up"
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1058,9 +1035,16 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-1.56, -1.56),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(957, -683), Vector2(911, -765)]
+"values": [Vector2(536, 374), Vector2(536, 254)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxf3i"]
+_data = {
+&"RESET": SubResource("Animation_nk72f"),
+&"SideUp": SubResource("Animation_2xxxy"),
+&"up": SubResource("Animation_odo46")
 }
 
 [sub_resource type="Animation" id="Animation_ljl3p"]
@@ -1093,6 +1077,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-1.56, -1.56),
 "update": 0,
 "values": [Vector2(953, -920), Vector2(1208, -920)]
+}
+
+[sub_resource type="Animation" id="Animation_kn1qc"]
+resource_name = "Up"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-1.56, -1.56),
+"update": 0,
+"values": [Vector2(957, -683), Vector2(911, -765)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lya4r"]

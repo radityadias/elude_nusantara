@@ -1456,7 +1456,7 @@ position = Vector2(2112, 928)
 shape = SubResource("RectangleShape2D_oey37")
 
 [node name="Player" parent="Worlds" node_paths=PackedStringArray("HEARTH") instance=ExtResource("9_e18e5")]
-position = Vector2(10, 392)
+position = Vector2(57, 389)
 HEARTH = [NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health1"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health2"), NodePath("../../Controllers/UI/CanvasLayer/Health/HBoxContainer/Health3")]
 
 [node name="WorldBoundry" parent="Worlds" instance=ExtResource("4_j8v86")]
